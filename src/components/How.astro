@@ -1,0 +1,49 @@
+---
+import Badge from "./shared/Badge.astro";
+import Button from "./shared/Button.astro";
+
+const steps = [
+  {
+    icon: "✏️", // puedes cambiar por SVG o img si quieres
+    title: "Hablamos de tu proyecto",
+    description: "Nos reunimos para entender tu negocio, objetivos y necesidades.",
+  },
+  {
+    icon: "📁",
+    title: "Cotizamos y calendarizamos",
+    description: "Definimos el alcance del proyecto, presupuesto y tiempos de entrega.",
+  },
+  {
+    icon: "💡",
+    title: "Diseñamos y colaboramos",
+    description: "Te presentamos propuestas, iteramos contigo y afinamos hasta lograr un resultado perfecto.",
+  },
+  {
+    icon: "👍",
+    title: "Entregamos con calidad",
+    description: "Recibes todos los entregables organizados y listos para usar.",
+  },
+];
+---
+
+<section class="py-20 bg-[--background]">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <Badge label="Beneficios" color="yellow" />
+    <h2 class="text-5xl font-main text-gray-900 my-2">¿Cómo funciona?</h2>
+    <p class="text-lg text-accent mb-12">Nuestro proceso es sencillo.</p>
+
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step) => (
+        <div class="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center  transition">
+          <div class="text-4xl mb-4">{step.icon}</div>
+          <h3 class="text-2xl font-main text-accent mb-2">{step.title}</h3>
+          <p class="text-gray-600 text-sm">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12">
+        <Button href="/contact" label="Explorar proyectos " variant="primary" />
+    </div>
+  </div>
+</section>

@@ -2,9 +2,17 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Grid from '../components/Grid.astro';
+import Gallery from '../components/Gallery.astro';
 import Princing from '../components/Princing.astro';
 import About from '../components/About.astro';
+import Footer from '../components/Footer.astro';
+import Faqs from '../components/Faqs.astro';
+import How from '../components/How.astro';
+import Benefits from '../components/Benefits.astro';
+import Contact from '../components/Contact.astro'
+import Slider from '../components/Slider.astro'
+
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -13,10 +21,23 @@ import About from '../components/About.astro';
 
 <Layout>
 	<Navbar client:load />
-	<Welcome />
-	<About client:load />
-	<Grid client:load />
+	<Welcome 
+		client:load
+		type="color"
+		color="bg-primary"
+		title="Todo lo que tu marca necesita, en un solo lugar"
+		subtitle="Diseño y branding estratégico, profesional y hecho por expertos, adaptado a las necesidades de tu proyecto."
+		primaryLabel="Agendar una llamada"
+		primaryLink="/cotizar"
+		secondaryLabel="Explorar proyectos"
+		secondaryLink="/proyectos"
+	/>
+	<Gallery client:load />
+	<How client:load />
+	<Benefits client:load />
 	<Princing client:load />
+	<Faqs client:load />
+	<Contact client:load />
+	<Footer client:load />
 </Layout>
 
-<button class="btn btn-primary">Haz clic aquí</button>

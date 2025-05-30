@@ -1,0 +1,57 @@
+---
+import Button from "./shared/Button.astro";
+
+const benefits = [
+  {
+    icon: "💡",
+    title: "Diseño estratégico",
+    description: "Creamos soluciones visuales alineadas con tus objetivos de negocio.",
+  },
+  {
+    icon: "⏱️",
+    title: "Entrega puntual",
+    description: "Compromiso con los tiempos de entrega y calidad profesional.",
+  },
+  {
+    icon: "💲",
+    title: "Precios accesibles",
+    description: "Diseño de alta calidad a tarifas justas. Ideal para emprendedores y marcas con visión creativa.",
+  },
+  {
+    icon: "🖌️",
+    title: "Equipo profesional",
+    description: "Más de 9 años de experiencia en diseño, branding y desarrollo visual.",
+  },
+  {
+    icon: "🛋️",
+    title: "Atención personalizada",
+    description: "Acompañamiento en cada etapa del proceso creativo.",
+  },
+  {
+    icon: "🔁",
+    title: "Revisiones incluidas",
+    description: "Adaptamos y refinamos cada entrega hasta lograr el resultado ideal.",
+  },
+];
+---
+
+<section class="py-20 bg-[--background-100] text-center">
+  <div class="bg-white max-w-6xl mx-auto px-16  pt-8 pb-16 rounded-2xl shadow-xl">
+    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Beneficios</span>
+    <h2 class="text-5xl font-main text-gray-900 my-2">¿Por qué trabajar con nosotros?</h2>
+    <p class="text-lg text-main text-accent  mt-2 mb-12">Al elegirnos, obtendrás estas ventajas.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      {benefits.map((benefit) => (
+        <div class="flex flex-col items-center">
+          <div class="text-4xl mb-4">{benefit.icon}</div>
+          <h3 class="text-2xl font-main text-accent mb-2">{benefit.title}</h3>
+          <p class="text-gray-600 text-sm max-w-xs">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-16">
+      <Button href="/contact" label="Explorar proyectos " variant="primary" />
+  </div>
+  </div>
+</section>

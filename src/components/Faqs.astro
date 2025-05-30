@@ -1,0 +1,54 @@
+---
+import Badge from "./shared/Badge.astro";
+
+const faqs = [
+  {
+    question: "What is your video delivery time?",
+    answer: "The average turnaround time is 4 to 6 weeks after the event."
+  },
+  {
+    question: "Do you travel for destination weddings?",
+    answer: "Yes! We love capturing stories across different places. Travel fees may apply."
+  },
+  {
+    question: "How many hours do you typically film?",
+    answer: "Our base package includes 8 hours, but it can be extended."
+  },
+];
+---
+
+<section class="bg-[--background-100] py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+        <Badge label="Faqs" color="yellow" />
+      <h2 class="text-5xl font-main text-gray-900 mb-2">Frequently Asked Questions</h2>
+      <p class="text-lg text-gray-600">Here are answers to some common questions about our wedding films.</p>
+    </div>
+
+    <div class="flex flex-col gap-y-4" id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900" data-inactive-classes="text-gray-500">
+      {faqs.map((faq, index) => (
+        <div class="border-b border-gray-200 bg-white px-8 rounded-2xl" key={index}>
+          <h3 id={`accordion-flush-heading-${index}`}>
+            <button
+              type="button"
+              class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900"
+              data-accordion-target={`#accordion-flush-body-${index}`}
+              aria-expanded="false"
+              aria-controls={`accordion-flush-body-${index}`}
+            >
+              <span>{faq.question}</span>
+              <svg data-accordion-icon class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </h3>
+          <div id={`accordion-flush-body-${index}`} class="hidden" aria-labelledby={`accordion-flush-heading-${index}`}>
+            <div class="py-5 text-gray-600">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

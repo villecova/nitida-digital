@@ -1,4 +1,5 @@
 ---
+import Badge from './shared/Badge.astro';
 import PricingCard from './shared/PricingCard.astro';
 
 const plans = [
@@ -33,14 +34,15 @@ const plans = [
 ];
 ---
 
-<section class="bg-white dark:bg-gray-900 py-12">
-  <div class="max-w-screen-xl mx-auto px-4">
+<section class="bg-[--background-100] dark:bg-gray-900 py-12">
+  <div class="max-w-screen-lg mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-        Planes para cada necesidad
+      <Badge label="Planes" color="yellow" />
+      <h2 class="text-5xl font-main text-gray-900 dark:text-white my-2">
+        Nuestros planes de servicios
       </h2>
-      <p class="text-gray-500 dark:text-gray-400 text-lg">
-        Elige el plan que mejor se adapte a tu proyecto
+      <p class="text-accent dark:text-gray-400 text-lg">
+        Explora las opciones y elige el paquete que mejor se adapta a tu proyecto.
       </p>
     </div>
 
