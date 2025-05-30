@@ -1,13 +1,13 @@
 ---
 const { href = "#", label = "Click me", variant = "primary", fullWidth = false } = Astro.props;
 
-const baseClass = `uppercase inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 ${
+const baseClass = `cursor-pointer uppercase inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 ${
   fullWidth ? 'w-full' : ''
 }`;
 
 const variantClasses = {
   primary: "bg-primary text-white hover:bg-secondary hover:shadow-xl focus:ring-4 focus:ring-primary/50",
-  secondary: " text-primary border border-secondary hover:bg-white hover:text-secondary hover:shadow-xl hover:border-white focus:ring-4 focus:ring-primary/50",
+  secondary: "text-primary border-2 border-secondary hover:bg-white hover:text-secondary hover:shadow-xl hover:border-white focus:ring-4 focus:ring-primary/50",
 };
 
 const classes = `${baseClass} ${variantClasses[variant] ?? variantClasses.primary}`;

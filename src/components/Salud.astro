@@ -1,21 +1,21 @@
 ---
 import Button from './shared/Button.astro';
+import LottieIcon from './shared/LottieIcon.svelte';
+
 
 const icons = [
-  "health.json", // icono 1
-  "🖥️", // icono 2
-  "⚖️", // icono 3
+  '/assets/lottie/health.json',
+  '/assets/lottie/desktop.json',
+  '/assets/lottie/weight.json',
 ];
 ---
 
-<section class="bg-[--background-100] ">
-  <div class="max-w-5xl mx-auto bg-[--background] rounded-2xl shadow-md px-6 py-12 text-center">
+<section class="bg-[--background-100] px-4 py-8">
+  <div class="max-w-5xl mx-auto bg-[--background] rounded-2xl shadow-md px-6 py-12 text-center shadow-xl">
     <div class="flex justify-center gap-6 mb-8">
-      {icons.map((icon) => (
-        <div class="w-16 h-16 rounded-full bg-purple-200 flex items-center justify-center text-2xl">
-          {icon}
-        </div>
-      ))}
+        {icons.map((icon) => (
+            <LottieIcon client:load src={icon} />
+          ))}
     </div>
 
     <h2 class="text-3xl md:text-5xl font-main text-gray-900 mb-2">

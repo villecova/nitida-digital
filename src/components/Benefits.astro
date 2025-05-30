@@ -1,52 +1,54 @@
 ---
 import Badge from "./shared/Badge.astro";
 import Button from "./shared/Button.astro";
+import LottieIcon from './shared/LottieIcon.svelte';
+
 
 const benefits = [
   {
-    icon: "💡",
+    icon: '/assets/lottie/design.json', 
     title: "Diseño estratégico",
     description: "Creamos soluciones visuales alineadas con tus objetivos de negocio.",
   },
   {
-    icon: "⏱️",
+    icon: '/assets/lottie/time.json', 
     title: "Entrega puntual",
     description: "Compromiso con los tiempos de entrega y calidad profesional.",
   },
   {
-    icon: "💲",
+    icon: '/assets/lottie/tax.json', 
     title: "Precios accesibles",
     description: "Diseño de alta calidad a tarifas justas. Ideal para emprendedores y marcas con visión creativa.",
   },
   {
-    icon: "🖌️",
+    icon: '/assets/lottie/team.json', 
     title: "Equipo profesional",
     description: "Más de 9 años de experiencia en diseño, branding y desarrollo visual.",
   },
   {
-    icon: "🛋️",
+    icon: '/assets/lottie/service.json', 
     title: "Atención personalizada",
     description: "Acompañamiento en cada etapa del proceso creativo.",
   },
   {
-    icon: "🔁",
+    icon: '/assets/lottie/reload.json', 
     title: "Revisiones incluidas",
     description: "Adaptamos y refinamos cada entrega hasta lograr el resultado ideal.",
   },
 ];
 ---
 
-<section class="py-20 bg-[--background-100] text-center">
-  <div class="bg-white max-w-6xl mx-auto px-16  pt-8 pb-16 rounded-2xl shadow-xl">
+<section class="py-8 px-4 md:py-20 bg-[--background-100] text-center">
+  <div class="bg-white max-w-6xl mx-auto px-8 md:px-16  pt-8 pb-16 rounded-2xl shadow-xl">
     <Badge label="Beneficios" color="yellow" />
-    <h2 class="text-5xl font-main text-gray-900 my-2">¿Por qué trabajar con nosotros?</h2>
+    <h2 class="text-3xl tmd:text-5xl font-main text-gray-900 my-2">¿Por qué trabajar con nosotros?</h2>
     <p class="text-lg text-main text-accent  mt-2 mb-12">Al elegirnos, obtendrás estas ventajas.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
       {benefits.map((benefit) => (
         <div class="flex flex-col items-center">
-          <div class="text-4xl mb-4">{benefit.icon}</div>
-          <h3 class="text-2xl font-main text-accent mb-2">{benefit.title}</h3>
+            <LottieIcon client:load src={benefit.icon} />
+            <h3 class="text-2xl font-main text-accent mb-2">{benefit.title}</h3>
           <p class="text-gray-600 text-sm max-w-xs">{benefit.description}</p>
         </div>
       ))}

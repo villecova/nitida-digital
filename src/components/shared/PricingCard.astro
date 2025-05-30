@@ -1,6 +1,6 @@
-
 ---
 import Button from './Button.astro';
+import Icon from './Icon.astro';
 
 interface Props {
   title: string;
@@ -8,9 +8,10 @@ interface Props {
   description: string;
   features: string[];
   buttonText: string;
+  icon: 'check';
 }
 
-const { title, subtitle, description, features, } = Astro.props;
+const { title, subtitle, description, features, icon } = Astro.props;
 ---
 
 <div class="flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100  dark:border-gray-600 dark:bg-gray-800 dark:text-white ">
@@ -22,11 +23,9 @@ const { title, subtitle, description, features, } = Astro.props;
     <p class="my-4">Incluye:</p>
     <ul role="list" class="mb-8 space-y-4 text-left">
       {features.map((feature) => (
-        <li class="flex items-center space-x-3 ">
-          <svg class="w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 01.0 1.414l-8 8a1 1 0 01-1.414.0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414.0z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-xs">{feature}</span>
+        <li class="flex items-center space-x-3 w-fit">
+          <Icon name={icon} size="5" color="text-secondary" />
+          <span class="text-xs w-full">{feature}</span>
         </li>
       ))}
     </ul>
