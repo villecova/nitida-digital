@@ -2,6 +2,9 @@
 import Badge from './shared/Badge.astro';
 import PricingCard from './shared/PricingCard.astro';
 
+// Recibe una prop para decidir si mostrar solo el plan de especialistas
+const { onlySpecialist = false } = Astro.props;
+
 const plans = [
   {
     title: 'Plan Esencial',
@@ -47,7 +50,33 @@ const plans = [
     buttonText: 'COTIZAR PLAN',
     link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Avanzado&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20Avanzado.%20Gracias.',
   },
+  {
+  title: 'Plan Especialista',
+  subtitle: 'Diseño enfocado en profesionales',
+  description:
+    'Pensado para médicos, terapeutas, psicólogos, nutriólogos y especialistas que necesitan una identidad visual confiable, clara y alineada a su profesión.',
+  features: [
+    'Logotipo (3 propuestas, 2 rondas de cambios).',
+    'Manual de marca.',
+    'Tarjeta de presentación digital e impresa.',
+    'Plantilla editable para recetas o informes.',
+    '1 hoja de presentación de servicios o perfil médico.',
+    'Imagen de perfil y portada para redes sociales o directorios médicos.',
+    'Firma de correo profesional.',
+    '1 post de presentación o bienvenida para redes sociales.',
+    'Archivos editables y listos para impresión o uso digital.',
+  ],
+  buttonText: 'COTIZAR PLAN',
+  link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Salud&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Salud.%20Gracias.',
+}
 ];
+
+// Elegir qué planes mostrar
+const filteredPlans = onlySpecialist
+  ? plans.filter(p => p.title === 'Plan Especialista')
+  : plans.filter(p => p.title !== 'Plan Especialista');
+
+const isOnlyOne = filteredPlans.length === 1;
 ---
 
 <section class="bg-[--background-100] dark:bg-gray-900 py-8 md:py-12" id="planes">
@@ -62,8 +91,8 @@ const plans = [
       </p>
     </div>
 
-    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {plans.map((plan) => (
+    <div class={` ${isOnlyOne ? 'm-auto md:w-[400px] place-items-center' : ' grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+      {filteredPlans.map((plan) => (
         <PricingCard
           title={plan.title}
           subtitle={plan.subtitle}

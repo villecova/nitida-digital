@@ -1,0 +1,17 @@
+---
+import LottieIcon from '../../components/shared/LottieIcon.svelte';
+
+
+const icons = [
+  '/assets/lottie/health.json',
+  '/assets/lottie/desktop.json',
+  '/assets/lottie/weight.json',
+];
+---
+
+<div class="flex justify-center gap-6 mb-8">
+    {icons.map((icon) => (
+        <LottieIcon client:load src={icon} />
+     ))}
+</div>
+

@@ -1,20 +1,20 @@
 ---
 const images = [
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+ "/assets/images/work/bold3.webp",
+ "/assets/images/work/maja1.webp",
+ "/assets/images/work/paguro1.webp",
+ "/assets/images/work/monte2.webp",
+ "/assets/images/work/fliss1.webp",
+ "/assets/images/work/xpe1.webp",
 ];
 ---
 
-<section class="py-8 px-4 md:py-16 bg-[--background-100]">
-  <div class="max-w-screen-lg mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
+<section class="py-8 px-4 md:py-16 bg-[--background-100] h-auto">
+  <div class=" max-w-screen-lg mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 overflow-hidden rounded-xl ">
     {images.map((src, index) => (
       <div>
         <img
-          class="h-auto max-w-full rounded-lg"
+          class="w-full h-[150px] md:h-[300px] object-cover rounded-lg"
           src={src}
           alt={`Imagen ${index + 1}`}
           loading="lazy"
