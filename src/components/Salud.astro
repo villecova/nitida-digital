@@ -1,0 +1,35 @@
+---
+import Button from './shared/Button.astro';
+
+const icons = [
+  "health.json", // icono 1
+  "🖥️", // icono 2
+  "⚖️", // icono 3
+];
+---
+
+<section class="bg-[--background-100] ">
+  <div class="max-w-5xl mx-auto bg-[--background] rounded-2xl shadow-md px-6 py-12 text-center">
+    <div class="flex justify-center gap-6 mb-8">
+      {icons.map((icon) => (
+        <div class="w-16 h-16 rounded-full bg-purple-200 flex items-center justify-center text-2xl">
+          {icon}
+        </div>
+      ))}
+    </div>
+
+    <h2 class="text-3xl md:text-5xl font-main text-gray-900 mb-2">
+      ¿Eres un <span class="text-secondary">especialista</span>?<br />
+      Tenemos un plan pensado para ti.
+    </h2>
+
+    <p class="text-accent md:text-lg mt-4 mb-8">
+      Diseñamos marcas, materiales y presencia digital para médicos, terapeutas, nutriólogos y más. <br />
+      Claridad, confianza y profesionalismo desde el primer contacto.
+    </p>
+
+    <div class="flex justify-center">
+        <Button href="/contact" label="DESCUBRE EL PLAN ESPECIALISTA" variant="secondary" />
+    </div>
+  </div>
+</section>

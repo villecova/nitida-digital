@@ -4,32 +4,45 @@ import PricingCard from './shared/PricingCard.astro';
 
 const plans = [
   {
-    title: 'Básico',
-    price: '$9',
-    description: 'Ideal para proyectos personales.',
-    features: ['1 proyecto', 'Soporte básico'],
-    buttonText: 'Comenzar',
+    title: 'Plan Esencial',
+    subtitle: 'Identidad sencilla pero sólida',
+    description:
+      'Ideal para emprendimientos que están comenzando y necesitan una presencia visual profesional y coherente desde el inicio.',
+    features: [
+      'Logotipo (3 propuestas, 2 rondas de cambios).',
+      'Paleta de colores.',
+      'Archivos editables listos para impresión o uso digital.',
+      'Kit de inicio para redes sociales.',
+    ],
+    buttonText: 'COTIZAR PLAN',
   },
   {
-    title: 'Profesional',
-    price: '$29',
-    description: 'Para pequeñas empresas.',
-    features: ['5 proyectos', 'Soporte prioritario'],
-    buttonText: 'Comenzar',
+    title: 'Plan Emprendedor',
+    subtitle: 'Branding con presencia digital',
+    description:
+      'Pensado para marcas en crecimiento que necesitan fortalecer su identidad y tener presencia en línea.',
+    features: [
+      'Todo lo del Plan Esencial.',
+      '5 post para redes sociales.',
+      '3 íconos para historias destacadas (IG).',
+      'Manual básico de marca (uso de logo, colores, tipografía, tono).',
+      '3 piezas de diseño gráfico a elegir (post, flyer, presentación, etc.).',
+    ],
+    buttonText: 'COTIZAR PLAN',
   },
   {
-    title: 'Empresarial',
-    price: '$99',
-    description: 'Para empresas en crecimiento.',
-    features: ['Proyectos ilimitados', 'Soporte 24/7'],
-    buttonText: 'Comenzar',
-  },
-  {
-    title: 'Personalizado',
-    price: 'A consultar',
-    description: 'Soluciones a medida.',
-    features: ['Consultoría dedicada', 'Soporte premium'],
-    buttonText: 'Contactar',
+    title: 'Plan Avanzado',
+    subtitle: 'Marca completa y lista para despegar',
+    description:
+      'Para negocios que buscan una identidad visual robusta y una web profesional lista para funcionar.',
+    features: [
+      'Todo lo del Plan Emprendedor.',
+      'Manual de marca extendido (moodboard, tono visual, aplicaciones).',
+      '5 piezas de diseño gráfico a elegir.',
+      'Identidad visual completa (logo, variaciones, íconos, patrones).',
+      'Sitio web de hasta 5 secciones (Inicio, Nosotros, Servicios, etc.).',
+    ],
+    buttonText: 'COTIZAR PLAN',
   },
 ];
 ---
@@ -46,12 +59,13 @@ const plans = [
       </p>
     </div>
 
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {plans.map((plan) => (
         <PricingCard
           title={plan.title}
-          price={plan.price}
+          subtitle={plan.subtitle}
           description={plan.description}
+          subtext={plan.subtext}
           features={plan.features}
           buttonText={plan.buttonText}
         />

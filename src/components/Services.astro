@@ -1,0 +1,31 @@
+---
+import Badge from "./shared/Badge.astro";
+
+const services = [
+  { label: "Branding", icon: "✨" },
+  { label: "Página web", icon: "🎨" }, // puedes reemplazar por Figma u otro SVG
+  { label: "Diseño de logo", icon: "⭐" },
+  { label: "Diseño Gráfico", icon: "🎨" },
+];
+---
+
+<section class="py-16 text-center bg-white">
+
+    <div class="max-w-screen-lg mx-auto">
+        <Badge label="Servicios" color="yellow" />
+        <h2 class="text-5xl font-main my-2 text-black">¿Qué ofrecemos?</h2>
+        <p class="text-lg text-accent mb-10">
+          Todo lo que tu marca necesita, en un solo lugar.
+        </p>
+      
+        <div class="flex flex-wrap justify-center gap-4">
+          {services.map((service) => (
+            <span class="flex items-center gap-2 px-6 py-3 bg-accent text-white text-2xl font-main rounded-full">
+              <span class="text-yellow-400 text-xl">{service.icon}</span>
+              {service.label}
+            </span>
+          ))}
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,44 @@
+---
+import Button from './shared/Button.astro';
+
+const services = [
+  {
+    title: 'Logotipo',
+    icon: '🎨',
+    description: 'Ideal si solo necesitas una identidad base o una renovación puntual.',
+  },
+  {
+    title: 'Sitio web',
+    icon: '🌐',
+    description: 'Una web funcional para presentar tu marca en línea.',
+  },
+  {
+    title: 'Piezas gráficas',
+    icon: '🖼️',
+    description: 'Posts, flyers, presentaciones, banners y más.',
+  },
+];
+---
+
+<section class="bg-[--background-100] py-16 text-center">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-5xl font-main text-gray-900 mb-2">¿No necesitas un paquete completo?</h2>
+    <p class="text-lg text-accent mb-12">
+      También puedes contratar servicios por separado, según lo que necesite tu proyecto en este momento.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      {services.map((service) => (
+        <div class="bg-white rounded-2xl shadow-md p-6">
+          <div class="text-3xl mb-2">{service.icon}</div>
+          <h3 class="text-2xl font-main text-secondary mb-2">{service.title}</h3>
+          <p class="text-accent text-sm">{service.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex justify-center">
+      <Button href="/contact" label="COTIZAR PROYECTO" variant="primary" fullWidth={false} />
+    </div>
+  </div>
+</section>

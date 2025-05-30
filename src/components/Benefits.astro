@@ -1,4 +1,5 @@
 ---
+import Badge from "./shared/Badge.astro";
 import Button from "./shared/Button.astro";
 
 const benefits = [
@@ -37,7 +38,7 @@ const benefits = [
 
 <section class="py-20 bg-[--background-100] text-center">
   <div class="bg-white max-w-6xl mx-auto px-16  pt-8 pb-16 rounded-2xl shadow-xl">
-    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Beneficios</span>
+    <Badge label="Beneficios" color="yellow" />
     <h2 class="text-5xl font-main text-gray-900 my-2">¿Por qué trabajar con nosotros?</h2>
     <p class="text-lg text-main text-accent  mt-2 mb-12">Al elegirnos, obtendrás estas ventajas.</p>
 
