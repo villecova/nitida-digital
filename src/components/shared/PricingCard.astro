@@ -9,9 +9,10 @@ interface Props {
   features: string[];
   buttonText: string;
   icon: 'check';
+  link: string;
 }
 
-const { title, subtitle, description, features, icon } = Astro.props;
+const { title, subtitle, description, features, icon, link } = Astro.props;
 ---
 
 <div class="flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100  dark:border-gray-600 dark:bg-gray-800 dark:text-white ">
@@ -32,7 +33,7 @@ const { title, subtitle, description, features, icon } = Astro.props;
   </div>
   
   <div class="flex-none p-5 flex flex-row justify-center border-t border-gray-200">
-    <Button  fullWidth={true} href="/contact" label="Cotizar plan" variant="primary" />
+    <Button  fullWidth={true} href={link} label="Cotizar plan" variant="primary" />
   </div>
 </div>
 

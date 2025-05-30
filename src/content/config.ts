@@ -1,15 +1,17 @@
-// src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const work = defineCollection({
+const workCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    image: z.string(),
     description: z.string(),
-    tech: z.array(z.string()).optional(),
+    year: z.number(),
+    client: z.string(),
+    scope: z.string(),
+    image: z.string(),
+    gallery: z.array(z.string()).optional(), 
   }),
 });
 
 export const collections = {
-  work,
+  work: workCollection,
 };

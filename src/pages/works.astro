@@ -1,31 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Gallery from '../components/Gallery.astro';
 import Footer from '../components/Footer.astro';
-
-
-import { getCollection } from 'astro:content';
-import WorkGallery from '../components/WorkGallery.astro';
-const projects = await getCollection('work');
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+import WorkGallery from '../components/WorkGallery.astro';// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+import Contact from '../components/Contact.astro';
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
 	<Navbar client:load />
-	<Welcome 
-		client:load
-		type="color"
-		color="bg-primary"
-		title="Todo lo que tu marca necesita, en un solo lugar"
-		subtitle="Diseño y branding estratégico, profesional y hecho por expertos, adaptado a las necesidades de tu proyecto."
-		primaryLabel="Agendar una llamada"
-		primaryLink="mailto:nitidacrea@gmail.com?subject=Solicitud%20para%20agendar%20una%20llamada&body=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20llamada%20para%20conocer%20m%C3%A1s%20sobre%20sus%20servicios.%20%C2%BFCu%C3%A1ndo%20podr%C3%ADamos%20agendarla%3F%20Gracias."
-		secondaryLabel="Explorar proyectos"
-		secondaryLink="/works"
-	/>
-	<WorkGallery client:load>
+	<WorkGallery client:load />
+	<Contact client:load />
 	<Footer client:load />
 </Layout>

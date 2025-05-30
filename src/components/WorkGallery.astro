@@ -1,34 +1,29 @@
 ---
-const projects = [
-  {
-    slug: "calida",
-    image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-    title: "Cálida Studio",
-  },
-  {
-    slug: "filmmaker",
-    image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-    title: "Filmmaker",
-  },
-  // ... más proyectos
-];
+import { getCollection } from 'astro:content';
+import Badge from './shared/Badge.astro';
+import ExpandGallery from './shared/ExpandGallery.svelte';
+
+const entries = await getCollection('work');
+
+// Extraer solo los datos que necesitas
+const projects = entries.map((entry) => ({
+  slug: entry.slug,
+  title: entry.data.title,
+  gallery: entry.data.gallery
+}));
 ---
 
-<section class="py-8 px-4 md:py-16 bg-[--background-100]">
-    <div class="max-w-screen-lg mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
-      {projects.map((project) => (
-        <a 
-          href={`/works/${project.slug}`} 
-          class="block overflow-hidden rounded-lg hover:shadow-lg transition"
-        >
-          <img
-            class="h-auto max-w-full"
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-          />
-        </a>
-      ))}
-    </div>
+<section class="pb-8 pt-24 px-4 md:pt-32 md:pb-16 bg-[--background]">
+  <div class="text-center">
+    <Badge label="Proyectos" color="yellow" />
+    <h2 class="text-3xl md:text-5xl font-main my-2 text-black">Algunos de nuestros trabajos</h2>
+    <p class="text-lg text-accent mb-10">
+      Explora algunos de nuestros últimos proyectos.
+    </p>
+  </div>
+
+  <ExpandGallery client:load {projects} initialCount={6} />
+
   </section>
+  
   
