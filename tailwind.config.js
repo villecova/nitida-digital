@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      scrollBehavior: {
+        smooth: 'smooth',
+      },
       fontFamily: { 
         primary: ['Ubuntu', 'sans-serif'],
         secondary: ['Barlow', 'sans-serif'],
