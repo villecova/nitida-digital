@@ -1,9 +1,11 @@
 ---
 import '../styles/global.css';
+import AOSInit from '../components/AOSInit.svelte';
 const pageTitle = "Diseño Web y Branding Profesional | Nítida Creatividad Digital";
 const pageDescription = "Especialistas en diseño web, branding y desarrollo visual. Creamos marcas memorables y sitios funcionales para negocios que quieren destacar.";
 const pageUrl = "https://nitidadigital.com"; // cambia esto a tu dominio real
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png"; // cambia por una imagen destacada
+
 
 ---
 
@@ -53,6 +55,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png"; // camb
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
+		<AOSInit client:only="svelte" />
 		<slot />
 		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 	</body>
