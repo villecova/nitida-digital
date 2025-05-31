@@ -1,7 +1,6 @@
 <script>
-  import AOS from 'aos';
-  import 'aos/dist/aos.css';
   import { onMount } from 'svelte';
+  import AOS from 'aos';
 
   onMount(() => {
     AOS.init({

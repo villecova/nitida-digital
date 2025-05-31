@@ -22,7 +22,7 @@ const projects = entries.map((entry) => ({
     </p>
   </div>
 
-  <ExpandGallery client:load {projects} initialCount={6} />
+  <ExpandGallery client:only {projects} initialCount={6} />
 
   </section>
   

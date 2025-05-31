@@ -37,7 +37,7 @@ const steps = [
     <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
       {steps.map((step) => (
         <div class="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center  transition">
-          <LottieIcon client:load src={step.icon} />
+          <LottieIcon client:only="svelte" src={step.icon} />
           <h3 class="text-2xl font-main text-accent my-2">{step.title}</h3>
           <p class="text-gray-600 text-sm">{step.description}</p>
         </div>

@@ -11,7 +11,7 @@ const icons = [
 
 <div class="flex justify-center gap-6 mb-8">
     {icons.map((icon) => (
-        <LottieIcon client:load src={icon} />
+        <LottieIcon client:only="svelte" src={icon} />
      ))}
 </div>
 

@@ -14,7 +14,7 @@ const icons = [
   <div class="max-w-5xl mx-auto bg-[--background] rounded-2xl shadow-md px-6 py-12 text-center shadow-xl" data-aos="fade-up" data-aos-delay="100">
     <div class="flex justify-center gap-6 mb-8">
         {icons.map((icon) => (
-            <LottieIcon client:load src={icon} />
+            <LottieIcon client:only="svelte" src={icon} />
           ))}
     </div>
 

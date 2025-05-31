@@ -16,9 +16,9 @@ import Contact from '../components/Contact.astro'
 
 
 <Layout>
-	<Navbar client:load />
+	<Navbar  />
 	<Welcome 
-		client:load
+		
 		type="color"
 		color="bg-primary"
 		title="Impulsa tu imagen profesional con diseño estratégico"
@@ -29,10 +29,10 @@ import Contact from '../components/Contact.astro'
 		secondaryLink="/works"
 		mediaVariant="icons"
 	/>
-	<Gallery client:load />
-	<How client:load />
-	<Princing onlySpecialist={true} client:load />
-	<Contact client:load />
-	<Footer client:load />
+	<Gallery  />
+	<How  />
+	<Princing onlySpecialist={true}  />
+	<Contact  />
+	<Footer  />
 </Layout>
 
