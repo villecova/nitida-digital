@@ -17,4 +17,4 @@
   });
 </script>
 
-<div bind:this={container} class="md:size-24 p-4 rounded-full bg-purple-200 flex items-center justify-center text-2xl" />
+<div bind:this={container} class="md:size-24 p-4 rounded-full bg-purple-200 flex items-center justify-center text-2xl"></div>
