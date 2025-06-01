@@ -7,7 +7,10 @@ import Princing from '../components/Princing.astro';
 import Footer from '../components/Footer.astro';
 import How from '../components/How.astro';
 import Contact from '../components/Contact.astro'
+import Benefits from '../components/Benefits.astro';
+import Individual from '../components/Individual.astro';
 
+const currentPath = Astro.url.pathname;
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,9 +19,8 @@ import Contact from '../components/Contact.astro'
 
 
 <Layout>
-	<Navbar  />
+	<Navbar currentPath={currentPath} />
 	<Welcome 
-		
 		type="color"
 		color="bg-primary"
 		title="Impulsa tu imagen profesional con diseño estratégico"
@@ -31,7 +33,9 @@ import Contact from '../components/Contact.astro'
 	/>
 	<Gallery  />
 	<How  />
+	<Benefits onlySpecialist={true} />
 	<Princing onlySpecialist={true}  />
+	<Individual onlySpecialist={true}  />
 	<Contact  />
 	<Footer  />
 </Layout>

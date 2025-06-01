@@ -1,5 +1,6 @@
 ---
 import Badge from './shared/Badge.astro';
+import Button from './shared/Button.astro';
 import PricingCard from './shared/PricingCard.astro';
 
 // Recibe una prop para decidir si mostrar solo el plan de especialistas
@@ -77,17 +78,25 @@ const filteredPlans = onlySpecialist
   : plans.filter(p => p.title !== 'Plan Especialista');
 
 const isOnlyOne = filteredPlans.length === 1;
+
+const title = isOnlyOne
+  ? 'Todo lo que tu práctica necesita.'
+  : 'Nuestros planes de servicios';
+
+const subtitle = isOnlyOne
+  ? 'Diseñado especialmente para especialistas que buscan una identidad visual confiable, clara y alineada a su profesión..'
+  : 'Explora las opciones y elige el paquete que mejor se adapta a tu proyecto.';
 ---
 
 <section class="bg-[--background-100] dark:bg-gray-900 py-8 md:py-12" id="planes">
   <div class="max-w-screen-lg mx-auto px-4">
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 md:w-3/4 m-auto">
       <Badge label="Planes" color="yellow" />
       <h2 class="text-3xl md:text-5xl font-main text-gray-900 dark:text-white my-2">
-        Nuestros planes de servicios
+        {title}
       </h2>
       <p class="text-accent dark:text-gray-400 text-lg">
-        Explora las opciones y elige el paquete que mejor se adapta a tu proyecto.
+       {subtitle}
       </p>
     </div>
 

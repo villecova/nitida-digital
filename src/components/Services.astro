@@ -12,9 +12,9 @@ const services = [
 
 
 
-<section class="py-8 md:py-16 text-center bg-white">
+<section class="py-8 md:py-16 text-center bg-white" id="services">
 
-    <div class="px-4 max-w-screen-lg mx-auto" id="services" data-aos="fade-up" data-aos-delay="100">
+    <div class="px-4 max-w-screen-lg mx-auto"  data-aos="fade-up" data-aos-delay="100">
         <Badge label="Servicios" color="yellow" />
         <h2 class="text-3xl md:text-5xl font-main my-2 text-black">¿Qué ofrecemos?</h2>
         <p class="text-lg text-accent mb-10">
@@ -23,7 +23,7 @@ const services = [
       
         <div class="flex flex-col md:flex-row flex-wrap justify-center gap-4">
           {services.map((service) => (
-            <span class="flex items-center min-w-[200px] sm:w-2/3 md:w-auto mx-auto justify-center gap-2 px-6 py-3 bg-accent text-white text-1xl  md:text-2xl font-main rounded-full">
+            <span class="flex items-center min-w-[] sm:w-2/3 md:w-auto mx-auto justify-center gap-2 px-6 py-3 bg-accent text-white text-1xl  md:text-2xl font-main rounded-full">
               <Icon name={service.icon} size="8" color="text-secondary" />
               {service.label}
             </span>

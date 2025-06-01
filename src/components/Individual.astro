@@ -18,6 +18,8 @@ const services = [
     description: 'Posts, flyers, presentaciones, banners y más.',
   },
 ];
+
+const { onlySpecialist = false } = Astro.props;
 ---
 
 <section class="bg-[--background-100] pb-16 pt-8 text-center">
@@ -37,8 +39,18 @@ const services = [
       ))}
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex flex-col md:flex-row justify-center gap-4">
       <Button href="mailto:nitidacrea@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&body=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.%20Quedo%20atento(a).%20Gracias." label="COTIZAR PROYECTO" variant="primary" fullWidth={false} />
+
+      {onlySpecialist && (
+        <Button
+          href="/#planes"
+          label="Ver más planes"
+          variant="secondary"
+        />
+      )}
     </div>
+
+
   </div>
 </section>

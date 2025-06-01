@@ -3,58 +3,104 @@ import Badge from "./shared/Badge.astro";
 import Button from "./shared/Button.astro";
 import LottieIcon from "./shared/LottieIcon.svelte";
 
+const { onlySpecialist = false } = Astro.props;
 
-const benefits = [
+const generalBenefits = [
   {
-    icon: '/assets/lottie/design.json', 
+    icon: '/assets/lottie/design.json',
     title: "Diseño estratégico",
     description: "Creamos soluciones visuales alineadas con tus objetivos de negocio.",
   },
   {
-    icon: '/assets/lottie/time.json', 
+    icon: '/assets/lottie/time.json',
     title: "Entrega puntual",
     description: "Compromiso con los tiempos de entrega y calidad profesional.",
   },
   {
-    icon: '/assets/lottie/tax.json', 
+    icon: '/assets/lottie/tax.json',
     title: "Precios accesibles",
     description: "Diseño de alta calidad a tarifas justas. Ideal para emprendedores y marcas con visión creativa.",
   },
   {
-    icon: '/assets/lottie/team.json', 
+    icon: '/assets/lottie/team.json',
     title: "Equipo profesional",
     description: "Más de 9 años de experiencia en diseño, branding y desarrollo visual.",
   },
   {
-    icon: '/assets/lottie/service.json', 
+    icon: '/assets/lottie/service.json',
     title: "Atención personalizada",
     description: "Acompañamiento en cada etapa del proceso creativo.",
   },
   {
-    icon: '/assets/lottie/reload.json', 
+    icon: '/assets/lottie/reload.json',
     title: "Revisiones incluidas",
     description: "Adaptamos y refinamos cada entrega hasta lograr el resultado ideal.",
   },
 ];
----
 
+const specialistBenefits = [
+  {
+    icon: "/assets/lottie/identidad.json",
+    title: "Identidad visual profesional",
+    description: "Proyecta una identidad visual que refleje tu experiencia y genere confianza.",
+  },
+  {
+    icon: "/assets/lottie/presencia.json",
+    title: "Presencia digital efectiva",
+    description: "Elementos clave para destacarte en redes, plataformas y buscadores.",
+  },
+  {
+    icon: "/assets/lottie/materiales.json",
+    title: "Materiales listos para usar",
+    description: "Plantillas, perfiles y formatos editables para tu día a día profesional.",
+  },
+  {
+    icon: "/assets/lottie/alineados.json",
+    title: "Alineado a tu especialidad",
+    description: "Diseñado para comunicar lo que haces con claridad y coherencia.",
+  },
+  {
+    icon: "/assets/lottie/facilita.json",
+    title: "Facilita tu comunicación",
+    description: "Incluye firma, hoja de presentación y recursos útiles para consultas o atención.",
+  },
+  {
+    icon: "/assets/lottie/impulsa.json",
+    title: "Impulsa tu marca personal",
+    description: "Fortalece tu presencia como especialista con un branding profesional.",
+  },
+];
+
+const benefits = onlySpecialist ? specialistBenefits : generalBenefits;
+
+const title = onlySpecialist
+  ? "¿Por qué elegir un plan para profesionistas?"
+  : "¿Por qué trabajar con nosotros?";
+
+const subtitle = onlySpecialist
+  ? "Una solución pensada para especialistas que quieren destacar con confianza y claridad."
+  : "Al elegirnos, obtendrás estas ventajas.";
+---
 <section class="py-8 px-4 md:py-20 bg-[--background-100] text-center" id="benefits">
-  <div class="bg-white max-w-6xl mx-auto px-8 md:px-16  pt-8 pb-16 rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
-    <Badge label="Beneficios" color="yellow" />
-    <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">¿Por qué trabajar con nosotros?</h2>
-    <p class="text-lg text-main text-accent  mt-2 mb-12">Al elegirnos, obtendrás estas ventajas.</p>
+  <div class="bg-white max-w-6xl mx-auto px-8 md:px-16 pt-8 pb-16 rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
+    <div class="md:w-3/4 m-auto">
+      <Badge label="Beneficios" color="yellow" />
+      <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{title}</h2>
+      <p class="text-lg text-main text-accent mt-2 mb-12">{subtitle}</p>      
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
       {benefits.map((benefit) => (
         <div class="flex flex-col items-center">
-            <LottieIcon client:only="svelte" src={benefit.icon} />
-            <h3 class="text-2xl font-main text-accent mb-2">{benefit.title}</h3>
+          <LottieIcon client:only="svelte" src={benefit.icon} />
+          <h3 class="text-2xl font-main text-accent my-2">{benefit.title}</h3>
           <p class="text-gray-600 text-sm max-w-xs">{benefit.description}</p>
         </div>
       ))}
     </div>
+
     <div class="mt-16">
-      <Button href="/works" label="Explorar proyectos " variant="primary" />
-  </div>
+      <Button href={onlySpecialist ? "/contact" : "/works"} label={onlySpecialist ? "Cotiza tu plan" : "Explorar proyectos"} variant="primary" />
+    </div>
   </div>
 </section>
