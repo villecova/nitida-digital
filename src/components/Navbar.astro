@@ -49,3 +49,18 @@ const filteredNavItems = navItems.filter(Boolean) as Array<{ label: string; href
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]') as HTMLButtonElement | null;
+    const navLinks = document.querySelectorAll('#navbar-default a[href^="#"], #navbar-default a[href^="/"]');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768 && toggleButton?.getAttribute('aria-expanded') === 'true') {
+          toggleButton.click(); // Simula el cierre
+        }
+      });
+    });
+  });
+</script>
