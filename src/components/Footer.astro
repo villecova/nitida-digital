@@ -2,6 +2,7 @@
 const links = [
   { label: 'Inicio', href: '/' },
   { label: 'Proyectos', href: '/works' },
+  { label: 'Términos y condiciones', href: '/terms-and-conditions' },
   { label: 'Instagram', href: 'https://www.instagram.com/nitida.digital/', external: true }
 ];
 ---
@@ -10,14 +11,14 @@ const links = [
     <div class="max-w-screen-lg mx-auto">
         <nav class="border-b boreder-gray-300 mb-16">
             <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center text-sm">
-                <div class="flex gap-6">
-                {links.slice(0, 2).map(link => (
+                <div class="flex gap-6 items-center">
+                {links.slice(0, 3).map(link => (
                     <a href={link.href}>{link.label}</a>
                 ))}
                 </div>
                 <div>
-                <a href={links[2].href} target="_blank" rel="noopener noreferrer">
-                    {links[2].label}
+                <a href={links[3].href} target="_blank" rel="noopener noreferrer">
+                    {links[3].label}
                 </a>
                 </div>
             </div>

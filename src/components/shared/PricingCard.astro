@@ -22,7 +22,7 @@ const { title, subtitle, description, features, icon, link } = Astro.props;
 
     <p class="text-accent my-4 text-xs">{description}</p>
     <p class="my-4">Incluye:</p>
-    <ul role="list" class="mb-8 space-y-4 text-left">
+    <ul role="list" class="mb-8 space-y-2 text-left">
       {features.map((feature) => (
         <li class="flex items-center space-x-3 w-fit">
           <Icon name={icon} size="5" color="text-secondary" />

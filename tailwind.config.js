@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const typography = require('@tailwindcss/typography');
+
 module.exports = {
   content: [
     './src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte,md,mdx,css}',
@@ -27,5 +29,5 @@ module.exports = {
       }
     },
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require('flowbite/plugin'), typography],
 };
