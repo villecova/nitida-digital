@@ -1,44 +1,120 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Gallery from '../components/Gallery.astro';
-import Princing from '../components/Princing.astro';
-import Footer from '../components/Footer.astro';
-import Faqs from '../components/Faqs.astro';
-import How from '../components/How.astro';
-import Benefits from '../components/Benefits.astro';
-import Contact from '../components/Contact.astro'
-import Services from '../components/Services.astro';
-import Individual from '../components/Individual.astro';
-import Specialist from '../components/Specialist.astro';
-
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Navbar  />
-	<Welcome 
-		type="color"
-		color="bg-primary"
-		title="Todo lo que tu marca necesita, en un solo lugar"
-		subtitle="Diseño y branding estratégico, profesional y hecho por expertos, adaptado a las necesidades de tu proyecto."
-		primaryLabel="Agendar una llamada"
-		primaryLink="mailto:nitidacrea@gmail.com?subject=Solicitud%20para%20agendar%20una%20llamada&body=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20llamada%20para%20conocer%20m%C3%A1s%20sobre%20sus%20servicios.%20%C2%BFCu%C3%A1ndo%20podr%C3%ADamos%20agendarla%3F%20Gracias."
-		secondaryLabel="Explorar proyectos"
-		secondaryLink="/works"
-		mediaVariant="logo"
-	/>
-	<Gallery  />
-	<How  />
-	<Benefits  />
-	<Services  />
-	<Princing  />
-	<Individual  />
-	<Faqs  />
-	<Contact  />
-	<Footer  />
-</Layout>
+	<main class="min-h-screen bg-gradient-to-br from-gray-900 to-black dark:from-gray-900 dark:to-black pt-20">
+		<div class="container mx-auto px-4 py-16">
+			<!-- Header -->
+			<div class="text-center mb-16">
+				<div class="mb-8">
+					<img src="/assets/images/hero_logo-w.svg" class="h-20 md:h-24 mx-auto" alt="Nitida Digital Logo" />
+				</div>
+				<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+					Diseñamos tu marca y también creamos apps para tu día a día. Descubre todo lo que tenemos para ti.
+				</p>
+			</div>
 
+			<!-- Cards Container -->
+			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+				<!-- Diseño Digital Card -->
+				<div class="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+					<div class="p-8 flex flex-col flex-grow">
+						<!-- Icon -->
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+							<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+							</svg>
+						</div>
+						
+						<!-- Content -->
+						<h2 class="text-2xl font-bold text-gray-900 mb-4">
+							Diseño Digital
+						</h2>
+						<p class="text-gray-600 mb-6 flex-grow">
+							Identidad visual completa, diseño gráfico estratégico, branding profesional y páginas web para tu marca.
+						</p>
+						
+						<!-- Features -->
+						<ul class="space-y-2 mb-8">
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Identidad visual
+							</li>
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Páginas web
+							</li>
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Branding estratégico
+							</li>
+						</ul>
+					</div>
+					
+					<!-- Button -->
+					<div class="p-8 pt-0">
+						<a href="/branding" class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl text-center transition-colors duration-300">
+							Explorar Diseño Digital
+						</a>
+					</div>
+				</div>
+
+				<!-- Productos Digitales Card -->
+				<div class="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+					<div class="p-8 flex flex-col flex-grow">
+						<!-- Icon -->
+						<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+							<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+							</svg>
+						</div>
+						
+						<!-- Content -->
+						<h2 class="text-2xl font-bold text-gray-900 mb-4">
+							Productos Digitales
+						</h2>
+						<p class="text-gray-600 mb-6 flex-grow">
+							Descubre nuestras apps en App Store y Google Play. ¡Descárgalas hoy mismo!
+						</p>
+						
+						<!-- Features -->
+						<ul class="space-y-2 mb-8">
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Apps móviles
+							</li>
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Disponibles en tiendas
+							</li>
+							<li class="flex items-center text-gray-600">
+								<svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								Descarga directa
+							</li>
+						</ul>
+					</div>
+					
+					<!-- Button -->
+					<div class="p-8 pt-0">
+						<a href="/desarrollo" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl text-center transition-colors duration-300">
+							Ver Productos
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

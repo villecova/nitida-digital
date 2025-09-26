@@ -1,0 +1,79 @@
+---
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WorkGallery from '../../components/WorkGallery.astro';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-800">
+		<!-- Hero Section -->
+		<section class="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white py-20 pt-32">
+			<div class="container mx-auto px-4">
+				<div class="max-w-4xl mx-auto text-center">
+					<div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
+						<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-4-4m4 4l-4 4M5 11l4-4m-4 4l4 4"></path>
+						</svg>
+					</div>
+					<h1 class="text-5xl md:text-6xl font-bold mb-6">
+						Nuestros Proyectos
+					</h1>
+					<p class="text-xl md:text-2xl mb-8 opacity-90">
+						Descubre algunos de nuestros trabajos más recientes en diseño y branding
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a href="/branding" 
+						   class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300">
+							Volver a Branding
+						</a>
+						<a href="mailto:nitidacrea@gmail.com?subject=Consulta%20sobre%20proyecto%20personalizado&body=Hola%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20dise%C3%B1o%20y%20branding%20para%20un%20proyecto%20personalizado." 
+						   class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-600 transition-colors duration-300">
+							Consultar Proyecto
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Gallery Section -->
+		<section class="py-20">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-16">
+					<h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+						Portafolio de Trabajos
+					</h2>
+					<p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+						Cada proyecto es único y refleja la personalidad y objetivos de nuestros clientes
+					</p>
+				</div>
+				<WorkGallery client:load />
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="py-20 bg-purple-600 text-white">
+			<div class="container mx-auto px-4 text-center">
+				<h2 class="text-4xl font-bold mb-4">
+					¿Te Gusta Nuestro Trabajo?
+				</h2>
+				<p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+					Contáctanos para discutir tu proyecto y crear algo increíble juntos.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="mailto:nitidacrea@gmail.com?subject=Consulta%20sobre%20proyecto%20personalizado&body=Hola%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20dise%C3%B1o%20y%20branding%20para%20un%20proyecto%20personalizado." 
+					   class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300">
+						Iniciar Proyecto
+					</a>
+					<a href="/branding" 
+					   class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-600 transition-colors duration-300">
+						Ver Servicios de Branding
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Contact client:load />
+	<Footer client:load />
+</Layout>
