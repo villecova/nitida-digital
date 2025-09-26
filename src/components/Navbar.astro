@@ -4,11 +4,9 @@ import Button from "./shared/Button.astro";
 const { currentPath } = Astro.props;
 
 const navItems = [
-  { label: "Proceso", href: "#how", active: true },
-  { label: "Beneficios", href: "#benefits" },
-  currentPath !== "/specialist" ? { label: "Servicios", href: "#services" } : null,
-  { label: "Planes", href: "#planes" },
-  { label: "FAQs", href: "/#faqs" },
+  { label: "Inicio", href: "/", active: currentPath === "/" },
+  { label: "Diseño Digital", href: "/branding", active: currentPath === "/branding" || currentPath.startsWith("/branding/") },
+  { label: "Productos Digitales", href: "/desarrollo", active: currentPath === "/desarrollo" },
 ];
 
 const filteredNavItems = navItems.filter(Boolean) as Array<{ label: string; href: string; active?: boolean }>;
@@ -43,7 +41,16 @@ const filteredNavItems = navItems.filter(Boolean) as Array<{ label: string; href
           </li>
         ))}
         <li>
-          <Button href="/works" label="Proyectos" variant="primary" fullWidth="true" />
+          <a href="mailto:nitidacrea@gmail.com?subject=Consulta%20general&body=Hola%2C%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios." 
+             class={`block w-full font-semibold py-3 px-6 rounded-xl text-center transition-colors duration-300 ${
+               currentPath === "/" 
+                 ? "bg-gray-800 hover:bg-gray-700 text-white" 
+                 : currentPath === "/branding" || currentPath.startsWith("/branding/")
+                 ? "bg-purple-600 hover:bg-purple-700 text-white"
+                 : "bg-blue-600 hover:bg-blue-700 text-white"
+             }`}>
+            Contactar
+          </a>
         </li>
       </ul>
     </div>

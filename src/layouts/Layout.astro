@@ -1,6 +1,10 @@
 ---
+import Navbar from '../components/Navbar.astro';
 import AOSInit from '../components/shared/AOSInit.svelte';
 import '../styles/global.css';
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
 const pageTitle = "Diseño Web y Branding Profesional | Nítida Creatividad Digital";
 const pageDescription = "Especialistas en diseño web, branding y desarrollo visual. Creamos marcas memorables y sitios funcionales para negocios que quieren destacar.";
 const pageUrl = "https://nitidadigital.com"; // cambia esto a tu dominio real
@@ -55,6 +59,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png"; // camb
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
+		<Navbar currentPath={currentPath} />
 		<slot />
 		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 		<AOSInit client:only="svelte" />

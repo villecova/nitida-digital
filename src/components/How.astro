@@ -1,8 +1,5 @@
 ---
-import Badge from "./shared/Badge.astro";
-import Button from "./shared/Button.astro";
 import LottieIcon from './shared/LottieIcon.svelte';
-
 
 const steps = [
   {
@@ -28,24 +25,43 @@ const steps = [
 ];
 ---
 
-<section class="py-8 md:py-20 bg-[--background]" id="how">
-  <div class="max-w-6xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
-    <Badge label="Proceso" color="yellow" />
-    <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">¿Cómo funciona?</h2>
-    <p class="text-lg text-accent mb-12">Nuestro proceso es sencillo.</p>
+<section class="py-20 bg-gray-50 dark:bg-gray-900" id="how">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium mb-4">
+        Proceso
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        ¿Cómo Funciona Nuestro Proceso?
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Trabajamos de manera colaborativa para crear una identidad de marca que realmente represente tu visión
+      </p>
+    </div>
 
     <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-      {steps.map((step) => (
-        <div class="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center  transition">
-          <LottieIcon client:only="svelte" src={step.icon} />
-          <h3 class="text-2xl font-main text-accent my-2">{step.title}</h3>
-          <p class="text-gray-600 text-sm">{step.description}</p>
+      {steps.map((step, index) => (
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center group">
+          <div class="w-20 h-20 bg-purple-100 dark:bg-purple-900 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <LottieIcon client:only="svelte" src={step.icon} />
+          </div>
+          <div class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-4">
+            {index + 1}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{step.title}</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{step.description}</p>
         </div>
       ))}
     </div>
 
-    <div class="mt-12">
-        <Button href="/works" label="Explorar proyectos " variant="primary" />
+    <div class="text-center mt-12">
+      <a href="/branding/proyectos" class="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-colors duration-300">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+        </svg>
+        Explorar Proyectos
+      </a>
     </div>
   </div>
 </section>
