@@ -1,12 +1,13 @@
 ---
 import AOSInit from '../components/shared/AOSInit.svelte';
 import '../styles/global.css';
-const pageTitle = "Diseño Web y Branding Profesional | Nítida Creatividad Digital";
-const pageDescription = "Especialistas en diseño web, branding y desarrollo visual. Creamos marcas memorables y sitios funcionales para negocios que quieren destacar.";
-const pageUrl = "https://nitidadigital.com"; // cambia esto a tu dominio real
-const imageUrl = "https://nitidadigital.com/assets/images/og_image.png"; // cambia por una imagen destacada
 
-
+const {
+	pageTitle = "Diseño Web y Branding Profesional | Nítida Creatividad Digital",
+	pageDescription = "Especialistas en diseño web, branding y desarrollo visual. Creamos marcas memorables y sitios funcionales para negocios que quieren destacar.",
+	pageUrl = "https://nitidadigital.com",
+	imageUrl = "https://nitidadigital.com/assets/images/og_image.png"
+} = Astro.props;
 ---
 
 <!doctype html>

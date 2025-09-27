@@ -1,0 +1,144 @@
+---
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Apps Móviles y Productos Digitales | Nítida Digital";
+const pageDescription = "Descubre nuestras aplicaciones móviles: Cosmos Plant Care y Gym Partner. Apps innovadoras disponibles próximamente en App Store y Google Play.";
+const pageUrl = "https://nitidadigital.com/digital-products";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+// Datos de las apps
+const apps = [
+	{
+		id: 1,
+		name: "Cosmos Plant Care",
+		description: "No más plantas olvidadas. Recordatorios de riego y fertilización para mantener tus plantas siempre saludables.",
+		icon: "/src/assets/store/cosmos-1.png",
+		appleStore: "https://apps.apple.com",
+		googlePlay: "https://play.google.com",
+		price: "Gratis"
+	},
+	{
+		id: 2,
+		name: "Gym Partner", 
+		description: "Tu compañero perfecto para el gimnasio. Planifica rutinas, rastrea progreso y alcanza tus objetivos fitness.",
+		icon: "/src/assets/store/gym-2.png",
+		appleStore: "https://apps.apple.com",
+		googlePlay: "https://play.google.com",
+		price: "Gratis"
+	}
+];
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+	<Navbar currentPath="/digital-products" />
+	<!-- Hero Section -->
+	<section class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center relative overflow-hidden" style="padding-top: 4rem;">
+		<!-- Background Pattern -->
+		<div class="absolute inset-0 opacity-10">
+			<div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 75% 75%, #1d4ed8 0%, transparent 50%);"></div>
+		</div>
+		
+		<!-- Content -->
+		<div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+			<!-- Logo -->
+			<div class="mb-8">
+				<img src="/assets/images/hero_logo-w.svg" alt="Nítida" class="h-20 md:h-32 mx-auto" />
+			</div>
+			
+			<!-- Title -->
+			<h1 class="text-white text-4xl md:text-6xl font-bold mb-6 font-main">
+				Productos Digitales
+			</h1>
+			
+			<!-- Subtitle -->
+			<p class="text-blue-100 text-xl md:text-2xl font-primary mb-12 leading-relaxed">
+				Descubre nuestras apps disponibles en App Store y Google Play.<br>
+				¡Descárgalas hoy mismo y mejora tu día a día!
+			</p>
+			
+			<!-- CTA Button -->
+			<div class="flex justify-center">
+				<a 
+					href="#apps" 
+					class="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
+				>
+					Ver Apps
+				</a>
+			</div>
+		</div>
+	</section>
+
+		<!-- Apps Section -->
+		<section id="apps" class="py-32 bg-gray-50">
+			<div class="max-w-6xl mx-auto px-4">
+				<!-- Section Header -->
+				<div class="text-center mb-20">
+					<h2 class="text-4xl font-bold text-gray-900 mb-4 font-main">Nuestras Apps</h2>
+					<p class="text-xl text-gray-600 font-primary">
+						Aplicaciones móviles diseñadas para mejorar tu experiencia diaria
+					</p>
+				</div>
+				
+				<!-- Apps Grid -->
+				<div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+				{apps.map((app) => (
+					<div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+						<!-- App Info -->
+						<div class="text-center mb-4">
+							<h3 class="text-xl font-bold text-gray-900 mb-3 font-main">{app.name}</h3>
+							<span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
+								Próximamente
+							</span>
+						</div>
+						
+						<!-- App Icon -->
+						<div class="mb-4 mx-auto" style="width: 40%;">
+							<img src={app.icon} alt={app.name} class="w-full h-auto" />
+						</div>
+						
+						<!-- App Description -->
+						<div class="text-center mb-4">
+							<p class="text-gray-600 font-primary text-sm">{app.description}</p>
+						</div>
+						
+						<!-- Download Buttons -->
+						<div class="flex gap-2 items-start  mt-6 opacity-50">
+							<div class="flex-1 relative group">
+								<img src="/src/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
+								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+									Próximamente
+									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+								</div>
+							</div>
+							<div class="flex-1 relative group">
+								<img src="/src/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
+								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+									Próximamente
+									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Terms Link -->
+						<div class="mt-8 text-center">
+							{app.name === "Cosmos Plant Care" ? (
+								<a href="/digital-products/cosmos/term-cosmos" class="text-gray-400 hover:text-gray-600 text-xs">
+									Términos y Condiciones
+								</a>
+							) : (
+								<span class="text-gray-300 text-xs cursor-not-allowed">
+									Términos y Condiciones
+								</span>
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+
+	<Footer hideTerms={true} hideSocial={true} />
+</Layout>

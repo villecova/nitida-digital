@@ -1,0 +1,130 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Términos y Condiciones - Cosmos Plant Care | Nítida Digital";
+const pageDescription = "Términos y condiciones de uso de Cosmos Plant Care. Conoce las reglas y condiciones para el uso de nuestra app de cuidado de plantas.";
+const pageUrl = "https://nitidadigital.com/digital-products/cosmos/term-cosmos";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
+    <!-- Header -->
+    <div class="text-center mb-12">
+ 
+      <h1 class="text-3xl font-bold text-gray-900 mb-4 ">Términos y Condiciones de Uso – Cosmos Plant Care</h1>
+      <p class="text-gray-600">
+        <strong>Fecha de entrada en vigor:</strong> 1 de enero de 2024
+      </p>
+    </div>
+
+    <p>
+      Bienvenido a <strong>Cosmos Plant Care</strong>. Al descargar y utilizar nuestra aplicación aceptas cumplir con los siguientes Términos y Condiciones.
+    </p>
+
+    <h2>1. Objeto de la aplicación</h2>
+
+    <p>
+      <strong>Cosmos Plant Care</strong> es una aplicación móvil que permite crear recordatorios de riego, fertilización y cuidados básicos de plantas, así como almacenar información personalizada sobre tu jardín.
+    </p>
+
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+      <p class="font-semibold mb-2">⚠️ La app es de uso meramente informativo y organizativo.</p>
+      <p>No tiene como finalidad enseñar técnicas de jardinería ni sustituir el aprendizaje formal sobre cuidado de plantas.</p>
+    </div>
+
+    <h2>2. Uso permitido</h2>
+
+    <ul>
+      <li>Puedes utilizar la app únicamente para fines personales y no comerciales.</li>
+      <li>Te comprometes a no usar la aplicación para actividades ilícitas ni que afecten a terceros.</li>
+    </ul>
+
+    <h2>3. Registro y seguridad</h2>
+
+    <ul>
+      <li>Para utilizar ciertas funciones, deberás registrarte con tu correo electrónico y una contraseña (gestionado mediante Firebase Authentication).</li>
+      <li>Eres responsable de mantener la confidencialidad de tus credenciales y del uso que hagas de tu cuenta.</li>
+    </ul>
+
+    <h2>4. Contenido del usuario</h2>
+
+    <ul>
+      <li>Puedes añadir fotos, nombres y notas relacionadas con tus plantas.</li>
+      <li>Conservas todos los derechos sobre tu contenido, pero nos otorgas una licencia limitada para almacenarlo y mostrarlo dentro de la aplicación.</li>
+      <li>No debes subir contenido ilegal, ofensivo o que infrinja derechos de terceros.</li>
+    </ul>
+
+    <h2>5. Privacidad</h2>
+
+    <p>
+      El uso de la aplicación está regido por nuestra <a class="no-underline text-blue-600 hover:text-blue-800" href="/digital-products/cosmos/privacy-policy">Política de Privacidad</a>.
+    </p>
+
+    <h2>6. Limitación de responsabilidad</h2>
+
+    <ul>
+      <li><strong>Cosmos Plant Care</strong> no garantiza que el uso de la aplicación sea siempre ininterrumpido o libre de errores.</li>
+      <li>No nos hacemos responsables de pérdidas de plantas ni de resultados específicos obtenidos al aplicar los recordatorios o recomendaciones generales.</li>
+    </ul>
+
+    <h2>7. Alcance de las recomendaciones</h2>
+
+    <p>
+      La información y recordatorios proporcionados por la app son orientaciones generales y no deben considerarse instrucciones profesionales ni científicas.
+    </p>
+
+    <p>El cuidado real de cada planta depende de múltiples factores como:</p>
+
+    <ul>
+      <li>tipo de especie,</li>
+      <li>tierra utilizada,</li>
+      <li>calidad de los abonos,</li>
+      <li>constancia del usuario,</li>
+      <li>condiciones climáticas de cada región.</li>
+    </ul>
+
+    <p>
+      Cada usuario es responsable de observar y conocer a sus plantas, así como de decidir la forma de cuidarlas y los productos que utiliza.
+    </p>
+
+    <h2>8. Modificaciones</h2>
+
+    <p>
+      Nos reservamos el derecho a actualizar o modificar estos Términos en cualquier momento. Notificaremos los cambios relevantes a través de la aplicación o del sitio web oficial.
+    </p>
+
+    <h2>9. Terminación</h2>
+
+    <p>
+      Podemos suspender o cancelar tu acceso si incumples estos Términos.
+    </p>
+
+    <h2>10. Legislación aplicable</h2>
+
+    <p>
+      Estos Términos se regirán por las leyes de México.
+    </p>
+
+    <h2>11. Contacto</h2>
+
+    <p>
+      Si tienes dudas o sugerencias sobre estos Términos, puedes <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">escribir aquí</a>.
+    </p>
+
+    <hr />
+
+    <p>
+      Al utilizar <strong>Cosmos Plant Care</strong>, aceptas las condiciones descritas en estos términos.  
+      Gracias por confiar en nuestra aplicación para el cuidado de tus plantas. Si necesitas ayuda, puedes <a href="/digital-products/cosmos/support" class="no-underline text-blue-600 hover:text-blue-800">visitar nuestro centro de soporte</a>.
+    </p>
+
+
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

@@ -1,14 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
 import TermsContent from '../content/terms.mdx';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Términos y Condiciones">
   <Navbar />
 
   <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
+    <p class="text-gray-600 text-center mb-8">
+      <strong>Fecha de entrada en vigor:</strong> 1 de enero de 2024
+    </p>
     <TermsContent />
   </div>
 

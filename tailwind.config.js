@@ -26,6 +26,12 @@ module.exports = {
         textSecondary: '#666666',
         border: '#e0e0e0',
         borderSecondary: '#cccccc',
+        // Colores para productos digitales (azul)
+        'blue-primary': '#1e40af',
+        'blue-secondary': '#3b82f6',
+        'blue-accent': '#60a5fa',
+        'blue-light': '#dbeafe',
+        'blue-dark': '#1e3a8a',
       }
     },
   },
