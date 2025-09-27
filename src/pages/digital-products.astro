@@ -14,7 +14,7 @@ const apps = [
 		id: 1,
 		name: "Cosmos Plant Care",
 		description: "No más plantas olvidadas. Recordatorios de riego y fertilización para mantener tus plantas siempre saludables.",
-		icon: "/src/assets/store/cosmos-1.png",
+		image: "/assets/store/cosmos-1.png",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
 		price: "Gratis"
@@ -23,7 +23,7 @@ const apps = [
 		id: 2,
 		name: "Gym Partner", 
 		description: "Tu compañero perfecto para el gimnasio. Planifica rutinas, rastrea progreso y alcanza tus objetivos fitness.",
-		icon: "/src/assets/store/gym-2.png",
+		image: "/assets/store/gym-2.png",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
 		price: "Gratis"
@@ -93,9 +93,9 @@ const apps = [
 							</span>
 						</div>
 						
-						<!-- App Icon -->
+						<!-- App Image -->
 						<div class="mb-4 mt-8 mx-auto" style="width: 40%;">
-							<img src={app.icon} alt={app.name} class="w-full h-auto" />
+							<img src={app.image} alt={app.name} class="w-full h-auto" />
 						</div>
 						
 						<!-- App Description -->
@@ -106,14 +106,14 @@ const apps = [
 						<!-- Download Buttons -->
 						<div class="flex gap-2 items-start  mt-6 opacity-50">
 							<div class="flex-1 relative group">
-								<img src="/src/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
+								<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
 								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
 									Próximamente
 									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
 								</div>
 							</div>
 							<div class="flex-1 relative group">
-								<img src="/src/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
+								<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
 								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
 									Próximamente
 									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
