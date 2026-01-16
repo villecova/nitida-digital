@@ -1,0 +1,274 @@
+---
+import { getCollection } from 'astro:content';
+import Footer from '../../components/Footer.astro';
+import Navbar from '../../components/Navbar.astro';
+import Button from '../../components/shared/Button.astro';
+import ExpandGallery from '../../components/shared/ExpandGallery.svelte';
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Web Design & Development - Sitios Web Profesionales | Nítida Digital";
+const pageDescription = "Sitios web profesionales, responsivos y optimizados que convierten visitantes en clientes. Diseño y desarrollo web para negocios.";
+const pageUrl = "https://nitidadigital.com/services/web-design";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+// Filtrar proyectos de web
+const allEntries = await getCollection('work');
+const webProjects = allEntries.filter(entry => 
+  entry.data.scope?.toLowerCase().includes('página web') || 
+  entry.data.scope?.toLowerCase().includes('web') ||
+  entry.data.scope?.toLowerCase().includes('sitio')
+);
+
+const projects = webProjects.map((entry) => ({
+  slug: entry.slug,
+  title: entry.data.title,
+  gallery: entry.data.gallery
+}));
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+	<Navbar currentPath="/services/web-design" />
+	
+	<Welcome 
+		type="color"
+		color="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700"
+		title="Web Design & Development"
+		subtitle="Sitios web profesionales que convierten visitantes en clientes y generan resultados medibles."
+		primaryButton="Cotizar proyecto web"
+		primaryLink="/contact"
+		secondaryButton="Ver proyectos web"
+		secondaryLink="#portafolio"
+		mediaVariant="logo"
+		colorScheme="blue"
+	/>
+
+	<!-- Ideal para negocios que buscan -->
+	<section class="py-16 md:py-24 bg-slate-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Ideal para negocios que buscan:</h2>
+			</div>
+			<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="150">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Presencia digital profesional</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Un sitio web rápido, claro y confiable que refleje la calidad real de tu negocio.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Conversión y resultados</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Diseño estratégico enfocado en generar contactos, leads o ventas.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="250">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Crecimiento a largo plazo</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Una base digital escalable, optimizada y fácil de mantener.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Qué incluye específico de web -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Qué obtienes con tu sitio web</h2>
+				<p class="text-lg text-gray-700 mt-4 max-w-3xl mx-auto">
+					Un sitio web desactualizado o que no convierte está perdiendo oportunidades. Necesitas un sitio que refleje la calidad de tu negocio, sea rápido y convierta visitantes en clientes.
+				</p>
+				<p class="text-sm text-gray-500 mt-4">Ejemplos: Landing pages, sitios corporativos, e-commerce</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="150">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Diseño responsivo</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Se ve perfecto en todos los dispositivos: móvil, tablet y desktop.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Optimización SEO</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Tu sitio aparece en los resultados de búsqueda de Google.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="250">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Velocidad y rendimiento</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Sitios rápidos que mejoran la experiencia del usuario.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Formularios de contacto</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Sistemas para capturar leads y generar conversiones.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="350">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Launch + Support</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Configuración completa de hosting, deployment y soporte técnico continuo.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Proceso específico de web -->
+	<section class="py-16 md:py-24 bg-slate-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Cómo trabajamos</h2>
+			</div>
+
+			<div class="grid md:grid-cols-4 gap-8">
+				<div class="text-center" data-aos="fade-up" data-aos-delay="150">
+					<div class="w-16 h-16 bg-white rounded-xl border border-gray-200 flex items-center justify-center mx-auto mb-4 number-bounce number-bounce-1">
+						<span class="text-2xl font-bold text-blue-600">1</span>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Brief y descubrimiento</h3>
+					<p class="text-gray-600 text-sm">Entendemos tu negocio, objetivos y necesidades. Necesitamos claridad sobre tus objetivos, contenido base y tiempo para reuniones de alineación.</p>
+				</div>
+				<div class="text-center" data-aos="fade-up" data-aos-delay="200">
+					<div class="w-16 h-16 bg-white rounded-xl border border-gray-200 flex items-center justify-center mx-auto mb-4 number-bounce number-bounce-2">
+						<span class="text-2xl font-bold text-blue-600">2</span>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Diseño y wireframes</h3>
+					<p class="text-gray-600 text-sm">Creamos la estructura y diseño visual de tu sitio antes de desarrollar.</p>
+				</div>
+				<div class="text-center" data-aos="fade-up" data-aos-delay="250">
+					<div class="w-16 h-16 bg-white rounded-xl border border-gray-200 flex items-center justify-center mx-auto mb-4 number-bounce number-bounce-3">
+						<span class="text-2xl font-bold text-blue-600">3</span>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Desarrollo y pruebas</h3>
+					<p class="text-gray-600 text-sm">Construimos el sitio, optimizamos y probamos en todos los dispositivos.</p>
+				</div>
+				<div class="text-center" data-aos="fade-up" data-aos-delay="300">
+					<div class="w-16 h-16 bg-white rounded-xl border border-gray-200 flex items-center justify-center mx-auto mb-4 number-bounce number-bounce-4">
+						<span class="text-2xl font-bold text-blue-600">4</span>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Lanzamiento y soporte</h3>
+					<p class="text-gray-600 text-sm">Publicamos tu sitio y te damos acceso para que puedas actualizarlo.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Portafolio web -->
+	<section class="py-16 md:py-24 bg-white" id="portafolio">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Sitios web que hemos creado</h2>
+				<p class="text-lg text-accent mb-10">
+					Ejemplos de proyectos web que hemos desarrollado para nuestros clientes.
+				</p>
+			</div>
+
+			{projects.length > 0 ? (
+				<ExpandGallery client:only {projects} initialCount={6} colorScheme="blue" />
+			) : (
+				<div class="text-center py-12">
+					<p class="text-gray-600">Próximamente: ejemplos de nuestros proyectos web.</p>
+				</div>
+			)}
+		</div>
+	</section>
+
+	<!-- Mantenimiento específico de web -->
+	<section class="py-16 md:py-24 bg-slate-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div data-aos="fade-right" data-aos-delay="100">
+					<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-4 mb-6">Website care & updates</h2>
+					<p class="text-lg text-gray-700 mb-8 leading-relaxed">
+						Tu sitio web necesita mantenerse actualizado para seguir siendo confiable y efectivo. Nos encargamos del mantenimiento continuo para que funcione correctamente y acompañe el crecimiento de tu negocio.
+					</p>
+					<p class="text-base font-semibold text-gray-900 mb-5">Incluye:</p>
+					<ul class="space-y-4">
+						<li class="flex items-start text-gray-700">
+							<svg class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							<span class="text-base leading-relaxed">Actualizaciones de contenido</span>
+						</li>
+						<li class="flex items-start text-gray-700">
+							<svg class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							<span class="text-base leading-relaxed">Soporte técnico continuo</span>
+						</li>
+						<li class="flex items-start text-gray-700">
+							<svg class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							<span class="text-base leading-relaxed">Mejoras y ajustes periódicos</span>
+						</li>
+						<li class="flex items-start text-gray-700">
+							<svg class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							<span class="text-base leading-relaxed">Planes mensuales disponibles</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-xl p-8 border border-blue-100 shadow-sm" data-aos="fade-left" data-aos-delay="200">
+					<p class="text-gray-700 mb-6 leading-relaxed">
+						Un sitio web bien cuidado genera confianza, profesionalismo y mejores resultados a largo plazo. Nosotros gestionamos los detalles técnicos para que tú te enfoques en tu negocio.
+					</p>
+					<div class="mb-6">
+						<p class="text-xs text-gray-500 mb-4 tracking-wide uppercase">Planes flexibles · Soporte continuo</p>
+						<Button href="/contact" label="Conocer planes de mantenimiento" variant="primary" colorScheme="blue" />
+					</div>
+					<div class="pt-4 border-t border-gray-100">
+						<p class="text-xs text-gray-500 flex items-center">
+							<svg class="w-3 h-3 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							</svg>
+							Servicio continuo · Sin contratos largos
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA específico -->
+	<section class="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-800">
+		<div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
+			<h2 class="text-3xl md:text-5xl font-main text-white my-2 mb-6">
+				¿Listo para tener un sitio web que convierta?
+			</h2>
+			<Button href="/contact" label="Cotizar proyecto web" variant="secondary" colorScheme="blue" />
+		</div>
+	</section>
+
+	<Footer />
+</Layout>

@@ -15,7 +15,7 @@ interface Props {
 const { title, subtitle, description, features, icon, link } = Astro.props;
 ---
 
-<div class="flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100  dark:border-gray-600 dark:bg-gray-800 dark:text-white ">
+<div class="flex flex-col bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
   <div class="p-6 flex-auto">
     <h3 class="mb-4 text-3xl font-main text-secondary">{title}</h3>
     <p class="font-light text-gray-500 dark:text-gray-400 text-sm">{subtitle}</p>

@@ -1,43 +1,117 @@
 ---
-import Benefits from '../components/Benefits.astro';
 import Contact from '../components/Contact.astro';
-import Faqs from '../components/Faqs.astro';
 import Footer from '../components/Footer.astro';
-import Gallery from '../components/Gallery.astro';
-import How from '../components/How.astro';
-import Individual from '../components/Individual.astro';
 import Navbar from '../components/Navbar.astro';
-import Princing from '../components/Princing.astro';
-import Services from '../components/Services.astro';
+import Badge from '../components/shared/Badge.astro';
+import Button from '../components/shared/Button.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Diseño Digital y Branding Profesional | Nítida Digital";
-const pageDescription = "Servicios de diseño digital, branding estratégico, identidad visual y páginas web profesionales. Creamos marcas memorables que conectan con tu audiencia.";
+const pageTitle = "Branding & Graphic Design | Nítida Digital";
+const pageDescription = "We create visual identities that help brands look consistent, professional and recognizable. Brand identity, logo systems, visual guidelines, and marketing materials.";
 const pageUrl = "https://nitidadigital.com/design";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
 	<Navbar currentPath="/design" />
+	
 	<Welcome 
 		type="color"
 		color="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-700"
-		title="Todo lo que tu marca necesita, en un solo lugar"
-		subtitle="Diseño y branding estratégico, profesional y hecho por expertos, adaptado a las necesidades de tu proyecto."
-		primaryLabel="Agendar una llamada"
-		primaryLink="mailto:nitidacrea@gmail.com?subject=Solicitud%20para%20agendar%20una%20llamada&body=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20llamada%20para%20conocer%20m%C3%A1s%20sobre%20sus%20servicios.%20%C2%BFCu%C3%A1ndo%20podr%C3%ADamos%20agendarla%3F%20Gracias."
-		secondaryLabel="Explorar proyectos"
-		secondaryLink="/works"
+		title="Branding & Graphic Design"
+		subtitle="We create visual identities that help brands look consistent, professional and recognizable."
+		primaryButton="Request branding proposal"
+		primaryLink="/contact"
+		secondaryButton="View services"
+		secondaryLink="/services"
 		mediaVariant="logo"
+		colorScheme="purple"
 	/>
-	<Gallery  />
-	<How  />
-	<Benefits  />
-	<Services  />
-	<Princing  />
-	<Individual  />
-	<Faqs  />
-	<Contact  />
-	<Footer  />
+
+	<!-- Services include -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<Badge label="Services include" color="yellow" />
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">What we deliver</h2>
+			</div>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="150">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Brand identity</h3>
+					<p class="text-gray-600 text-sm">Complete visual system that represents your brand consistently.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Logo systems</h3>
+					<p class="text-gray-600 text-sm">Versatile logo variations for different contexts and applications.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="250">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Visual guidelines</h3>
+					<p class="text-gray-600 text-sm">Brand manual to maintain consistency across all touchpoints.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Marketing materials</h3>
+					<p class="text-gray-600 text-sm">Business cards, letterheads, social media assets, and more.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="350">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Social media assets</h3>
+					<p class="text-gray-600 text-sm">Templates and graphics for consistent social presence.</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Print & digital</h3>
+					<p class="text-gray-600 text-sm">Ready-to-use files for both print and digital applications.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cómo se trabaja -->
+	<section class="py-16 md:py-24 bg-slate-50">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<Badge label="How we work" color="yellow" />
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Project-based approach</h2>
+			</div>
+
+			<div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl" data-aos="fade-up" data-aos-delay="150">
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-2xl font-bold text-purple-600">1</span>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Clear scope</h3>
+						<p class="text-gray-600 text-sm">We define exactly what's included in your project.</p>
+					</div>
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-2xl font-bold text-purple-600">2</span>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Defined delivery</h3>
+						<p class="text-gray-600 text-sm">You know exactly when you'll receive each deliverable.</p>
+					</div>
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<span class="text-2xl font-bold text-purple-600">3</span>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Project-based</h3>
+						<p class="text-gray-600 text-sm">Fixed scope, fixed timeline, clear expectations.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
+			<h2 class="text-3xl md:text-4xl font-main text-gray-900 mb-6">
+				Ready to build a consistent brand identity?
+			</h2>
+			<Button href="/contact" label="Request branding proposal" variant="primary" colorScheme="purple" />
+		</div>
+	</section>
+
+	<Contact />
+	<Footer />
 </Layout>
