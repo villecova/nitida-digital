@@ -1,20 +1,25 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import Princing from '../components/Princing.astro';
+import PlansSelector from '../components/shared/PlansSelector.svelte';
 import Layout from '../layouts/Layout.astro';
 
 const pageTitle = "Planes de Servicios - Web Design y Branding | Nítida Digital";
 const pageDescription = "Explora nuestros planes de servicios para Web Design y Branding. Elige el paquete que mejor se adapta a tu proyecto.";
 const pageUrl = "https://nitidadigital.com/planes";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+// Obtener el servicio desde la URL (query param)
+const url = Astro.url;
+const serviceParam = url.searchParams.get('service') || 'web';
+const selectedService = serviceParam === 'branding' ? 'branding' : 'web';
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
 	<Navbar currentPath="/planes" />
 	
 	<div class="pt-16">
-		<Princing />
+		<PlansSelector client:load selectedService={selectedService} />
 	</div>
 
 	<Footer />

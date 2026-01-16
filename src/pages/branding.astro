@@ -50,7 +50,7 @@ const t = es.branding;
 
 	<IdealPara 
 		title={t.idealFor.title}
-		plansLink="/branding/plans"
+		plansLink="/planes?service=branding"
 		items={t.idealFor.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -58,7 +58,7 @@ const t = es.branding;
 	<QueObtienes 
 		title={t.whatYouGet.title}
 		intro={t.whatYouGet.intro}
-		plansLink="/branding/plans"
+		plansLink="/planes?service=branding"
 		items={t.whatYouGet.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -73,7 +73,7 @@ const t = es.branding;
 		title={t.portfolio.title}
 		subtitle={t.portfolio.subtitle}
 		emptyMessage={t.portfolio.empty}
-		plansLink="/branding/plans"
+		plansLink="/planes?service=branding"
 		{projects}
 		colorScheme="purple"
 	/>
@@ -84,7 +84,7 @@ const t = es.branding;
 		primaryButtonLabel={t.cta.primaryButton}
 		primaryButtonHref="/contact"
 		secondaryButtonLabel={t.cta.secondaryButton}
-		secondaryButtonHref="/branding/plans"
+		secondaryButtonHref="/planes?service=branding"
 		colorScheme="purple"
 	/>
 
