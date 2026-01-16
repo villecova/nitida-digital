@@ -1,10 +1,18 @@
 ---
-import Badge from './shared/Badge.astro';
-import Button from './shared/Button.astro';
 import PricingCard from './shared/PricingCard.astro';
 
 // Recibe una prop para decidir si mostrar solo el plan de especialistas
-const { onlySpecialist = false } = Astro.props;
+const { onlySpecialist = false, colorScheme = null, backLink = null, backLabel = null } = Astro.props;
+
+const colorClasses = {
+  blue: 'text-blue-600 hover:text-blue-700',
+  purple: 'text-purple-600 hover:text-purple-700',
+  yellow: 'text-yellow-600 hover:text-yellow-700'
+};
+
+const backLinkColor = colorScheme && colorClasses[colorScheme as keyof typeof colorClasses] 
+  ? colorClasses[colorScheme as keyof typeof colorClasses]
+  : 'text-gray-900 hover:text-gray-700';
 
 const plans = [
   {
@@ -71,29 +79,41 @@ const subtitle = isOnlyOne
   : 'Explora las opciones y elige el paquete que mejor se adapta a tu proyecto.';
 ---
 
-<section class="bg-slate-50 dark:bg-gray-900 py-8 md:py-12" id="planes">
-  <div class="max-w-screen-lg mx-auto px-4">
-    <div class="text-center mb-12 md:w-3/4 m-auto">
-      <Badge label="Planes" color="yellow" />
-      <h2 class="text-3xl md:text-5xl font-main text-gray-900 dark:text-white my-2">
+<section class="bg-slate-50 py-16 md:py-24" id="planes">
+  <div class="max-w-6xl mx-auto px-4">
+    {backLink && backLabel && (
+      <div class="mb-8" data-aos="fade-up" data-aos-delay="50">
+        <a href={backLink} class={`inline-flex items-center font-semibold text-sm ${backLinkColor}`}>
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          {backLabel}
+        </a>
+      </div>
+    )}
+    <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">
         {title}
       </h2>
-      <p class="text-accent dark:text-gray-400 text-lg">
+      <p class="text-lg text-accent max-w-2xl mx-auto">
        {subtitle}
       </p>
     </div>
 
-    <div class={` ${isOnlyOne ? 'm-auto md:w-[400px] place-items-center' : ' grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`} data-aos="fade-up" data-aos-delay="100">
-      {filteredPlans.map((plan) => (
-        <PricingCard
-          title={plan.title}
-          subtitle={plan.subtitle}
-          description={plan.description}
-          subtext={plan.subtext}
-          features={plan.features}
-          buttonText={plan.buttonText}
-          link={plan.link}
-        />
+    <div class={`${isOnlyOne ? 'm-auto md:w-[400px] place-items-center' : 'grid md:grid-cols-3 gap-8'}`}>
+      {filteredPlans.map((plan, index) => (
+        <div data-aos="fade-up" data-aos-delay={100 + (index * 50)}>
+          <PricingCard
+            title={plan.title}
+            subtitle={plan.subtitle}
+            description={plan.description}
+            features={plan.features}
+            buttonText={plan.buttonText}
+            link={plan.link}
+            icon="check"
+            colorScheme={colorScheme}
+          />
+        </div>
       ))}
     </div>
   </div>

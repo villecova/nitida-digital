@@ -2,46 +2,40 @@
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import AnimatedCounter from '../components/shared/AnimatedCounter.svelte';
-import Button from '../components/shared/Button.astro';
+import Welcome from '../components/Welcome.astro';
+import { es } from '../i18n/es';
 import Layout from '../layouts/Layout.astro';
 
 const pageTitle = "Nítida Digital - Diseño y Desarrollo Web para Negocios | Inicio";
 const pageDescription = "Estudio de diseño y desarrollo web para negocios. Creamos sitios web profesionales, branding estratégico y productos digitales que impulsan tu negocio.";
 const pageUrl = "https://nitidadigital.com/";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+const t = es.home;
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
 	<Navbar currentPath="/" />
 	
-	<!-- Hero Section - Venta First -->
-	<section class="min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-800 pt-16 flex items-center justify-center">
-		<div class="w-full px-4 py-16 max-w-6xl mx-auto">
-			<div class="text-center mb-4" data-aos="fade-up" data-aos-delay="50">
-				<img src="/assets/images/hero_logo-w.svg" class="w-3/4 md:w-1/3 mx-auto" alt="Nitida Digital Logo" />
-			</div>
-			
-			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
-				<h1 class="text-4xl md:text-6xl lg:text-7xl font-main text-white mb-6 mt-4 max-w-4xl mx-auto">
-					Diseño con intención
-				</h1>
-				<p class="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
-					Soluciones digitales para negocios que buscan crecer online.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="150">
-					<Button href="#servicios" label="Ver servicios" variant="secondary" />
-				</div>
-			</div>
-		</div>
-	</section>
+	<Welcome 
+		type="color"
+		color="bg-gradient-to-r from-gray-900 via-black to-gray-800"
+		title={t.hero.title}
+		subtitle={t.hero.subtitle}
+		primaryButton={t.hero.cta}
+		primaryLink="#servicios"
+		secondaryButton=""
+		secondaryLink=""
+		mediaVariant="logo"
+	/>
 
 	<!-- Servicios Principales - Estilo nuevo -->
 	<section class="py-16 md:py-24 bg-white" id="servicios">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
-				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Nuestros servicios</h2>
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.services.title}</h2>
 				<p class="text-lg text-accent max-w-2xl mx-auto">
-					Web Design & Development lidera nuestro portafolio, acompañado de Branding y Productos Digitales.
+					{t.services.subtitle}
 				</p>
 			</div>
 
@@ -57,9 +51,14 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
 						Nuestro servicio principal. Sitios web profesionales, responsivos y optimizados que convierten visitantes en clientes.
 					</p>
-					<a href="/services/web-design" class="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center">
-						Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-					</a>
+					<div class="flex flex-col gap-2">
+						<a href="/web-design" class="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center">
+							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</a>
+						<a href="/web-design/plans" class="text-blue-600 text-xs hover:text-blue-700 inline-flex items-center">
+							Ver alcances →
+						</a>
+					</div>
 				</div>
 
 				<!-- Branding & Graphic Design -->
@@ -73,9 +72,14 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
 						Identidad visual completa que comunica tu propuesta de valor y diferencia tu marca en el mercado.
 					</p>
-					<a href="/services/branding" class="text-purple-600 font-semibold text-sm hover:text-purple-700 inline-flex items-center">
-						Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-					</a>
+					<div class="flex flex-col gap-2">
+						<a href="/branding" class="text-purple-600 font-semibold text-sm hover:text-purple-700 inline-flex items-center">
+							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</a>
+						<a href="/branding/plans" class="text-purple-600 text-xs hover:text-purple-700 inline-flex items-center">
+							Ver alcances →
+						</a>
+					</div>
 				</div>
 
 				<!-- Digital Products -->
@@ -101,26 +105,26 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 	<section class="py-16 md:py-24 bg-slate-50">
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
-				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Resultados que hablan por sí solos</h2>
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.results.title}</h2>
 			</div>
 			<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="150">
 					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
 						<AnimatedCounter client:only="svelte" target={10} suffix="+" duration={2000} delay={200} />
 					</div>
-					<p class="text-gray-600 font-medium">años de experiencia</p>
+					<p class="text-gray-600 font-medium">{t.results.years}</p>
 				</div>
 				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="200">
 					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
 						<AnimatedCounter client:only="svelte" target={50} suffix="+" duration={2000} delay={400} />
 					</div>
-					<p class="text-gray-600 font-medium">proyectos entregados</p>
+					<p class="text-gray-600 font-medium">{t.results.projects}</p>
 				</div>
 				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="250">
 					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
 						<AnimatedCounter client:only="svelte" target={24} suffix="h" duration={2000} delay={600} />
 					</div>
-					<p class="text-gray-600 font-medium">respuesta garantizada</p>
+					<p class="text-gray-600 font-medium">{t.results.response}</p>
 				</div>
 			</div>
 		</div>

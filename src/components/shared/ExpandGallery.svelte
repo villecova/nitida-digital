@@ -9,18 +9,18 @@
     visibleCount += 4;
   };
 
-  // Obtener las clases del botón según el colorScheme
+  // Obtener las clases del botón según el colorScheme (tertiary para fondos claros)
   $: buttonClasses = (() => {
-    const baseClass = "cursor-pointer uppercase inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200";
+    const baseClass = "cursor-pointer uppercase inline-flex items-center justify-center px-5 py-2.5 text-base font-medium rounded-lg focus:outline-none transition-all duration-200";
     
     if (colorScheme === 'blue') {
-      return `${baseClass} bg-blue-600 text-white hover:bg-black hover:shadow-xl focus:ring-4 focus:ring-blue-500/50`;
+      return `${baseClass} text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-4 focus:ring-blue-500/50`;
     } else if (colorScheme === 'purple') {
-      return `${baseClass} bg-purple-600 text-white hover:bg-black hover:shadow-xl focus:ring-4 focus:ring-purple-500/50`;
+      return `${baseClass} text-purple-600 border border-purple-600 hover:bg-purple-600 hover:text-white focus:ring-4 focus:ring-purple-500/50`;
     } else if (colorScheme === 'yellow') {
-      return `${baseClass} bg-yellow-500 text-white hover:bg-black hover:shadow-xl focus:ring-4 focus:ring-yellow-500/50`;
+      return `${baseClass} text-yellow-600 border border-yellow-600 hover:bg-yellow-500 hover:text-white focus:ring-4 focus:ring-yellow-500/50`;
     } else {
-      return `${baseClass} bg-primary text-white hover:bg-black hover:shadow-xl focus:ring-4 focus:ring-primary/50`;
+      return `${baseClass} text-primary border border-primary hover:bg-primary hover:text-white focus:ring-4 focus:ring-primary/50`;
     }
   })();
 </script>
@@ -48,7 +48,7 @@
 </div>
 
 {#if visibleCount < projects.length}
-  <div class="text-center mt-6">
+  <div class="text-center mt-12">
     <button on:click={showMore} class={buttonClasses}>
       Ver más
     </button>

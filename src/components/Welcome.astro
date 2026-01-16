@@ -46,18 +46,22 @@ const {
       </div>
     )}
 
-    <h1 class={`mb-6 font-main mx-auto text-4xl md:text-6xl lg:text-7xl max-w-4xl ${type === 'color' ? 'text-white' : 'text-gray-900 dark:text-white'}`} data-aos="fade-up" data-aos-delay="100">{title}</h1>
+    <h1 class={`mb-6 font-main mx-auto text-4xl md:text-6xl lg:text-7xl max-w-5xl ${type === 'color' ? 'text-white' : 'text-gray-900 dark:text-white'}`} data-aos="fade-up" data-aos-delay="100">{title}</h1>
     <p class={`mb-8 text-xl md:text-2xl font-normal max-w-3xl mx-auto ${type === 'color' ? 'text-purple-100' : 'text-accent dark:text-gray-400'}`} data-aos="fade-up" data-aos-delay="150">{subtitle}</p>
     <div class="flex flex-col gap-4 sm:flex-row sm:justify-center sm:space-y-0" data-aos="fade-up" data-aos-delay="200">
       {colorScheme ? (
         <>
           <Button href={primaryLink} label={primaryButton} variant="secondary" colorScheme={colorScheme} />
-          <Button href={secondaryLink} label={secondaryButton} variant="tertiary" colorScheme={colorScheme} />
+          {secondaryButton && (
+            <Button href={secondaryLink} label={secondaryButton} variant="tertiary" colorScheme={colorScheme} />
+          )}
         </>
       ) : (
         <>
-          <Button href={primaryLink} label={primaryButton} variant="primary" />
-          <Button href={secondaryLink} label={secondaryButton} variant={type === 'color' ? 'secondary-hero' : 'secondary'} />
+          <Button href={primaryLink} label={primaryButton} variant={type === 'color' ? 'secondary' : 'primary'} />
+          {secondaryButton && (
+            <Button href={secondaryLink} label={secondaryButton} variant={type === 'color' ? 'secondary-hero' : 'secondary'} />
+          )}
         </>
       )}
     </div>

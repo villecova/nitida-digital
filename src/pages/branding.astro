@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+import ComoTrabajamos from '../components/shared/ComoTrabajamos.astro';
+import IdealPara from '../components/shared/IdealPara.astro';
+import QueObtienes from '../components/shared/QueObtienes.astro';
+import ServiceCTA from '../components/shared/ServiceCTA.astro';
+import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
+import Welcome from '../components/Welcome.astro';
+import { es } from '../i18n/es';
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Branding & Graphic Design - Identidad Visual Profesional | Nítida Digital";
+const pageDescription = "Creamos identidades visuales que ayudan a las marcas a verse consistentes, profesionales y reconocibles. Branding estratégico y diseño gráfico.";
+const pageUrl = "https://nitidadigital.com/branding";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+// Filtrar proyectos de branding (todo lo que NO es web)
+const allEntries = await getCollection('work');
+const brandingProjects = allEntries.filter(entry => {
+  const scope = entry.data.scope?.toLowerCase() || '';
+  return !scope.includes('página web') && !scope.includes('web') && !scope.includes('sitio');
+});
+
+const projects = brandingProjects.map((entry) => ({
+  slug: entry.slug,
+  title: entry.data.title,
+  gallery: entry.data.gallery || []
+}));
+
+const t = es.branding;
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+	<Navbar currentPath="/branding" />
+	
+	<Welcome 
+		type="color"
+		color="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-700"
+		title={t.hero.title}
+		subtitle={t.hero.subtitle}
+		primaryButton={t.hero.primaryButton}
+		primaryLink="/contact"
+		secondaryButton={t.hero.secondaryButton}
+		secondaryLink="#portafolio"
+		mediaVariant="logo"
+		colorScheme="purple"
+	/>
+
+	<IdealPara 
+		title={t.idealFor.title}
+		plansLink="/branding/plans"
+		items={t.idealFor.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
+		colorScheme="purple"
+	/>
+
+	<QueObtienes 
+		title={t.whatYouGet.title}
+		intro={t.whatYouGet.intro}
+		plansLink="/branding/plans"
+		items={t.whatYouGet.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
+		colorScheme="purple"
+	/>
+
+	<ComoTrabajamos 
+		title={t.howWeWork.title}
+		steps={t.howWeWork.steps}
+		colorScheme="purple"
+	/>
+
+	<ServicePortfolio 
+		title={t.portfolio.title}
+		subtitle={t.portfolio.subtitle}
+		emptyMessage={t.portfolio.empty}
+		plansLink="/branding/plans"
+		{projects}
+		colorScheme="purple"
+	/>
+
+	<ServiceCTA 
+		title={t.cta.title}
+		description={t.cta.description}
+		primaryButtonLabel={t.cta.primaryButton}
+		primaryButtonHref="/contact"
+		secondaryButtonLabel={t.cta.secondaryButton}
+		secondaryButtonHref="/branding/plans"
+		colorScheme="purple"
+	/>
+
+	<Footer />
+</Layout>

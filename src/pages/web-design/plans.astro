@@ -1,0 +1,21 @@
+---
+import Footer from '../../components/Footer.astro';
+import Navbar from '../../components/Navbar.astro';
+import Princing from '../../components/Princing.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Planes de Web Design - Sitios Web Profesionales | Nítida Digital";
+const pageDescription = "Explora nuestros planes de servicios para Web Design. Elige el paquete que mejor se adapta a tu proyecto de sitio web.";
+const pageUrl = "https://nitidadigital.com/web-design/plans";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+	<Navbar currentPath="/web-design/plans" />
+	
+	<div class="pt-16">
+		<Princing colorScheme="blue" backLink="/web-design" backLabel="Volver a Web Design" />
+	</div>
+
+	<Footer />
+</Layout>

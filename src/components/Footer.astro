@@ -3,15 +3,11 @@ const { hideTerms = false, hideSocial = false } = Astro.props;
 
 const links = [
   { label: 'Inicio', href: '/' },
-  { label: 'Servicios', href: '/services' },
-  { label: 'Proyectos', href: '/works' },
-  { label: 'Nosotros', href: '/about' },
   { label: 'Contacto', href: '/contact' },
   ...(hideTerms ? [] : [{ label: 'Términos y condiciones', href: '/terms-and-conditions' }])
 ];
 
 const socialLinks = [
-  { label: 'Proyectos', href: '/works' },
   { label: 'Instagram', href: 'https://www.instagram.com/nitida.digital/', external: true }
 ];
 ---
