@@ -6,6 +6,8 @@
   export let buttonText = '';
   export let link = '';
   export let colorScheme = null;
+  export let isRecommended = false;
+  export let price = null;
 
   const colorPalettes = {
     blue: {
@@ -25,13 +27,38 @@
   $: buttonClass = colorScheme && colorPalettes[colorScheme]
     ? `${colorPalettes[colorScheme].primary} text-white`
     : 'bg-primary hover:bg-black text-white';
+
+  $: badgeColor = colorScheme === 'blue' 
+    ? 'bg-blue-600 text-white' 
+    : colorScheme === 'purple' 
+    ? 'bg-purple-600 text-white' 
+    : colorScheme === 'yellow'
+    ? 'bg-yellow-600 text-white'
+    : 'bg-gray-600 text-white';
+
+  $: borderColor = colorScheme === 'blue'
+    ? 'border-blue-600'
+    : colorScheme === 'purple'
+    ? 'border-purple-600'
+    : colorScheme === 'yellow'
+    ? 'border-yellow-600'
+    : 'border-gray-200';
 </script>
 
-<div class="flex flex-col bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex flex-col bg-white rounded-2xl p-8 border-2 transition-shadow duration-300 relative {isRecommended ? `${borderColor} shadow-lg hover:shadow-xl` : 'border-gray-200 shadow-sm hover:shadow-md'}">
+  {#if isRecommended}
+    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+      <span class="{badgeColor} text-xs font-semibold px-3 py-1 rounded-full">⭐ Recomendado</span>
+    </div>
+  {/if}
   <div class="flex-auto">
     <h3 class="mb-3 text-2xl font-bold text-gray-900 leading-tight">{title}</h3>
     <p class="text-gray-600 text-sm mb-4">{subtitle}</p>
-
+    {#if price}
+      <div class="mb-4">
+        <p class="text-2xl font-bold text-gray-900">{price}</p>
+      </div>
+    {/if}
     <p class="text-gray-600 mb-6 text-sm leading-relaxed">{description}</p>
     <p class="text-gray-900 font-semibold mb-4 text-sm">Incluye:</p>
     <ul role="list" class="mb-8 space-y-3 text-left">

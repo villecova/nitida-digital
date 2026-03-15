@@ -93,7 +93,7 @@ const subtitle = onlySpecialist
       {benefits.map((benefit, index) => (
         <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay={150 + (index * 50)}>
           <div class="mb-6">
-            <LottieIcon client:only="svelte" src={benefit.icon} />
+          <LottieIcon client:only="svelte" src={benefit.icon} />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">{benefit.title}</h3>
           <p class="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
