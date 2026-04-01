@@ -1,0 +1,146 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Soporte - NutriPill | Nítida Digital";
+const pageDescription = "Página de soporte para NutriPill. Guía de uso, preguntas frecuentes y contacto para organizar recordatorios de pastillas, suplementos y hábitos diarios.";
+const pageUrl = "https://nitidadigital.com/digital-products/nutripill/support";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-emerald-100">
+        <span class="text-5xl">💊</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – NutriPill</h1>
+      <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto mb-4">
+        Bienvenido a la página de soporte de NutriPill, tu asistente para organizar recordatorios de pastillas, suplementos y hábitos diarios.
+      </p>
+      <p class="text-gray-600 font-primary max-w-3xl mx-auto">
+        La aplicación está diseñada para ayudarte a mantener una rutina constante mediante recordatorios simples y un seguimiento fácil de tus tareas diarias.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate max-w-none">
+      <!-- Guía rápida de uso -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">📘</span>
+          Guía rápida de uso
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea tu primer recordatorio</h3>
+              <p class="text-gray-600">Añade el nombre de la pastilla, suplemento o hábito que deseas seguir.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Configura la frecuencia</h3>
+              <p class="text-gray-600">Define cada cuánto tiempo deseas recibir el recordatorio (por ejemplo: diario o en horarios específicos).</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Recibe tus recordatorios</h3>
+              <p class="text-gray-600">La aplicación te notificará cuando llegue el momento de realizar tu toma o completar tu tarea.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Marca como completado</h3>
+              <p class="text-gray-600">Cuando completes la tarea, puedes marcarla como realizada y mantener tu seguimiento diario.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preguntas frecuentes -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">❓</span>
+          Preguntas frecuentes (FAQ)
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">1. ¿Necesito conexión a internet para usar la app?</h3>
+            <p class="text-gray-600 mb-1"><strong>No necesariamente.</strong></p>
+            <p class="text-gray-600 m-0">La mayor parte de la información se guarda directamente en tu dispositivo, por lo que la aplicación puede funcionar sin conexión para las funciones principales.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">2. ¿Puedo modificar mis recordatorios?</h3>
+            <p class="text-gray-600 mb-1"><strong>Sí.</strong></p>
+            <p class="text-gray-600 m-0">Puedes editar el nombre, horario o frecuencia de cualquier recordatorio en cualquier momento desde la aplicación.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">3. ¿La app envía notificaciones?</h3>
+            <p class="text-gray-600 mb-1"><strong>Sí.</strong></p>
+            <p class="text-gray-600 m-0">NutriPill utiliza notificaciones del dispositivo para avisarte cuando llega el momento de completar un recordatorio.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">4. ¿Qué pasa si cambio de dispositivo?</h3>
+            <p class="text-gray-600 m-0">Actualmente la información se almacena en tu dispositivo. Si cambias de teléfono, los datos anteriores no se transfieren automáticamente.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">5. ¿La aplicación ofrece asesoramiento médico?</h3>
+            <p class="text-gray-600 mb-1"><strong>No.</strong></p>
+            <p class="text-gray-600 m-0">NutriPill es una herramienta de organización personal para recordatorios y seguimiento de hábitos. No sustituye el consejo de profesionales de la salud.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto de soporte -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">🛠️</span>
+          Contacto de soporte
+        </h2>
+        <p class="text-gray-600 mb-4">Si tienes problemas, dudas o sugerencias, puedes contactarnos:</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-4">📧</span>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1">Correo electrónico</p>
+              <a href="mailto:contacto@nitidadigital.com" class="no-underline text-blue-600 hover:text-blue-800">contacto@nitidadigital.com</a>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-4">🌐</span>
+            <div>
+              <p class="font-semibold text-gray-900 mb-1">Sitio web</p>
+              <a href="https://nitidadigital.com" class="no-underline text-blue-600 hover:text-blue-800">nitidadigital.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacidad -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔒</span>
+          Privacidad
+        </h2>
+        <div class="space-y-4 text-gray-600">
+          <p><strong>NutriPill</strong> respeta la privacidad de los usuarios.</p>
+          <p>La aplicación almacena únicamente la información necesaria para crear recordatorios y registrar el progreso dentro del dispositivo del usuario.</p>
+          <p>La app puede mostrar anuncios mediante servicios de terceros como Google <strong>AdMob</strong>. Estos servicios pueden recopilar información técnica del dispositivo de acuerdo con sus propias políticas de privacidad.</p>
+          <p>Puedes leer nuestra política de privacidad completa aquí: <a href="/digital-products/nutripill/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y nuestros <a href="/digital-products/nutripill/term-nutripill" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

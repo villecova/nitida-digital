@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Digital Products - Apps Móviles y Productos Digitales | Nítida Digital";
-const pageDescription = "Descubre nuestras aplicaciones móviles: Cosmos Plant Care y Gym Partner. Apps innovadoras disponibles próximamente en App Store y Google Play.";
+const pageTitle = "Apps Móviles y Productos Digitales | Nítida Digital";
+const pageDescription = "Descubre nuestras aplicaciones móviles: Cosmos Plant Care, Gym Partner y Nutripill. Apps innovadoras disponibles próximamente en App Store y Google Play.";
 const pageUrl = "https://nitidadigital.com/digital-products";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 
@@ -25,6 +25,15 @@ const apps = [
 		name: "Gym Partner", 
 		description: "Tu compañero perfecto para el gimnasio. Planifica rutinas, rastrea progreso y alcanza tus objetivos fitness.",
 		image: "/assets/store/gym-2.png",
+		appleStore: "https://apps.apple.com",
+		googlePlay: "https://play.google.com",
+		price: "Gratis"
+	},
+	{
+		id: 3,
+		name: "Nutripill",
+		description: "Controla tu nutrición y recordatorios de suplementos. Lleva un seguimiento de tu bienestar y hábitos saludables.",
+		image: "/assets/store/cosmos-1.png",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
 		price: "Gratis"
@@ -48,19 +57,19 @@ const apps = [
 		colorScheme="yellow"
 	/>
 
-	<!-- Products Section -->
-	<section id="products" class="py-16 md:py-24 bg-white">
-		<div class="max-w-6xl mx-auto px-4">
-			<!-- Section Header -->
-			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="50">
-				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Aplicaciones móviles</h2>
-				<p class="text-lg text-accent max-w-3xl mx-auto">
-					Aplicaciones móviles diseñadas para mejorar tu experiencia diaria
-				</p>
-			</div>
-			
-			<!-- Apps Grid -->
-			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+		<!-- Apps Section -->
+		<section id="apps" class="py-32 bg-gray-50">
+			<div class="max-w-6xl mx-auto px-4">
+				<!-- Section Header -->
+				<div class="text-center mb-20" data-aos="fade-up" data-aos-delay="50">
+					<h2 class="text-4xl font-bold text-gray-900 mb-4 font-main">Nuestras Apps</h2>
+					<p class="text-xl text-gray-600 font-primary">
+						Aplicaciones móviles diseñadas para mejorar tu experiencia diaria
+					</p>
+				</div>
+				
+				<!-- Apps Grid -->
+				<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 				{apps.map((app, index) => (
 					<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay={100 + (index * 100)}>
 						<!-- App Info -->
@@ -72,8 +81,14 @@ const apps = [
 						</div>
 						
 						<!-- App Image -->
-						<div class="mb-6 mx-auto" style="width: 40%;">
-							<img src={app.image} alt={app.name} class="w-full h-auto" />
+						<div class="mb-4 mt-8 mx-auto" style="width: 40%;">
+							{app.name === "Nutripill" ? (
+								<div class="w-full aspect-[425/856] rounded-xl bg-gray-200 flex items-center justify-center" aria-hidden="true">
+									<span class="text-gray-400 text-4xl">💊</span>
+								</div>
+							) : (
+								<img src={app.image} alt={app.name} class="w-full h-auto" />
+							)}
 						</div>
 						
 						<!-- App Description -->
@@ -105,8 +120,12 @@ const apps = [
 								<a href="/digital-products/cosmos/term-cosmos" class="text-gray-400 hover:text-gray-600 text-[10px]">
 									Términos y Condiciones
 								</a>
+							) : app.name === "Nutripill" ? (
+								<a href="/digital-products/nutripill/term-nutripill" class="text-gray-400 hover:text-gray-600 text-[10px]">
+									Términos y Condiciones
+								</a>
 							) : (
-								<span class="text-gray-300 text-xs cursor-not-allowed text-[10px]">
+								<span class="text-gray-300 cursor-not-allowed text-[10px]">
 									Términos y Condiciones
 								</span>
 							)}

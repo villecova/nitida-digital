@@ -1,0 +1,145 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Política de Privacidad - Nutripill | Nítida Digital";
+const pageDescription = "Política de privacidad de NutriPill. Cómo la app maneja la información, datos almacenados localmente y publicidad mediante servicios de terceros.";
+const pageUrl = "https://nitidadigital.com/digital-products/nutripill/privacy-policy";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Política de Privacidad — NutriPill</h1>
+      <p class="text-gray-600">
+        <strong>Última actualización:</strong> Marzo 2026
+      </p>
+    </div>
+
+    <p>
+      <strong>NutriPill</strong> respeta la privacidad de sus usuarios y se compromete a proteger cualquier información utilizada dentro de la aplicación. Esta política describe cómo la aplicación maneja la información y qué datos pueden recopilarse durante su uso.
+    </p>
+
+    <h2>1. Información que recopila la aplicación</h2>
+
+    <p>
+      <strong>NutriPill</strong> está diseñada como una herramienta de organización personal.
+    </p>
+
+    <p>
+      La aplicación puede almacenar información introducida por el usuario para poder funcionar correctamente, como por ejemplo:
+    </p>
+
+    <ul>
+      <li>Recordatorios configurados por el usuario</li>
+      <li>Horarios de recordatorios</li>
+      <li>Registros de seguimiento o progreso</li>
+      <li>Configuraciones de la aplicación</li>
+    </ul>
+
+    <p>
+      Esta información se almacena localmente en el dispositivo del usuario y no se transmite a servidores externos.
+    </p>
+
+    <h2>2. Información personal</h2>
+
+    <p>
+      NutriPill no solicita ni recopila información personal identificable, como por ejemplo:
+    </p>
+
+    <ul>
+      <li>nombre</li>
+      <li>correo electrónico</li>
+      <li>número telefónico</li>
+      <li>ubicación</li>
+      <li>información médica</li>
+    </ul>
+
+    <p>
+      Toda la información introducida en la aplicación permanece bajo control del usuario en su propio dispositivo.
+    </p>
+
+    <h2>3. Publicidad</h2>
+
+    <p>
+      La aplicación puede mostrar anuncios mediante servicios de terceros como Google <strong>AdMob</strong>.
+    </p>
+
+    <p>
+      Estos servicios pueden recopilar información limitada para mostrar anuncios relevantes, como por ejemplo:
+    </p>
+
+    <ul>
+      <li>identificadores del dispositivo</li>
+      <li>información básica de uso de la aplicación</li>
+    </ul>
+
+    <p>
+      La recopilación y el uso de esta información son gestionados por Google de acuerdo con sus propias políticas de privacidad.
+    </p>
+
+    <p>
+      Puedes consultar la política de privacidad de Google aquí:<br>
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">https://policies.google.com/privacy</a>
+    </p>
+
+    <h2>4. Almacenamiento de datos</h2>
+
+    <p>
+      La información utilizada por la aplicación se guarda localmente en el dispositivo mediante tecnologías de almacenamiento interno.
+    </p>
+
+    <p>
+      La aplicación no envía ni comparte estos datos con servidores externos.
+    </p>
+
+    <h2>5. Uso de la aplicación</h2>
+
+    <p>
+      NutriPill es una herramienta destinada a ayudar a los usuarios a organizar recordatorios y hábitos diarios.
+    </p>
+
+    <p>
+      La aplicación no proporciona asesoramiento médico, diagnóstico ni tratamiento.
+    </p>
+
+    <p>
+      Los usuarios deben consultar siempre a profesionales de la salud para cualquier decisión relacionada con tratamientos médicos.
+    </p>
+
+    <h2>6. Seguridad</h2>
+
+    <p>
+      Aunque NutriPill no recopila información personal en servidores externos, se implementan buenas prácticas de desarrollo para proteger la integridad de los datos almacenados en el dispositivo.
+    </p>
+
+    <h2>7. Cambios en esta política</h2>
+
+    <p>
+      Esta política de privacidad puede actualizarse ocasionalmente para reflejar cambios en la aplicación o en las políticas de Google Play.
+    </p>
+
+    <p>
+      Se recomienda revisar esta página periódicamente.
+    </p>
+
+    <h2>8. Contacto</h2>
+
+    <p>
+      Si tienes preguntas sobre esta política de privacidad, puedes <a href="mailto:nitidacrea@gmail.com" class="text-blue-600 hover:text-blue-800">escribir aquí</a>.
+    </p>
+
+    <hr />
+
+    <p>
+      Si necesitas ayuda, puedes <a href="/digital-products/nutripill/support" class="text-blue-600 hover:text-blue-800">visitar nuestro centro de soporte</a>.
+    </p>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>
