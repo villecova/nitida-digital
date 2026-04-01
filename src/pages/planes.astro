@@ -11,8 +11,16 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 
 // Obtener el servicio desde la URL (query param)
 const url = Astro.url;
-const serviceParam = url.searchParams.get('service') || 'web';
-const selectedService = serviceParam === 'branding' ? 'branding' : 'web';
+const serviceParam = (url.searchParams.get('service') || 'web').toLowerCase();
+
+const brandingAliases = ['branding', 'grafico', 'graphic', 'design'];
+const webAliases = ['web', 'website', 'web-design', 'desarrollo'];
+
+const selectedService = brandingAliases.includes(serviceParam)
+	? 'branding'
+	: webAliases.includes(serviceParam)
+		? 'web'
+		: 'web';
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>

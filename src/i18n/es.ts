@@ -2,19 +2,24 @@ export const es = {
   // Home
   home: {
     hero: {
-      title: "Diseño con intención",
-      subtitle: "Soluciones digitales para negocios que buscan crecer online.",
-      cta: "Ver servicios"
+      title: "Diseñamos experiencias digitales",
+      subtitle: "Web, branding y herramientas digitales claras, rápidas y con sentido.",
+      cta: "Ver servicios",
+      ctaSecondary: "Explorar apps"
     },
     services: {
       title: "Nuestros servicios",
-      subtitle: "Web Design & Development lidera nuestro portafolio, acompañado de Branding y Productos Digitales."
+      subtitle: "Creamos experiencias digitales que impulsan tu negocio."
     },
     results: {
       title: "Resultados que hablan por sí solos",
       years: "años de experiencia",
       projects: "proyectos entregados",
       response: "respuesta garantizada"
+    },
+    digitalProducts: {
+      title: "Productos digitales",
+      subtitle: "Apps simples y rápidas, diseñadas para usarse todos los días."
     }
   },
   

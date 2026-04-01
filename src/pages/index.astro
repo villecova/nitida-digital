@@ -23,9 +23,9 @@ const t = es.home;
 		title={t.hero.title}
 		subtitle={t.hero.subtitle}
 		primaryButton={t.hero.cta}
+		secondaryButton={t.hero.ctaSecondary}
 		primaryLink="#servicios"
-		secondaryButton=""
-		secondaryLink=""
+		secondaryLink="/digital-products"
 		mediaVariant="logo"
 	/>
 
@@ -39,9 +39,9 @@ const t = es.home;
 				</p>
 			</div>
 
-			<div class="grid md:grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 				<!-- Web Design & Development -->
-				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="150">
+				<a href="/web-design" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="150">
 					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
 						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -49,20 +49,17 @@ const t = es.home;
 					</div>
 					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Web Design<br/>& Development</h3>
 					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
-						Nuestro servicio principal. Sitios web profesionales, responsivos y optimizados que convierten visitantes en clientes.
+						Sitios web que convierten visitas en clientes.
 					</p>
 					<div class="flex flex-col gap-2">
-						<a href="/web-design" class="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center">
+						<span class="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center">
 							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-						</a>
-						<a href="/planes?service=web" class="text-blue-600 text-xs hover:text-blue-700 inline-flex items-center">
-							Ver alcances →
-						</a>
+						</span>
 					</div>
-				</div>
+				</a>
 
 				<!-- Branding & Graphic Design -->
-				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+				<a href="/branding" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
 					<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
 						<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
@@ -70,20 +67,30 @@ const t = es.home;
 					</div>
 					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Branding<br/>& Graphic Design</h3>
 					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
-						Identidad visual completa que comunica tu propuesta de valor y diferencia tu marca en el mercado.
+						Identidad clara, consistente y memorable.
 					</p>
 					<div class="flex flex-col gap-2">
-						<a href="/branding" class="text-purple-600 font-semibold text-sm hover:text-purple-700 inline-flex items-center">
+						<span class="text-purple-600 font-semibold text-sm hover:text-purple-700 inline-flex items-center">
 							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-						</a>
-						<a href="/planes?service=branding" class="text-purple-600 text-xs hover:text-purple-700 inline-flex items-center">
-							Ver alcances →
-						</a>
+						</span>
 					</div>
-				</div>
+				</a>
+			</div>
+		</div>
+	</section>
 
+	<section class="pb-16 md:pb-24 bg-white" id="productos">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.digitalProducts.title}</h2>
+				<p class="text-lg text-accent max-w-2xl mx-auto">
+					{t.digitalProducts.subtitle}
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
 				<!-- Digital Products -->
-				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="250">
+				<a href="/digital-products" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="250">
 					<div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
 						<svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -91,15 +98,16 @@ const t = es.home;
 					</div>
 					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Digital<br/>Products</h3>
 					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
-						Aplicaciones móviles y productos digitales que resuelven problemas reales y mejoran la experiencia de los usuarios.
+					Herramientas que eliminan lo innecesario y se enfocan en lo que realmente importa.
 					</p>
-					<a href="/digital-products" class="text-yellow-600 font-semibold text-sm hover:text-yellow-700 inline-flex items-center">
+					<span class="text-yellow-600 font-semibold text-sm hover:text-yellow-700 inline-flex items-center">
 						Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-					</a>
-				</div>
+					</span>
+				</a>
 			</div>
 		</div>
 	</section>
+
 
 	<!-- Proof / Confianza (micro-prueba social) -->
 	<section class="py-16 md:py-24 bg-slate-50">

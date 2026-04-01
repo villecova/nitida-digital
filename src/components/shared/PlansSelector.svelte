@@ -5,6 +5,17 @@
   export let selectedService = 'web';
 
   let currentService = selectedService;
+  const showPrices = false;
+
+  const normalizeService = (value) => {
+    const service = (value || '').toLowerCase();
+    const brandingAliases = ['branding', 'grafico', 'graphic', 'design'];
+    const webAliases = ['web', 'website', 'web-design', 'desarrollo'];
+
+    if (brandingAliases.includes(service)) return 'branding';
+    if (webAliases.includes(service)) return 'web';
+    return 'web';
+  };
 
   const services = {
     web: {
@@ -104,10 +115,10 @@
   };
 
   const switchService = (service) => {
-    currentService = service;
+    currentService = normalizeService(service);
     // Actualizar URL sin recargar la página
     const url = new URL(window.location.href);
-    url.searchParams.set('service', service);
+    url.searchParams.set('service', currentService);
     window.history.pushState({}, '', url);
   };
 
@@ -116,13 +127,9 @@
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const serviceFromUrl = urlParams.get('service');
-      if (serviceFromUrl === 'branding' || serviceFromUrl === 'web') {
-        currentService = serviceFromUrl;
-      } else {
-        currentService = selectedService;
-      }
+      currentService = serviceFromUrl ? normalizeService(serviceFromUrl) : normalizeService(selectedService);
     } else {
-      currentService = selectedService;
+      currentService = normalizeService(selectedService);
     }
   });
 
@@ -183,7 +190,7 @@
             icon="check"
             colorScheme={currentServiceData.colorScheme}
             isRecommended={plan.isRecommended || false}
-            price={plan.price || null}
+            price={showPrices ? (plan.price || null) : null}
           />
         </div>
       {/each}
@@ -267,15 +274,17 @@
                 </ul>
               </div>
               <div class="flex-none pt-6 border-t border-gray-200">
-                <div class="mb-4">
-                  <p class="text-2xl font-bold text-gray-900">$1,800 <span class="text-base font-normal text-gray-600">MXN / mes</span></p>
-                </div>
+                {#if showPrices}
+                  <div class="mb-4">
+                    <p class="text-2xl font-bold text-gray-900">$1,800 <span class="text-base font-normal text-gray-600">MXN / mes</span></p>
+                  </div>
+                {/if}
                 <a
                   href="mailto:nitidacrea@gmail.com?subject=Contratar%20Plan%20Mensual%20de%20Mantenimiento&body=Hola%2C%20me%20interesa%20contratar%20el%20Plan%20Mensual%20de%20Mantenimiento.%20Gracias."
                   class="cursor-pointer uppercase inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 focus:ring-4 bg-blue-600 hover:bg-black text-white focus:ring-blue-500/50"
                   role="button"
                 >
-                  Contratar plan mensual
+                  Cotizar plan mensual
                 </a>
               </div>
             </div>
@@ -316,16 +325,18 @@
                 </ul>
               </div>
               <div class="flex-none pt-6 border-t border-gray-200">
-                <div class="mb-2">
-                  <p class="text-2xl font-bold text-gray-900">$18,000 <span class="text-base font-normal text-gray-600">MXN / año</span></p>
-                  <p class="text-sm text-gray-500 mt-1">(equivale a 2 meses sin costo)</p>
-                </div>
+                {#if showPrices}
+                  <div class="mb-2">
+                    <p class="text-2xl font-bold text-gray-900">$18,000 <span class="text-base font-normal text-gray-600">MXN / año</span></p>
+                    <p class="text-sm text-gray-500 mt-1">(equivale a 2 meses sin costo)</p>
+                  </div>
+                {/if}
                 <a
                   href="mailto:nitidacrea@gmail.com?subject=Contratar%20Plan%20Anual%20de%20Mantenimiento&body=Hola%2C%20me%20interesa%20contratar%20el%20Plan%20Anual%20de%20Mantenimiento.%20Gracias."
                   class="cursor-pointer uppercase inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 focus:ring-4 bg-blue-600 hover:bg-black text-white focus:ring-blue-500/50"
                   role="button"
                 >
-                  Contratar plan anual
+                  Cotizar plan anual
                 </a>
               </div>
             </div>
@@ -342,11 +353,15 @@
             <div class="space-y-3 text-left mb-6">
               <div class="flex items-start space-x-3">
                 <span class="text-sm text-gray-600">Cambios simples (texto, imagen, enlace):</span>
-                <span class="text-sm font-semibold text-gray-900 ml-auto">desde $500 MXN</span>
+                {#if showPrices}
+                  <span class="text-sm font-semibold text-gray-900 ml-auto">desde $500 MXN</span>
+                {/if}
               </div>
               <div class="flex items-start space-x-3">
                 <span class="text-sm text-gray-600">Cambios intermedios (sección, ajuste visual):</span>
-                <span class="text-sm font-semibold text-gray-900 ml-auto">desde $1,200 MXN</span>
+                {#if showPrices}
+                  <span class="text-sm font-semibold text-gray-900 ml-auto">desde $1,200 MXN</span>
+                {/if}
               </div>
               <div class="flex items-start space-x-3">
                 <span class="text-sm text-gray-600">Cambios complejos:</span>
