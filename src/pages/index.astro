@@ -1,129 +1,142 @@
 ---
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import AnimatedCounter from '../components/shared/AnimatedCounter.svelte';
+import Welcome from '../components/Welcome.astro';
+import { es } from '../i18n/es';
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Nítida Digital - Diseño y Desarrollo de Apps | Inicio";
-const pageDescription = "Descubre Nítida Digital: especialistas en diseño de marca, páginas web y desarrollo de aplicaciones móviles. Todo lo que tu proyecto necesita en un solo lugar.";
+const pageTitle = "Nítida Digital - Diseño y Desarrollo Web para Negocios | Inicio";
+const pageDescription = "Estudio de diseño y desarrollo web para negocios. Creamos sitios web profesionales, branding estratégico y productos digitales que impulsan tu negocio.";
 const pageUrl = "https://nitidadigital.com/";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+
+const t = es.home;
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
 	<Navbar currentPath="/" />
-	<main class="min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-800 pt-16 flex items-center justify-center">
-		<div class="w-full px-4 py-16">
-			<!-- Header -->
-			<div class="text-center mb-10">
-				<div class="mb-8" data-aos="fade-up" data-aos-delay="50">
-					<img src="/assets/images/hero_logo-w.svg" class="h-12 md:h-20 mx-auto" alt="Nitida Digital Logo" />
-				</div>
-				<p class="text-xl text-white max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-					Diseñamos tu marca y también creamos apps para tu día a día. Descubre todo lo que tenemos para ti.
+	
+	<Welcome 
+		type="color"
+		color="bg-gradient-to-r from-gray-900 via-black to-gray-800"
+		title={t.hero.title}
+		subtitle={t.hero.subtitle}
+		primaryButton={t.hero.cta}
+		secondaryButton={t.hero.ctaSecondary}
+		primaryLink="#servicios"
+		secondaryLink="/digital-products"
+		mediaVariant="logo"
+	/>
+
+	<!-- Servicios Principales - Estilo nuevo -->
+	<section class="py-16 md:py-24 bg-white" id="servicios">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.services.title}</h2>
+				<p class="text-lg text-accent max-w-2xl mx-auto">
+					{t.services.subtitle}
 				</p>
 			</div>
 
-			<!-- Cards Container -->
-			<div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="150">
-				<!-- Diseño Digital Card -->
-				<div class="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
-					<div class="p-6 flex flex-col flex-grow">
-						<!-- Icon -->
-						<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-							<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
-							</svg>
-						</div>
-
-						<!-- Content -->
-						<h2 class="text-3xl font-bold text-gray-900 mb-3">
-							Diseño Digital
-						</h2>
-						<p class="text-gray-600 mb-6 flex-grow text-sm">
-							Identidad visual completa, diseño gráfico estratégico, branding profesional y páginas web para tu marca.
-						</p>
-
-						<!-- Features -->
-						<ul class="space-y-1 mb-6">
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Identidad visual
-							</li>
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Páginas web
-							</li>
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Branding estratégico
-							</li>
-						</ul>
+			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+				<!-- Web Design & Development -->
+				<a href="/web-design" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="150">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+						</svg>
 					</div>
-
-					<!-- Button -->
-					<div class="p-6 pt-0">
-						<a href="/design" class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-xl text-center transition-colors duration-300 text-sm">
-							Explorar Diseño Digital
-						</a>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Web Design<br/>& Development</h3>
+					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+						Sitios web que convierten visitas en clientes.
+					</p>
+					<div class="flex flex-col gap-2">
+						<span class="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center">
+							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</span>
 					</div>
+				</a>
+
+				<!-- Branding & Graphic Design -->
+				<a href="/branding" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+					<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Branding<br/>& Graphic Design</h3>
+					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+						Identidad clara, consistente y memorable.
+					</p>
+					<div class="flex flex-col gap-2">
+						<span class="text-purple-600 font-semibold text-sm hover:text-purple-700 inline-flex items-center">
+							Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="pb-16 md:pb-24 bg-white" id="productos">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.digitalProducts.title}</h2>
+				<p class="text-lg text-accent max-w-2xl mx-auto">
+					{t.digitalProducts.subtitle}
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
+				<!-- Digital Products -->
+				<a href="/digital-products" class="block bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 aos-init aos-animate" data-aos="fade-up" data-aos-delay="250">
+					<div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">Digital<br/>Products</h3>
+					<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+					Herramientas que eliminan lo innecesario y se enfocan en lo que realmente importa.
+					</p>
+					<span class="text-yellow-600 font-semibold text-sm hover:text-yellow-700 inline-flex items-center">
+						Ver más <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+					</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Proof / Confianza (micro-prueba social) -->
+	<section class="py-16 md:py-24 bg-slate-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.results.title}</h2>
+			</div>
+			<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="150">
+					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+						<AnimatedCounter client:only="svelte" target={10} suffix="+" duration={2000} delay={200} />
+					</div>
+					<p class="text-gray-600 font-medium">{t.results.years}</p>
 				</div>
-
-				<!-- Productos Digitales Card -->
-				<div class="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
-					<div class="p-6 flex flex-col flex-grow">
-						<!-- Icon -->
-						<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-							<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-							</svg>
-						</div>
-
-						<!-- Content -->
-						<h2 class="text-3xl font-bold text-gray-900 mb-3">
-							Productos Digitales
-						</h2>
-						<p class="text-gray-600 mb-4 flex-grow text-sm">
-							Descubre nuestras apps en App Store y Google Play. ¡Descárgalas hoy mismo!
-						</p>
-
-						<!-- Features -->
-						<ul class="space-y-1 mb-6">
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Apps móviles
-							</li>
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Disponibles en tiendas
-							</li>
-							<li class="flex items-center text-gray-600 text-sm">
-								<svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-								</svg>
-								Descarga directa
-							</li>
-						</ul>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="200">
+					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+						<AnimatedCounter client:only="svelte" target={50} suffix="+" duration={2000} delay={400} />
 					</div>
-
-					<!-- Button -->
-					<div class="p-6 pt-0">
-						<a href="/digital-products" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl text-center transition-colors duration-300 text-sm">
-							Ver Productos
-						</a>
+					<p class="text-gray-600 font-medium">{t.results.projects}</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 text-center" data-aos="fade-up" data-aos-delay="250">
+					<div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+						<AnimatedCounter client:only="svelte" target={24} suffix="h" duration={2000} delay={600} />
 					</div>
+					<p class="text-gray-600 font-medium">{t.results.response}</p>
 				</div>
 			</div>
 		</div>
-	</main>
+	</section>
 
+	<Footer />
 </Layout>
-

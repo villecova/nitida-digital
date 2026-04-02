@@ -4,7 +4,7 @@ import Navbar from '../../../components/Navbar.astro';
 import Layout from '../../../layouts/Layout.astro';
 
 const pageTitle = "Soporte - Cosmos Plant Care | Nítida Digital";
-const pageDescription = "Página de soporte para Cosmos Plant Care. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de cuidado de plantas.";
+const pageDescription = "Página de soporte para Cosmos Plant Care. Encuentra guías de uso, preguntas frecuentes y contacto de soporte.";
 const pageUrl = "https://nitidadigital.com/digital-products/cosmos/support";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 ---
@@ -15,12 +15,12 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
   <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
     <!-- Header -->
     <div class="text-center mb-12">
-      <div class="w-32 h-32  rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6">
         <img class="rounded-2xl" src="/assets/store/icon-cosmos-support.png" alt="Cosmos Plant Care" />
       </div>
       <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Cosmos Plant Care</h1>
       <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
-        Bienvenido a la página de soporte de <strong>Cosmos Plant Care</strong>, tu asistente para cuidar plantas con recordatorios de riego y fertilización.
+        Bienvenido a la página de soporte de <strong>Cosmos Plant Care</strong>, una app para crear recordatorios simples y ayudarte a no olvidar el cuidado de tus plantas.
       </p>
     </div>
 
@@ -36,29 +36,29 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea tu jardín digital</h3>
-              <p class="text-gray-600">Agrega tus plantas con nombre y foto para personalizar tu experiencia.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea un recordatorio</h3>
+              <p class="text-gray-600">Define cada cuánto quieres recordar el riego o fertilización.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Configura recordatorios</h3>
-              <p class="text-gray-600">Establece cada cuánto regar o fertilizar cada planta según sus necesidades.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Configura el intervalo</h3>
+              <p class="text-gray-600">Puedes elegir días o ajustar la frecuencia según tu rutina.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2 mt-0">Recibe notificaciones</h3>
-              <p class="text-gray-600">Te avisaremos cuando sea el momento de cuidar tus plantas.</p>
+              <p class="text-gray-600">La app te avisará cuando sea momento de realizar la tarea.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Marca como completado</h3>
-              <p class="text-gray-600">Mantén un historial del cuidado de tus plantas para un mejor seguimiento.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Reinicia tu recordatorio</h3>
+              <p class="text-gray-600">Marca la tarea como realizada para iniciar el siguiente ciclo.</p>
             </div>
           </div>
         </div>
@@ -73,17 +73,53 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
         <div class="space-y-6">
           <div>
             <h3 class="font-semibold text-gray-900 mb-2">1. ¿Necesito internet para usar la app?</h3>
-            <p class="text-gray-600">La app funciona principalmente con conexión, ya que tus datos se guardan en la nube (Firestore).</p>
+            <p class="text-gray-600">No. La app funciona completamente en tu dispositivo.</p>
           </div>
+
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">2. ¿Puedo cambiar la frecuencia de los recordatorios?</h3>
-            <p class="text-gray-600">Sí, puedes editar cada planta y ajustar la frecuencia de riego o fertilización.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">2. ¿Dónde se guardan mis datos?</h3>
+            <p class="text-gray-600">Todos tus datos se almacenan localmente en tu dispositivo.</p>
           </div>
+
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">3. ¿Qué pasa si cambio de dispositivo?</h3>
-            <p class="text-gray-600">Solo necesitas iniciar sesión con la misma cuenta, y tu jardín se restaurará automáticamente.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">3. ¿Qué pasa si elimino la app?</h3>
+            <p class="text-gray-600">Al desinstalar la app, se eliminarán todos los datos almacenados.</p>
           </div>
-    
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">4. ¿Puedo cambiar mis recordatorios?</h3>
+            <p class="text-gray-600">Sí, puedes editar y ajustar tus recordatorios en cualquier momento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solución de problemas -->
+      <div class="bg-pink-50 rounded-2xl p-8 mb-8 border border-pink-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔧</span>
+          Solución de problemas
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">No me llega la notificación de riego</h3>
+            <p class="text-gray-600">Asegúrate de haber activado notificaciones en la configuración del dispositivo. Verifica que la app tenga permisos para enviar notificaciones. Reinicia la app si los recordatorios no se muestran.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Los recordatorios no se sincronizan entre dispositivos</h3>
+            <p class="text-gray-600">Los datos se almacenan localmente en tu dispositivo. Para sincronizar entre múltiples dispositivos, exporta e importa tus plantas y recordatorios manualmente.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet para usar Cosmos?</h3>
+            <p class="text-gray-600">Puedes crear y editar recordatorios sin internet. Sin embargo, algunos datos de referencia sobre plantas (información de cuidado) requieren conexión inicial.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Perdí mis plantas y recordatorios</h3>
+            <p class="text-gray-600">Los datos se almacenan solo en tu dispositivo. Si desinstalaste la app o limpiaste los datos, no pueden recuperarse. Te recomendamos hacer copias de seguridad periódicas.</p>
+          </div>
         </div>
       </div>
 
@@ -99,14 +135,14 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
             <span class="text-2xl mr-4">📧</span>
             <div>
               <p class="font-semibold text-gray-900 mb-0">Correo:</p>
-              <p class="text-gray-600 m-0">Puedes <a href="mailto:nitidacrea@gmail.com" class=" no-underline text-blue-600 hover:text-blue-800">escribir aquí</a> para contactarnos</p>
+              <p class="text-gray-600 m-0">Puedes <a href="mailto:nitidacrea@gmail.com" class="no-underline text-blue-600 hover:text-blue-800">escribir aquí</a> para contactarnos</p>
             </div>
           </div>
           <div class="flex items-center">
             <span class="text-2xl mr-4">🌐</span>
             <div>
               <p class="font-semibold text-gray-900 mb-0">Web/App:</p>
-              <a href="/digital-products" class=" no-underline text-blue-600 hover:text-blue-800">nitidadigital.com</a>
+              <a href="/digital-products" class="no-underline text-blue-600 hover:text-blue-800">nitidadigital.com</a>
             </div>
           </div>
         </div>
@@ -119,9 +155,9 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
           Privacidad
         </h2>
         <div class="space-y-4 text-gray-600">
-          <p>La app recopila solo la información necesaria para crear tu cuenta y guardar tus recordatorios.</p>
-          <p>No compartimos tus datos con terceros ni con fines publicitarios.</p>
-          <p>Puedes leer nuestra política de privacidad completa aquí: <a href="/digital-products/cosmos/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y nuestros <a href="/digital-products/cosmos/term-cosmos" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
+          <p>Cosmos Plant Care no recopila datos personales ni utiliza servidores externos.</p>
+          <p>Toda la información se almacena únicamente en tu dispositivo.</p>
+          <p>Puedes leer más aquí: <a href="/digital-products/cosmos/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y nuestros <a href="/digital-products/cosmos/term-cosmos" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
         </div>
       </div>
 

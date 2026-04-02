@@ -1,0 +1,147 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Soporte - Bilanz | Nítida Digital";
+const pageDescription = "Página de soporte para Bilanz. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de comparación de precios.";
+const pageUrl = "https://nitidadigital.com/digital-products/bilanz/support";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-purple-100">
+        <span class="text-6xl">📊</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Bilanz</h1>
+      <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
+        Bienvenido a la página de soporte de <strong>Bilanz</strong>, una app diseñada para ayudarte a comparar precios de forma rápida y sencilla.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate max-w-none">
+      <!-- Guía rápida de uso -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">📘</span>
+          Guía rápida de uso
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Introduce los datos de los productos</h3>
+              <p class="text-gray-600">Ingresa el nombre, precio y cantidad de cada producto que quieras comparar.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Selecciona la unidad</h3>
+              <p class="text-gray-600">Elige entre ml, g, piezas o cualquier otra unidad que necesites.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Compara los resultados</h3>
+              <p class="text-gray-600">Bilanz calcula automáticamente cuál es la opción más económica para ti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preguntas frecuentes -->
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">❓</span>
+          Preguntas frecuentes
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Los precios son reales?</h3>
+            <p class="text-gray-600">No. Los datos son ingresados manualmente por el usuario.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Por qué los resultados pueden ser incorrectos?</h3>
+            <p class="text-gray-600">Dependen de los datos que introduzcas. Verifica que hayas ingresado correctamente el precio y la cantidad.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet?</h3>
+            <p class="text-gray-600">No. La app funciona completamente en tu dispositivo sin necesidad de conexión.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Dónde se guardan mis datos?</h3>
+            <p class="text-gray-600">Se almacenan localmente en tu dispositivo. No se envían servidores externos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solución de problemas -->
+      <div class="bg-pink-50 rounded-2xl p-8 mb-8 border border-pink-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔧</span>
+          Solución de problemas
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Los resultados son incorrectos</h3>
+            <p class="text-gray-600">Verifica que hayas ingresado correctamente el precio y la cantidad de cada producto. Pequeños errores en los datos pueden afectar los cálculos.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet para usar Bilanz?</h3>
+            <p class="text-gray-600">No. Bilanz funciona completamente sin conexión a internet. Todos los cálculos se realizan en tu dispositivo.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Los datos desaparecieron de mi dispositivo</h3>
+            <p class="text-gray-600">Los datos se almacenan localmente. Si desinstalaste la app o limpiaste los datos del dispositivo, no pueden recuperarse. Considera hacer anotaciones de las comparaciones importantes.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Por qué no se pueden guardar comparaciones en la nube?</h3>
+            <p class="text-gray-600">Bilanz está diseñada para funcionar de forma local en tu dispositivo sin enviar datos a servidores externos, protegiendo tu privacidad completamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto de soporte -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">🛠️</span>
+          Contacto
+        </h2>
+        <p class="text-gray-600 mb-4">Si necesitas ayuda puedes escribir a:</p>
+        <p class="text-gray-600">
+          <a href="mailto:nitidacrea@gmail.com" class="no-underline text-blue-600 hover:text-blue-800">nitidacrea@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- Privacidad -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔒</span>
+          Privacidad
+        </h2>
+        <div class="space-y-4 text-gray-600">
+          <p>Bilanz no recopila datos personales ni utiliza servidores externos.</p>
+          <p>Consulta nuestra <a href="/digital-products/bilanz/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y <a href="/digital-products/bilanz/terms" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

@@ -1,0 +1,50 @@
+---
+import ExpandGallery from './ExpandGallery.svelte';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  emptyMessage: string;
+  plansLink?: string;
+  projects: Array<{
+    slug: string;
+    title: string;
+    gallery: string[];
+  }>;
+  colorScheme: 'blue' | 'purple' | 'yellow';
+}
+
+const { title, subtitle, emptyMessage, plansLink, projects, colorScheme } = Astro.props;
+
+const colorClasses = {
+  blue: 'text-blue-600',
+  purple: 'text-purple-600',
+  yellow: 'text-yellow-600'
+};
+
+const linkColor = colorClasses[colorScheme];
+---
+
+<section class="py-16 md:py-24 bg-white" id="portafolio">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{title}</h2>
+      <p class="text-lg text-accent mb-4">
+        {subtitle}
+      </p>
+      {plansLink && (
+        <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+          <a href={plansLink} class={`${linkColor} hover:opacity-80 text-sm`}>Ver planes →</a>
+        </div>
+      )}
+    </div>
+
+    {projects.length > 0 ? (
+      <ExpandGallery client:only {projects} initialCount={6} {colorScheme} />
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-gray-600">{emptyMessage}</p>
+      </div>
+    )}
+  </div>
+</section>

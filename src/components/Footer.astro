@@ -3,16 +3,16 @@ const { hideTerms = false, hideSocial = false } = Astro.props;
 
 const links = [
   { label: 'Inicio', href: '/' },
+  { label: 'Contacto', href: '/contact' },
   ...(hideTerms ? [] : [{ label: 'Términos y condiciones', href: '/terms-and-conditions' }])
 ];
 
 const socialLinks = [
-  { label: 'Proyectos', href: '/works' },
   { label: 'Instagram', href: 'https://www.instagram.com/nitida.digital/', external: true }
 ];
 ---
 
-<footer class="bg-black text-white border-t border-gray-800">
+<footer class="bg-gradient-to-r from-gray-900 via-black to-gray-800 text-white border-t border-gray-800">
     <div class="max-w-screen-lg mx-auto">
         <nav class="border-b boreder-gray-300 mb-16">
             <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center text-sm">

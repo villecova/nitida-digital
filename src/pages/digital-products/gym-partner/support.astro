@@ -3,9 +3,9 @@ import Footer from '../../../components/Footer.astro';
 import Navbar from '../../../components/Navbar.astro';
 import Layout from '../../../layouts/Layout.astro';
 
-const pageTitle = "Soporte - NutriPill | Nítida Digital";
-const pageDescription = "Página de soporte para NutriPill. Guía de uso, preguntas frecuentes y contacto para organizar recordatorios de pastillas, suplementos y hábitos diarios.";
-const pageUrl = "https://nitidadigital.com/digital-products/nutripill/support";
+const pageTitle = "Soporte - Gym Partner | Nítida Digital";
+const pageDescription = "Página de soporte para Gym Partner. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de entrenamiento.";
+const pageUrl = "https://nitidadigital.com/digital-products/gym-partner/support";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 ---
 
@@ -15,12 +15,12 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
   <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
     <!-- Header -->
     <div class="text-center mb-12">
-      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-emerald-100">
-        <span class="text-5xl">💊</span>
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-blue-100">
+        <span class="text-6xl">💪</span>
       </div>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – NutriPill</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Gym Partner</h1>
       <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
-        Bienvenido a la página de soporte de <strong>NutriPill</strong>, una app diseñada para ayudarte a recordar la toma de suplementos y mantener hábitos de bienestar.
+        Bienvenido a la página de soporte de <strong>Gym Partner</strong>, una app diseñada para ayudarte a llevar el control de tus entrenamientos y mantener consistencia en el gimnasio.
       </p>
     </div>
 
@@ -36,40 +36,41 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Agrega una toma</h3>
-              <p class="text-gray-600">Registra el suplemento o hábito que deseas seguir.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea o selecciona tu rutina</h3>
+              <p class="text-gray-600">Puedes crear tus propias rutinas o elegir una existente antes de comenzar tu entrenamiento.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Activa recordatorios (opcional)</h3>
-              <p class="text-gray-600">Puedes elegir recibir notificaciones o solo visualizar la toma en tu lista diaria.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Registra pesos durante el entrenamiento</h3>
+              <p class="text-gray-600">Durante la sesión de entrenamiento solo puedes actualizar los pesos y marcar tus series como completadas. Si necesitas modificar la rutina (ejercicios, repeticiones o estructura), deberás hacerlo fuera de la sesión, desde el detalle de la rutina.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Consulta tus tareas del día</h3>
-              <p class="text-gray-600">Cada día verás las tomas programadas. Si activaste recordatorios, la app te notificará a la hora indicada.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Usa el temporizador de descanso</h3>
+              <p class="text-gray-600">Controla tus tiempos de descanso entre series con el temporizador integrado.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Gestiona tu progreso</h3>
-              <p class="text-gray-600">Marca las tomas como completadas. Si no las realizas a tiempo, se mostrarán como retrasadas para mantener control de tu seguimiento.</p>
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Actualiza tus rutinas fuera del entrenamiento</h3>
+              <p class="text-gray-600">Puedes editar tus rutinas en cualquier momento, pero durante una sesión solo podrás registrar pesos, repeticiones y marcar el progreso.</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Preguntas frecuentes -->
-      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
           <span class="text-2xl mr-3">❓</span>
-          Preguntas frecuentes (FAQ)
+          Preguntas frecuentes
         </h2>
+        
         <div class="space-y-6">
           <div>
             <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet?</h3>
@@ -87,8 +88,8 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
           </div>
 
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Qué pasa si no recibo una notificación?</h3>
-            <p class="text-gray-600">Las notificaciones dependen del sistema operativo y configuración del dispositivo. Te recomendamos no depender exclusivamente de la app.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo editar mis registros?</h3>
+            <p class="text-gray-600">Sí, puedes modificar pesos y repeticiones en cualquier momento.</p>
           </div>
         </div>
       </div>
@@ -102,28 +103,28 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
         
         <div class="space-y-6">
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">No me llega la notificación de tomar suplementos</h3>
-            <p class="text-gray-600">Asegúrate de haber activado notificaciones en la configuración del dispositivo. Verifica que NutriPill tenga permisos para enviar notificaciones. Reinicia la app si los recordatorios no se muestran.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">No se guardan mis registros</h3>
+            <p class="text-gray-600">Verifica que hayas presionado el botón de guardar o "Completar serie". Reinicia la app si los datos no aparecen. Los registros se almacenan localmente en tu dispositivo.</p>
           </div>
           
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">Los registros no se sincronizan entre dispositivos</h3>
-            <p class="text-gray-600">Los datos se almacenan localmente en tu dispositivo. Para usar NutriPill en múltiples dispositivos, agrega manualmente tus suplementos en cada uno.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">Los entrenamientos no se sincronizan entre dispositivos</h3>
+            <p class="text-gray-600">Por defecto, los datos se almacenan solo en el dispositivo donde creas tu cuenta. Para sincronizar, asegúrate de usar la misma cuenta en todos los dispositivos si la app soporta sincronización.</p>
           </div>
 
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet para usar NutriPill?</h3>
-            <p class="text-gray-600">Puedes crear y editar tus recordatorios de suplementos sin conexión a internet. Todos los datos se guardan localmente en tu dispositivo.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet para registrar mis entrenamientos?</h3>
+            <p class="text-gray-600">No. Puedes crear y editar tus entrenamientos completamente sin conexión a internet. Los cambios se guardarán en tu dispositivo.</p>
           </div>
 
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">Perdí mi historial de suplementos</h3>
-            <p class="text-gray-600">Los datos se almacenan solo en tu dispositivo. Si desinstalaste la app o limpiaste los datos, no pueden recuperarse. Te recomendamos hacer anotaciones de tu rutina de suplementos.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">Perdí mi historial de entrenamientos</h3>
+            <p class="text-gray-600">Los datos se almacenan solo en tu dispositivo. Si desinstalaste la app o limpiaste los datos, no pueden recuperarse. Te recomendamos hacer copias de seguridad periódicas de tus registros.</p>
           </div>
         </div>
       </div>
 
-      <!-- Contacto de soporte -->
+      <!-- Contacto -->
       <div class="bg-gray-50 rounded-2xl p-8 mb-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center mt-0">
           <span class="text-2xl mr-3">🛠️</span>
@@ -142,8 +143,8 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
           Privacidad
         </h2>
         <div class="space-y-4 text-gray-600">
-          <p>NutriPill no recopila datos personales ni utiliza servidores externos.</p>
-          <p>Consulta nuestra <a href="/digital-products/nutripill/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y <a href="/digital-products/nutripill/term-nutripill" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
+          <p>Gym Partner no recopila datos personales ni utiliza servidores externos.</p>
+          <p>Consulta nuestra <a href="/digital-products/gym-partner/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y <a href="/digital-products/gym-partner/term-gym-partner" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
         </div>
       </div>
     </div>

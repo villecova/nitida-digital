@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  plansLink?: string;
+  items: Array<{
+    iconPath: string;
+    title: string;
+    description: string;
+  }>;
+  colorScheme: 'blue' | 'purple' | 'yellow';
+}
+
+const { title, plansLink, items, colorScheme } = Astro.props;
+
+const colorClasses = {
+  blue: {
+    iconBg: 'bg-blue-100',
+    iconColor: 'text-blue-600'
+  },
+  purple: {
+    iconBg: 'bg-purple-100',
+    iconColor: 'text-purple-600'
+  },
+  yellow: {
+    iconBg: 'bg-yellow-100',
+    iconColor: 'text-yellow-600'
+  }
+};
+
+const colors = colorClasses[colorScheme];
+---
+
+<section class="py-16 md:py-24 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{title}</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {items.map((item, index) => (
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay={150 + (index * 50)}>
+          <div class={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-6`}>
+            <svg class={`w-8 h-8 ${colors.iconColor}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.iconPath}></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+    {plansLink && (
+      <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="400">
+        <a href={plansLink} class={`${colors.iconColor} hover:opacity-80 text-sm`}>Ver planes →</a>
+      </div>
+    )}
+  </div>
+</section>

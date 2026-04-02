@@ -28,23 +28,27 @@ const steps = [
 ];
 ---
 
-<section class="py-8 md:py-20 bg-[--background]" id="how">
-  <div class="max-w-6xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
+<section class="py-16 md:py-24 bg-white" id="how">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
     <Badge label="Proceso" color="yellow" />
     <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">¿Cómo funciona?</h2>
-    <p class="text-lg text-accent mb-12">Nuestro proceso es sencillo.</p>
+      <p class="text-lg text-accent max-w-2xl mx-auto">Nuestro proceso es sencillo.</p>
+    </div>
 
     <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-      {steps.map((step) => (
-        <div class="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center  transition">
+      {steps.map((step, index) => (
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay={150 + (index * 50)}>
+          <div class="mb-6">
           <LottieIcon client:only="svelte" src={step.icon} />
-          <h3 class="text-2xl font-main text-accent my-2">{step.title}</h3>
-          <p class="text-gray-600 text-sm">{step.description}</p>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">{step.title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
         </div>
       ))}
     </div>
 
-    <div class="mt-12">
+    <div class="text-center mt-12">
         <Button href="/works" label="Explorar proyectos " variant="primary" />
     </div>
   </div>
