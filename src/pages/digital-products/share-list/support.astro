@@ -20,7 +20,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
       </div>
       <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Share List</h1>
       <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
-        Bienvenido a la página de soporte de <strong>Share List</strong>, tu herramienta para crear y compartir listas de manera simple.
+        Bienvenido a la página de soporte de <strong>Share List</strong>, tu herramienta para crear y compartir listas de forma simple y colaborativa.
       </p>
     </div>
 
@@ -37,21 +37,21 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
             <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea una lista</h3>
-              <p class="text-gray-600">Presiona "Nueva lista" y asigna un nombre: tareas, compras, ideas, etc.</p>
+              <p class="text-gray-600">Presiona el botón "+" o "Nueva lista" y asigna un nombre: tareas, compras, ideas, etc.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2 mt-0">Agrega elementos</h3>
-              <p class="text-gray-600">Ingresa los elementos uno a uno. Puedes editar o eliminar en cualquier momento.</p>
+              <p class="text-gray-600">Ingresa los elementos uno a uno. Puedes editar, eliminar o marcar como completados en cualquier momento.</p>
             </div>
           </div>
           <div class="flex items-center">
             <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
             <div class="flex-1">
               <h3 class="font-semibold text-gray-900 mb-2 mt-0">Comparte la lista</h3>
-              <p class="text-gray-600">Invita a otros escribiendo su correo o enviándoles un código único.</p>
+              <p class="text-gray-600">Invita a otros escribiendo su correo o enviándoles un código único para que colaboren contigo.</p>
             </div>
           </div>
         </div>
@@ -66,28 +66,33 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
         
         <div class="space-y-6">
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo comparto una lista?</h3>
-            <p class="text-gray-600">En cada lista, encontrarás un botón "Compartir". Puedes invitar a personas por correo o generar un código único para que otros se unan.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito crear una cuenta?</h3>
+            <p class="text-gray-600">No es obligatorio. Puedes usar Share List sin cuenta, pero los datos no se sincronizarán entre dispositivos. Si quieres acceder desde varios dispositivos, te recomendamos crear una cuenta.</p>
           </div>
           
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo editar elementos mientras otros los ven?</h3>
-            <p class="text-gray-600">Sí, los cambios se sincronizan en tiempo real. Cuando agregas o marcas un elemento como hecho, los otros usuarios lo ven inmediatamente.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo editar una lista mientras otros la ven?</h3>
+            <p class="text-gray-600">Sí. Los cambios se sincronizan en tiempo real. Cuando agregas, eliminas o marcas un elemento como completado, otros usuarios lo ven de inmediato.</p>
           </div>
           
           <div>
             <h3 class="font-semibold text-gray-900 mb-2">¿Cómo marco un elemento como completado?</h3>
-            <p class="text-gray-600">Toca el elemento para marcarlo con un ✓. Aparecerá tachado para que sepas que ya está hecho.</p>
+            <p class="text-gray-600">Toca o desliza el elemento para marcarlo como completado. Aparecerá tachado para que sepas que ya está hecho.</p>
           </div>
 
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo tener varias listas?</h3>
-            <p class="text-gray-600">Sí, tienes listas ilimitadas. Crea una para cada cosa: compras, tareas, viajes, etc.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cuántas listas puedo crear?</h3>
+            <p class="text-gray-600">Las que necesites. No hay límite de listas. Crea una para cada cosa: compras, tareas, viajes, reuniones, etc.</p>
           </div>
 
           <div>
             <h3 class="font-semibold text-gray-900 mb-2">¿Qué pasa si elimino una lista?</h3>
-            <p class="text-gray-600">La lista se elimina permanentemente. Si la necesitas, tendrás que recrearla. Ten cuidado con esta acción.</p>
+            <p class="text-gray-600">La lista se elimina permanentemente. Si la necesitas, tendrás que recrearla. Ten cuidado con esta acción, especialmente en listas compartidas.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Dónde se guardan mis datos?</h3>
+            <p class="text-gray-600">Sin cuenta: se almacenan localmente en tu dispositivo. Con cuenta: se sincronizan en nuestros servidores seguros para acceso desde múltiples dispositivos.</p>
           </div>
         </div>
       </div>
@@ -101,32 +106,49 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
         
         <div class="space-y-6">
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">No puedo compartir la lista</h3>
-            <p class="text-gray-600">Verifica que el correo sea válido e intenta nuevamente. Si persiste, contacta con nuestro equipo.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">No puedo compartir una lista</h3>
+            <p class="text-gray-600">Verifica que el correo del usuario sea válido e intenta nuevamente. Asegúrate de tener conexión a internet. Si el problema persiste, contacta con nuestro equipo.</p>
           </div>
           
           <div>
             <h3 class="font-semibold text-gray-900 mb-2">Los cambios no se sincronizan</h3>
-            <p class="text-gray-600">Intenta cerrar completamente la app y reabrirla. Si aún no funciona, revisa tu conexión a internet.</p>
+            <p class="text-gray-600">Intenta cerrar completamente la app y reabrirla. Verifica tu conexión a internet. Si aún no funciona, intenta cerrar sesión e inicia sesión nuevamente.</p>
           </div>
 
           <div>
-            <h3 class="font-semibold text-gray-900 mb-2">¿Funcionan sin internet?</h3>
-            <p class="text-gray-600">Puedes crear y editar listas sin internet, pero para sincronización con otros necesitas conexión.</p>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Necesito internet para usar Share List?</h3>
+            <p class="text-gray-600">Puedes crear y editar listas sin internet. Sin embargo, para compartir listas y sincronizar con otros dispositivos necesitas conexión activa.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Perdí mis datos, ¿puedo recuperarlos?</h3>
+            <p class="text-gray-600">Si usabas la app con una cuenta y los datos estaban sincronizados, podemos ayudarte. Sin cuenta, los datos se almacenan solo en tu dispositivo y no pueden recuperarse una vez eliminados.</p>
           </div>
         </div>
       </div>
 
-      <!-- Contacto -->
-      <div class="bg-gray-900 text-white rounded-2xl p-8">
-        <h2 class="text-2xl font-bold mb-4 flex items-center mt-0">
-          <span class="text-2xl mr-3">📬</span>
-          ¿Necesitas más ayuda?
+      <!-- Contacto de soporte -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">🛠️</span>
+          Contacto
         </h2>
-        <p class="text-gray-300 mb-6">Si tienes problemas o sugerencias, escríbenos directamente:</p>
-        <a href="mailto:nitidacrea@gmail.com" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg transition">
-          Contactar soporte
-        </a>
+        <p class="text-gray-600 mb-4">Si necesitas ayuda, puedes escribir a:</p>
+        <p class="text-gray-600">
+          <a href="mailto:nitidacrea@gmail.com" class="no-underline text-blue-600 hover:text-blue-800">nitidacrea@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- Privacidad -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔒</span>
+          Privacidad
+        </h2>
+        <div class="space-y-4 text-gray-600">
+          <p>Share List respeta tu privacidad. Lee nuestra política completa para saber cómo protegemos tus datos.</p>
+          <p>Consulta nuestra <a href="/digital-products/share-list/privacy-policy" class="no-underline text-blue-600 hover:text-blue-800">Política de Privacidad</a> y <a href="/digital-products/share-list/term-share-list" class="no-underline text-blue-600 hover:text-blue-800">Términos y Condiciones</a>.</p>
+        </div>
       </div>
     </div>
   </div>
