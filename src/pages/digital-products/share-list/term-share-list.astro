@@ -1,0 +1,145 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Términos y Condiciones - Share List | Nítida Digital";
+const pageDescription = "Términos y condiciones de uso de Share List. Aplicación para crear y compartir listas de tareas y compras.";
+const pageUrl = "https://nitidadigital.com/digital-products/share-list/term-share-list";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Términos y Condiciones de Uso – Share List</h1>
+      <p class="text-gray-600">
+        <strong>Fecha de entrada en vigor:</strong> Abril de 2026
+      </p>
+    </div>
+
+    <p>
+      Bienvenido a <strong>Share List</strong>. Al descargar, instalar o utilizar nuestra aplicación, aceptas cumplir con los siguientes Términos y Condiciones de uso.
+    </p>
+
+    <h2>1. Objeto de la aplicación</h2>
+
+    <p>
+      <strong>Share List</strong> es una aplicación móvil que permite crear listas de tareas o compras y compartirlas con otros usuarios de forma rápida y sencilla.
+    </p>
+
+    <p>La aplicación permite:</p>
+
+    <ul>
+      <li>Crear listas personales o compartidas</li>
+      <li>Invitar a otros usuarios a colaborar</li>
+      <li>Marcar elementos como completados</li>
+      <li>Sincronizar cambios entre dispositivos</li>
+    </ul>
+
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+      <p class="font-semibold m-0">Nota importante</p>
+      <p class="mb-0">Las listas compartidas son visibles solo para usuarios invitados. Mantén privado acceso a tus listas sensibles.</p>
+    </div>
+
+    <h2>2. Uso permitido</h2>
+
+    <p>
+      El usuario puede utilizar la aplicación únicamente para uso personal y no comercial.
+    </p>
+
+    <p>Al utilizar <strong>Share List</strong> te comprometes a:</p>
+
+    <ul>
+      <li>No utilizar la aplicación para fines ilegales.</li>
+      <li>No compartir información sensible o privada de terceros sin consentimiento.</li>
+      <li>No utilizar la aplicación para spam o acoso a otros usuarios.</li>
+      <li>No interferir con el funcionamiento de la aplicación.</li>
+    </ul>
+
+    <h2>3. Datos introducidos por el usuario</h2>
+
+    <p>La aplicación permite introducir información como:</p>
+
+    <ul>
+      <li>nombres de listas</li>
+      <li>elementos de tareas o compras</li>
+      <li>notas personales</li>
+      <li>colaboradores invitados</li>
+    </ul>
+
+    <p>
+      El usuario conserva todos los derechos sobre la información que introduce en la app.
+    </p>
+
+    <h2>4. Privacidad</h2>
+
+    <p>
+      El uso de <strong>Share List</strong> está sujeto a nuestra <a class="no-underline text-blue-600 hover:text-blue-800" href="/digital-products/share-list/privacy-policy">Política de Privacidad</a>, que describe cómo se manejan los datos dentro de la aplicación.
+    </p>
+
+    <h2>5. Listas compartidas</h2>
+
+    <p>
+      Cuando compartes una lista, solo los usuarios invitados pueden verla y editarla.
+    </p>
+
+    <p>
+      Eres responsable de las personas a las que invitas a colaborar en tus listas.
+    </p>
+
+    <p>
+      No compartas información confidencial en listas que planees compartir.
+    </p>
+
+    <h2>6. Limitación de responsabilidad</h2>
+
+    <p>
+      <strong>Share List</strong> se proporciona "tal cual", sin garantías de ningún tipo.
+    </p>
+
+    <p>
+      <strong>Nítida Digital</strong> no se responsabiliza por:
+    </p>
+
+    <ul>
+      <li>pérdida de datos</li>
+      <li>conflictos entre usuarios colaboradores</li>
+      <li>información compartida inadecuadamente</li>
+    </ul>
+
+    <h2>7. Alcance de la aplicación</h2>
+
+    <p>
+      <strong>Share List</strong> es una herramienta de organización colaborativa personal.
+    </p>
+
+    <p>
+      La responsabilidad de proteger información sensible recae en el usuario.
+    </p>
+
+    <h2>8. Modificaciones</h2>
+
+    <p>
+      Nos reservamos el derecho de modificar o actualizar estos Términos y Condiciones en cualquier momento.
+    </p>
+
+    <h2>9. Contacto</h2>
+
+    <p>
+      Si tienes dudas sobre estos Términos, puedes <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">escribir aquí</a>.
+    </p>
+
+    <hr />
+
+    <p>
+      Al utilizar <strong>Share List</strong>, aceptas las condiciones descritas en estos términos.
+      Gracias por confiar en nuestra aplicación para organizar tus tareas y compras colaborativas.
+    </p>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

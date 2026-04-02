@@ -1,0 +1,135 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Soporte - Share List | Nítida Digital";
+const pageDescription = "Página de soporte para Share List. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de listas compartidas.";
+const pageUrl = "https://nitidadigital.com/digital-products/share-list/support";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-pink-100">
+        <span class="text-6xl">📝</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Share List</h1>
+      <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
+        Bienvenido a la página de soporte de <strong>Share List</strong>, tu herramienta para crear y compartir listas de manera simple.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate max-w-none">
+      <!-- Guía rápida de uso -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">📘</span>
+          Guía rápida de uso
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea una lista</h3>
+              <p class="text-gray-600">Presiona "Nueva lista" y asigna un nombre: tareas, compras, ideas, etc.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Agrega elementos</h3>
+              <p class="text-gray-600">Ingresa los elementos uno a uno. Puedes editar o eliminar en cualquier momento.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Comparte la lista</h3>
+              <p class="text-gray-600">Invita a otros escribiendo su correo o enviándoles un código único.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preguntas frecuentes -->
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">❓</span>
+          Preguntas frecuentes
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo comparto una lista?</h3>
+            <p class="text-gray-600">En cada lista, encontrarás un botón "Compartir". Puedes invitar a personas por correo o generar un código único para que otros se unan.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo editar elementos mientras otros los ven?</h3>
+            <p class="text-gray-600">Sí, los cambios se sincronizan en tiempo real. Cuando agregas o marcas un elemento como hecho, los otros usuarios lo ven inmediatamente.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo marco un elemento como completado?</h3>
+            <p class="text-gray-600">Toca el elemento para marcarlo con un ✓. Aparecerá tachado para que sepas que ya está hecho.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo tener varias listas?</h3>
+            <p class="text-gray-600">Sí, tienes listas ilimitadas. Crea una para cada cosa: compras, tareas, viajes, etc.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Qué pasa si elimino una lista?</h3>
+            <p class="text-gray-600">La lista se elimina permanentemente. Si la necesitas, tendrás que recrearla. Ten cuidado con esta acción.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solución de problemas -->
+      <div class="bg-pink-50 rounded-2xl p-8 mb-8 border border-pink-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔧</span>
+          Solución de problemas
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">No puedo compartir la lista</h3>
+            <p class="text-gray-600">Verifica que el correo sea válido e intenta nuevamente. Si persiste, contacta con nuestro equipo.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Los cambios no se sincronizan</h3>
+            <p class="text-gray-600">Intenta cerrar completamente la app y reabrirla. Si aún no funciona, revisa tu conexión a internet.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Funcionan sin internet?</h3>
+            <p class="text-gray-600">Puedes crear y editar listas sin internet, pero para sincronización con otros necesitas conexión.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto -->
+      <div class="bg-gray-900 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">📬</span>
+          ¿Necesitas más ayuda?
+        </h2>
+        <p class="text-gray-300 mb-6">Si tienes problemas o sugerencias, escríbenos directamente:</p>
+        <a href="mailto:nitidacrea@gmail.com" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+          Contactar soporte
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

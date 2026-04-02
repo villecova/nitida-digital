@@ -1,0 +1,152 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Política de Privacidad - Share List | Nítida Digital";
+const pageDescription = "Política de privacidad de Share List. Cómo protegemos y utilizamos tus datos personales en nuestra app de listas compartidas.";
+const pageUrl = "https://nitidadigital.com/digital-products/share-list/privacy-policy";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Política de Privacidad – Share List</h1>
+      <p class="text-gray-600">
+        <strong>Fecha de entrada en vigor:</strong> Abril de 2026
+      </p>
+    </div>
+
+    <p>
+      Tu privacidad es muy importante para nosotros. Esta política explica cómo recopilamos, usamos y protegemos tus datos cuando utilizas <strong>Share List</strong>, nuestra aplicación de listas compartidas.
+    </p>
+
+    <h2>Datos que recopilamos</h2>
+
+    <p>Para ofrecerte la mejor experiencia, recopilamos los siguientes tipos de datos:</p>
+
+    <h3>Datos de contacto</h3>
+
+    <p>
+      <strong>Nombre y correo electrónico:</strong> se utilizan al registrarte en la aplicación.
+    </p>
+
+    <p>
+      <strong>Finalidad:</strong> crear tu cuenta e identificarte.
+    </p>
+
+    <h3>Datos de listas</h3>
+
+    <p>
+      <strong>Listas y elementos:</strong> nombres de listas, elementos de tareas o compras, notas personales.
+    </p>
+
+    <p>
+      <strong>Finalidad:</strong> almacenar y organizar tus listas.
+    </p>
+
+    <h3>Información de colaboradores</h3>
+
+    <p>
+      <strong>Usuarios invitados:</strong> correos electrónicos de personas con las que compartes listas.
+    </p>
+
+    <p>
+      <strong>Finalidad:</strong> permitir colaboración en listas compartidas.
+    </p>
+
+    <h3>Identificadores</h3>
+
+    <p>
+      <strong>ID de usuario</strong> (generado por la aplicación).
+    </p>
+
+    <p>
+      <strong>Finalidad:</strong> vincular tus datos a tu cuenta.
+    </p>
+
+    <h3>Datos de uso</h3>
+
+    <p>
+      <strong>Información sobre cómo utilizas la app:</strong> frecuencia de uso, listas creadas, colaboraciones.
+    </p>
+
+    <p>
+      <strong>Finalidad:</strong> mejorar características y personalizar tu experiencia.
+    </p>
+
+    <h2>Cómo usamos tus datos</h2>
+
+    <p>Utilizamos los datos que recopilamos para:</p>
+
+    <ul>
+      <li>Proporcionar y mantener el funcionamiento de la aplicación</li>
+      <li>Crear y gestionar tu cuenta</li>
+      <li>Almacenar tus listas</li>
+      <li>Permitir colaboración en listas compartidas</li>
+      <li>Sincronizar cambios entre dispositivos</li>
+      <li>Mejorar y personalizar la experiencia</li>
+    </ul>
+
+    <h2>Almacenamiento de datos</h2>
+
+    <p>
+      Tus datos se almacenan de forma segura.
+    </p>
+
+    <p>
+      Tus listas personales son privadas y solo tú puedes acceder a ellas.
+    </p>
+
+    <p>
+      Las listas compartidas son visibles solo para los usuarios que invites.
+    </p>
+
+    <p>
+      No compartimos tu información personal con terceros sin tu consentimiento explícito.
+    </p>
+
+    <h2>Seguridad</h2>
+
+    <p>
+      Implementamos medidas de seguridad para proteger tus datos contra acceso no autorizado.
+    </p>
+
+    <p>
+      Sin embargo, ningún sistema es completamente seguro. Si descubres un problema de seguridad, por favor <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">contáctanos</a>.
+    </p>
+
+    <h2>Derechos del usuario</h2>
+
+    <p>Tienes derecho a:</p>
+
+    <ul>
+      <li>Acceder a tus datos personales</li>
+      <li>Corregir datos inexactos</li>
+      <li>Solicitar la eliminación de tus datos</li>
+      <li>Oponertes al uso de tus datos</li>
+    </ul>
+
+    <p>
+      Para ejercer estos derechos, <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">contáctanos</a>.
+    </p>
+
+    <h2>Cambios en esta política</h2>
+
+    <p>
+      Podemos actualizar esta Política de Privacidad en cualquier momento.
+    </p>
+
+    <h2>Contacto</h2>
+
+    <p>
+      Si tienes preguntas sobre esta Política de Privacidad, puedes <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">escribir aquí</a>.
+    </p>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

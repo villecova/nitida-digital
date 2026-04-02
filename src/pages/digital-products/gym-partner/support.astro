@@ -1,0 +1,130 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Soporte - Gym Partner | Nítida Digital";
+const pageDescription = "Página de soporte para Gym Partner. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de entrenamiento.";
+const pageUrl = "https://nitidadigital.com/digital-products/gym-partner/support";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-blue-100">
+        <span class="text-6xl">💪</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Gym Partner</h1>
+      <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
+        Bienvenido a la página de soporte de <strong>Gym Partner</strong>, tu asistente para registrar entrenamientos y hacer seguimiento de tu progreso.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate max-w-none">
+      <!-- Guía rápida de uso -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">📘</span>
+          Guía rápida de uso
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Crea tus rutinas</h3>
+              <p class="text-gray-600">Define los ejercicios que realizas en cada sesión de entrenamiento.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Registra tus entrenamientos</h3>
+              <p class="text-gray-600">Anota los pesos, series y repeticiones de cada ejercicio en tus sesiones.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Observa tu progreso</h3>
+              <p class="text-gray-600">Visualiza cómo aumentan tus pesos y mejorar semana a semana.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preguntas frecuentes -->
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">❓</span>
+          Preguntas frecuentes
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo agrego un nuevo ejercicio?</h3>
+            <p class="text-gray-600">En la pantalla de rutinas, selecciona "Agregar ejercicio" e ingresa el nombre. Luego podrás asignarle series y repeticiones.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo cambiar el peso de un ejercicio?</h3>
+            <p class="text-gray-600">Sí, en cada sesión puedes editar todos los datos de peso, series y repeticiones. La app guardará automáticamente tus cambios.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo veo mi historial de entrenamientos?</h3>
+            <p class="text-gray-600">Accede a la pestaña "Historial" para ver todos tus entrenamientos anteriores y comparar tu progreso.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo exportar mis datos?</h3>
+            <p class="text-gray-600">Actualmente, los datos se guardan en tu dispositivo. En futuras actualizaciones, ofreceremos opciones de exportación.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solución de problemas -->
+      <div class="bg-blue-50 rounded-2xl p-8 mb-8 border border-blue-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔧</span>
+          Solución de problemas
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">La app se cierra inesperadamente</h3>
+            <p class="text-gray-600">Intenta estos pasos:<br/>1. Cierra completamente la app<br/>2. Borra el caché desde Ajustes<br/>3. Reabre la app</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">No veo mis entrenamientos guardados</h3>
+            <p class="text-gray-600">Verifica que estés usando la misma cuenta. Si persiste, contacta con nuestro equipo de soporte.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Hay un límite de ejercicios o rutinas?</h3>
+            <p class="text-gray-600">No hay límite. Puedes crear tantas rutinas y ejercicios como necesites.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto -->
+      <div class="bg-gray-900 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">📬</span>
+          ¿Necesitas más ayuda?
+        </h2>
+        <p class="text-gray-300 mb-6">Si tienes problemas o sugerencias, escríbenos directamente:</p>
+        <a href="mailto:nitidacrea@gmail.com" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+          Contactar soporte
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>

@@ -13,30 +13,93 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 const apps = [
 	{
 		id: 1,
-		name: "Cosmos Plant Care",
-		description: "No más plantas olvidadas. Recordatorios de riego y fertilización para mantener tus plantas siempre saludables.",
-		image: "/assets/store/cosmos-1.png",
+		title: "Cosmos Plant Care",
+		subtitle: "Nunca olvides regar tus plantas",
+		description: "<strong>Recordatorios</strong> simples de riego y fertilización para mantener el <strong>cuidado constante</strong>.",
+		idealFor: [
+			"Personas con <strong>plantas en casa</strong>",
+			"Quienes quieren <strong>crear el hábito</strong> de cuidado"
+		],
+		image: "/assets/store/water.png",
+		placeholderIcon: "🌿",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
-		price: "Gratis"
+		price: "Gratis",
+		termsLink: "/digital-products/cosmos/term-cosmos",
+		privacyLink: "/digital-products/cosmos/privacy-policy",
+		supportLink: "/digital-products/cosmos/support"
 	},
 	{
 		id: 2,
-		name: "Gym Partner", 
-		description: "Tu compañero perfecto para el gimnasio. Planifica rutinas, rastrea progreso y alcanza tus objetivos fitness.",
-		image: "/assets/store/gym-2.png",
+		title: "Gym Partner", 
+		subtitle: "Controla tu entrenamiento, mejora cada semana",
+		description: "<strong>Registra</strong> tus pesos, <strong>sigue tu progreso</strong> y respeta tus descansos en cada entrenamiento.",
+		idealFor: [
+			"Personas que entrenan con <strong>rutina fija</strong>",
+			"Quienes quieren <strong>progresar semana a semana</strong>"
+		],
+		image: "/assets/store/gym.png",
+		placeholderIcon: "💪",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
-		price: "Gratis"
+		price: "Gratis",
+		termsLink: "/digital-products/gym-partner/term-gym-partner",
+		privacyLink: "/digital-products/gym-partner/privacy-policy",
+		supportLink: "/digital-products/gym-partner/support"
 	},
 	{
 		id: 3,
-		name: "Nutripill",
-		description: "Controla tu nutrición y recordatorios de suplementos. Lleva un seguimiento de tu bienestar y hábitos saludables.",
-		image: "/assets/store/cosmos-1.png",
+		title: "Nutripill",
+		subtitle: "No olvides tus pastillas",
+		description: "<strong>Recordatorios claros</strong> para tomar medicamentos o suplementos y <strong>crear el hábito</strong>.",
+		idealFor: [
+			"Personas con <strong>tratamientos o suplementos</strong>",
+			"Quienes buscan <strong>constancia diaria</strong>"
+		],
+		image: "/assets/store/pill.png",
+		placeholderIcon: "💊",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
-		price: "Gratis"
+		price: "Gratis",
+		termsLink: "/digital-products/nutripill/term-nutripill",
+		privacyLink: "/digital-products/nutripill/privacy-policy",
+		supportLink: "/digital-products/nutripill/support"
+	},
+	{
+		id: 4,
+		title: "Bilanz",
+		subtitle: "Compara y elige mejor en el súper",
+		description: "<strong>Calcula</strong> qué producto te conviene más por <strong>precio, peso o cantidad</strong> en segundos.",
+		idealFor: [
+			"Personas que quieren <strong>ahorrar</strong> al comprar",
+			"Quienes <strong>comparan productos</strong> constantemente"
+		],
+		image: "/assets/store/bilanz.png",
+		placeholderIcon: "📊",
+		appleStore: "https://apps.apple.com",
+		googlePlay: "https://play.google.com",
+		price: "Gratis",
+		termsLink: "/digital-products/bilanz/term-bilanz",
+		privacyLink: "/digital-products/bilanz/privacy-policy",
+		supportLink: "/digital-products/bilanz/support"
+	},
+	{
+		id: 5,
+		title: "Share List",
+		subtitle: "Listas simples que puedes compartir",
+		description: "<strong>Crea listas</strong> de tareas o compras y <strong>compártelas fácilmente</strong> entre dispositivos.",
+		idealFor: [
+			"Personas que <strong>organizan tareas o compras</strong>",
+			"Quienes necesitan <strong>compartir listas rápidamente</strong>"
+		],
+		image: "/assets/store/list.png",
+		placeholderIcon: "📝",
+		appleStore: "https://apps.apple.com",
+		googlePlay: "https://play.google.com",
+		price: "Gratis",
+		termsLink: "/digital-products/share-list/term-share-list",
+		privacyLink: "/digital-products/share-list/privacy-policy",
+		supportLink: "/digital-products/share-list/support"
 	}
 ];
 ---
@@ -47,10 +110,10 @@ const apps = [
 	<Welcome 
 		type="color"
 		color="bg-gradient-to-br from-yellow-600 via-yellow-500 to-yellow-400"
-		title="Digital Products"
-		subtitle="Ready-to-use digital resources designed to save time and bring clarity to your projects."
-		primaryButton="Explore products"
-		primaryLink="#products"
+		title="Apps diseñadas para la vida real"
+		subtitle="Simples, rápidas. Sin funciones innecesarias — solo lo que necesitas."
+		primaryButton="Explorar Apps"
+		primaryLink="#apps"
 		secondaryButton=""
 		secondaryLink=""
 		mediaVariant="logo"
@@ -61,43 +124,58 @@ const apps = [
 		<section id="apps" class="py-32 bg-gray-50">
 			<div class="max-w-6xl mx-auto px-4">
 				<!-- Section Header -->
-				<div class="text-center mb-20" data-aos="fade-up" data-aos-delay="50">
-					<h2 class="text-4xl font-bold text-gray-900 mb-4 font-main">Nuestras Apps</h2>
+				<div class=" mb-20" data-aos="fade-up" data-aos-delay="50">
+					<h2 class="text-4xl font-bold text-gray-900 mb-4 font-main">Herramientas digitales para tu día a día</h2>
+					<p class="text-xl text-gray-600 font-primary pb-4">
+						Hoy existen miles de apps que hacen de todo… pero pocas que realmente se usan.
+					</p>
+					<p class="text-xl text-gray-600 font-primary pb-4">
+						En Nítida creamos herramientas simples, rápidas y con sentido, diseñadas para ayudarte en tu día a día sin complicarlo.	
+					</p>
 					<p class="text-xl text-gray-600 font-primary">
-						Aplicaciones móviles diseñadas para mejorar tu experiencia diaria
+						Eliminamos lo innecesario para que puedas enfocarte en lo que realmente importa.
 					</p>
 				</div>
 				
 				<!-- Apps Grid -->
 				<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 				{apps.map((app, index) => (
-					<div class="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay={100 + (index * 100)}>
-						<!-- App Info -->
-						<div class="text-center mb-6">
-							<h3 class="text-3xl font-bold text-gray-900 mb-3 font-main">{app.name}</h3>
-							<span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-								Próximamente
-							</span>
-						</div>
-						
-						<!-- App Image -->
-						<div class="mb-4 mt-8 mx-auto" style="width: 40%;">
-							{app.name === "Nutripill" ? (
-								<div class="w-full aspect-[425/856] rounded-xl bg-gray-200 flex items-center justify-center" aria-hidden="true">
-									<span class="text-gray-400 text-4xl">💊</span>
-								</div>
-							) : (
-								<img src={app.image} alt={app.name} class="w-full h-auto" />
-							)}
+					<div class="h-full bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-aos="fade-up" data-aos-delay={100 + (index * 100)}>
+						<!-- App Header -->
+						<div class="flex items-start gap-4 mb-6">
+							<div class="w-20 flex-shrink-0">
+								{app.image ? (
+									<img src={app.image} alt={app.title} class="w-full h-auto" />
+								) : (
+									<div class="w-full aspect-[425/856] rounded-xl bg-gray-200 flex items-center justify-center" aria-hidden="true">
+										<span class="text-gray-400 text-2xl">{app.placeholderIcon}</span>
+									</div>
+								)}
+							</div>
+							<div class="flex-1 min-w-0">
+								<h3 class="text-2xl font-bold text-gray-900 mb-1 font-main leading-tight">{app.title}</h3>
+								<p class="text-sm text-gray-500 mb-3">{app.subtitle}</p>
+								<span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+									Próximamente
+								</span>
+							</div>
 						</div>
 						
 						<!-- App Description -->
-						<div class="text-center mb-6">
-							<p class="text-gray-600 text-sm">{app.description}</p>
+						<div class="text-left mb-6 flex-1">
+							<p class="text-gray-600 text-sm" set:html={app.description}></p>
+							<div class="mt-5">
+								<p class="text-sm font-semibold text-gray-900 mb-2">Ideal para:</p>
+								<ul class="space-y-1">
+									{app.idealFor.map((item) => (
+										<li class="text-sm text-gray-600">• <span set:html={item}></span></li>
+									))}
+								</ul>
+							</div>
 						</div>
 						
 						<!-- Download Buttons -->
-						<div class="flex gap-2 items-start mt-6 opacity-50">
+						<div class="flex gap-2 items-start mt-auto pt-4 opacity-50">
 							<div class="flex-1 relative group">
 								<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
 								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
@@ -116,12 +194,8 @@ const apps = [
 						
 						<!-- Terms Link -->
 						<div class="mt-8 text-center">
-							{app.name === "Cosmos Plant Care" ? (
-								<a href="/digital-products/cosmos/term-cosmos" class="text-gray-400 hover:text-gray-600 text-[10px]">
-									Términos y Condiciones
-								</a>
-							) : app.name === "Nutripill" ? (
-								<a href="/digital-products/nutripill/term-nutripill" class="text-gray-400 hover:text-gray-600 text-[10px]">
+							{app.termsLink ? (
+								<a href={app.termsLink} class="text-blue-600 hover:text-blue-800 text-[10px] font-medium">
 									Términos y Condiciones
 								</a>
 							) : (

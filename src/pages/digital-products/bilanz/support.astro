@@ -1,0 +1,130 @@
+---
+import Footer from '../../../components/Footer.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Layout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Soporte - Bilanz | Nítida Digital";
+const pageDescription = "Página de soporte para Bilanz. Encuentra guías de uso, preguntas frecuentes y contacto de soporte para tu app de comparación de precios.";
+const pageUrl = "https://nitidadigital.com/digital-products/bilanz/support";
+const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar currentPath="/digital-products" />
+
+  <div class="max-w-4xl mx-auto px-4 pt-32 pb-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-purple-100">
+        <span class="text-6xl">📊</span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 font-main">Soporte – Bilanz</h1>
+      <p class="text-xl text-gray-600 font-primary max-w-3xl mx-auto">
+        Bienvenido a la página de soporte de <strong>Bilanz</strong>, tu herramienta para comparar precios y tomar decisiones inteligentes de compra.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-slate max-w-none">
+      <!-- Guía rápida de uso -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">📘</span>
+          Guía rápida de uso
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Ingresa el producto</h3>
+              <p class="text-gray-600">Escribe el nombre del producto que quieres comparar.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Agrega precios y cantidades</h3>
+              <p class="text-gray-600">Ingresa el precio y peso/cantidad de cada opción que quieras comparar.</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2 mt-0">Obtén la mejor opción</h3>
+              <p class="text-gray-600">Bilanz calcula automáticamente cuál es la opción más económica para ti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preguntas frecuentes -->
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">❓</span>
+          Preguntas frecuentes
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Cómo funciona el cálculo de Bilanz?</h3>
+            <p class="text-gray-600">Bilanz divide el precio total por la cantidad (kilos, litros, unidades) para darte el costo unitario. Así puedes comparar de manera justa sin importar el tamaño.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Puedo guardar mis comparaciones?</h3>
+            <p class="text-gray-600">Sí, todas tus comparaciones se guardan automáticamente en el historial. Accede a ellas cuando quieras desde la app.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Qué unidades puedo usar?</h3>
+            <p class="text-gray-600">Puedes ingresar cualquier unidad: kilos, gramos, litros, mililitros, unidades, docenas, etc. Tú controlas cómo medir.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Funciona sin conexión a internet?</h3>
+            <p class="text-gray-600">Sí, Bilanz funciona completamente sin internet. Todos tus cálculos se hacen en tu dispositivo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solución de problemas -->
+      <div class="bg-purple-50 rounded-2xl p-8 mb-8 border border-purple-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center mt-0">
+          <span class="text-2xl mr-3">🔧</span>
+          Solución de problemas
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">El cálculo parece incorrecto</h3>
+            <p class="text-gray-600">Verifica que hayas ingresado correctamente el precio y la cantidad. Bilanz realiza la división automáticamente, así que cualquier número te dará el resultado exacto.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Desapareció una de mis comparaciones</h3>
+            <p class="text-gray-600">Las comparaciones se guardan automáticamente. Si no la ves, intenta buscarla en el historial o reinicia la app.</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">¿Hay límite de comparaciones?</h3>
+            <p class="text-gray-600">No hay límite. Puedes crear tantas comparaciones como necesites.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto -->
+      <div class="bg-gray-900 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center mt-0">
+          <span class="text-2xl mr-3">📬</span>
+          ¿Necesitas más ayuda?
+        </h2>
+        <p class="text-gray-300 mb-6">Si tienes problemas o sugerencias, escríbenos directamente:</p>
+        <a href="mailto:nitidacrea@gmail.com" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+          Contactar soporte
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer hideTerms={true} hideSocial={true} />
+</Layout>
