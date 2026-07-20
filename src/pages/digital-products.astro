@@ -5,12 +5,32 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 const pageTitle = "Apps Móviles y Productos Digitales | Nítida Digital";
-const pageDescription = "Descubre nuestras aplicaciones móviles: Cosmos Plant Care, Gym Partner y Nutripill. Apps innovadoras disponibles próximamente en App Store y Google Play.";
+const pageDescription = "Descubre nuestras aplicaciones móviles: NutriPill, Cosmos Plant Care, Gym Partner y más. Apps simples disponibles en App Store y próximamente en Google Play.";
 const pageUrl = "https://nitidadigital.com/digital-products";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 
 // Datos de las apps
 const apps = [
+	{
+		id: 3,
+		title: "Nutripill",
+		subtitle: "No olvides tus pastillas",
+		description: "<strong>Recordatorios claros</strong> para tomar medicamentos o suplementos y <strong>crear el hábito</strong>.",
+		idealFor: [
+			"Personas con <strong>tratamientos o suplementos</strong>",
+			"Quienes buscan <strong>constancia diaria</strong>"
+		],
+		image: "/assets/store/pill.png",
+		placeholderIcon: "💊",
+		appleStore: "https://apps.apple.com/mx/app/nutripill/id6760617485",
+		googlePlay: null,
+		available: true,
+		price: "Gratis",
+		landingLink: "/nutripill",
+		termsLink: "/digital-products/nutripill/term-nutripill",
+		privacyLink: "/digital-products/nutripill/privacy-policy",
+		supportLink: "/digital-products/nutripill/support"
+	},
 	{
 		id: 1,
 		title: "Cosmos Plant Care",
@@ -24,6 +44,7 @@ const apps = [
 		placeholderIcon: "🌿",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
+		available: false,
 		price: "Gratis",
 		termsLink: "/digital-products/cosmos/term-cosmos",
 		privacyLink: "/digital-products/cosmos/privacy-policy",
@@ -42,28 +63,11 @@ const apps = [
 		placeholderIcon: "💪",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
+		available: false,
 		price: "Gratis",
 		termsLink: "/digital-products/gym-partner/term-gym-partner",
 		privacyLink: "/digital-products/gym-partner/privacy-policy",
 		supportLink: "/digital-products/gym-partner/support"
-	},
-	{
-		id: 3,
-		title: "Nutripill",
-		subtitle: "No olvides tus pastillas",
-		description: "<strong>Recordatorios claros</strong> para tomar medicamentos o suplementos y <strong>crear el hábito</strong>.",
-		idealFor: [
-			"Personas con <strong>tratamientos o suplementos</strong>",
-			"Quienes buscan <strong>constancia diaria</strong>"
-		],
-		image: "/assets/store/pill.png",
-		placeholderIcon: "💊",
-		appleStore: "https://apps.apple.com",
-		googlePlay: "https://play.google.com",
-		price: "Gratis",
-		termsLink: "/digital-products/nutripill/term-nutripill",
-		privacyLink: "/digital-products/nutripill/privacy-policy",
-		supportLink: "/digital-products/nutripill/support"
 	},
 	{
 		id: 4,
@@ -78,6 +82,7 @@ const apps = [
 		placeholderIcon: "📊",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
+		available: false,
 		price: "Gratis",
 		termsLink: "/digital-products/bilanz/term-bilanz",
 		privacyLink: "/digital-products/bilanz/privacy-policy",
@@ -96,6 +101,7 @@ const apps = [
 		placeholderIcon: "📝",
 		appleStore: "https://apps.apple.com",
 		googlePlay: "https://play.google.com",
+		available: false,
 		price: "Gratis",
 		termsLink: "/digital-products/share-list/term-share-list",
 		privacyLink: "/digital-products/share-list/privacy-policy",
@@ -153,11 +159,23 @@ const apps = [
 								)}
 							</div>
 							<div class="flex-1 min-w-0">
-								<h3 class="text-2xl font-bold text-gray-900 mb-1 font-main leading-tight">{app.title}</h3>
+								<h3 class="text-2xl font-bold text-gray-900 mb-1 font-main leading-tight">
+									{app.landingLink ? (
+										<a href={app.landingLink} class="hover:text-blue-primary transition-colors">{app.title}</a>
+									) : (
+										app.title
+									)}
+								</h3>
 								<p class="text-sm text-gray-500 mb-3">{app.subtitle}</p>
-								<span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
-									Próximamente
-								</span>
+								{app.available ? (
+									<span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">
+										Disponible
+									</span>
+								) : (
+									<span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+										Próximamente
+									</span>
+								)}
 							</div>
 						</div>
 						
@@ -175,21 +193,45 @@ const apps = [
 						</div>
 						
 						<!-- Download Buttons -->
-						<div class="flex gap-2 items-start mt-auto pt-4 opacity-50">
-							<div class="flex-1 relative group">
-								<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
-								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-									Próximamente
-									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+						<div class="flex gap-2 items-start mt-auto pt-4">
+							{app.appleStore && app.appleStore !== "https://apps.apple.com" ? (
+								<a
+									href={app.appleStore}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex-1 transition hover:opacity-80"
+									aria-label={`Descargar ${app.title} en App Store`}
+								>
+									<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
+								</a>
+							) : (
+								<div class="flex-1 relative group opacity-50 cursor-not-allowed">
+									<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
+									<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+										Próximamente
+										<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+									</div>
 								</div>
-							</div>
-							<div class="flex-1 relative group">
-								<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
-								<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-									Próximamente
-									<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+							)}
+							{app.googlePlay && app.googlePlay !== "https://play.google.com" ? (
+								<a
+									href={app.googlePlay}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex-1 transition hover:opacity-80"
+									aria-label={`Descargar ${app.title} en Google Play`}
+								>
+									<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
+								</a>
+							) : (
+								<div class="flex-1 relative group opacity-50 cursor-not-allowed">
+									<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
+									<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+										Próximamente
+										<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+									</div>
 								</div>
-							</div>
+							)}
 						</div>
 						
 						<!-- Terms Link -->

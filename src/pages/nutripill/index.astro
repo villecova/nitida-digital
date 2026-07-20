@@ -1,0 +1,687 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = 'NutriPill — Organiza medicamentos y suplementos';
+const pageDescription =
+	'Organiza medicamentos y suplementos, programa recordatorios y lleva el control de tus tomas, las de tu familia o tus mascotas.';
+const pageUrl = 'https://nitidadigital.com/nutripill';
+const imageUrl = 'https://nitidadigital.com/assets/nutripill/device-hero-home.png';
+
+const privacyUrl = '/digital-products/nutripill/privacy-policy';
+const termsUrl = '/digital-products/nutripill/term-nutripill';
+const supportUrl = '/digital-products/nutripill/support';
+const contactUrl = 'mailto:hola@nitidadigital.com';
+
+const problems = [
+	{
+		icon: 'notifications_off',
+		tone: 'danger',
+		title: 'Olvido de tomas',
+		description: 'Recibe recordatorios en los horarios que configures.',
+	},
+	{
+		icon: 'event_repeat',
+		tone: 'blue',
+		title: 'Horarios difíciles de seguir',
+		description: 'Consulta fácilmente qué medicamento corresponde a cada momento.',
+	},
+	{
+		icon: 'group',
+		tone: 'primary',
+		title: 'Varias rutinas por organizar',
+		description: 'Mantén separadas las tomas de cada persona o mascota.',
+	},
+];
+
+const features = [
+	{
+		icon: 'notifications_active',
+		title: 'Recordatorios de toma',
+		description: 'Configura días y horarios para cada medicamento o suplemento.',
+	},
+	{
+		icon: 'dashboard_customize',
+		title: 'Organización visual',
+		description: 'Consulta tus próximas tomas desde una interfaz clara.',
+	},
+	{
+		icon: 'history',
+		title: 'Registro de tomas',
+		description: 'Marca cada toma como realizada y consulta tu actividad.',
+	},
+];
+
+const steps = [
+	{
+		number: '1',
+		title: 'Agrega',
+		description: 'Registra un medicamento o suplemento.',
+	},
+	{
+		number: '2',
+		title: 'Configura',
+		description: 'Selecciona los días y horarios.',
+	},
+	{
+		number: '3',
+		title: 'Recibe y registra',
+		description: 'Recibe el recordatorio y marca la toma.',
+	},
+];
+
+const premiumBenefits = [
+	{
+		icon: 'add_circle',
+		title: 'Más tomas',
+		description: 'Agrega todas las tomas que necesites.',
+	},
+	{
+		icon: 'group',
+		title: 'Perfiles adicionales',
+		description: 'Organiza por separado las rutinas de personas y mascotas.',
+	},
+	{
+		icon: 'inventory_2',
+		title: 'Seguimiento de stock',
+		description: 'Consulta cuántas unidades tienes disponibles.',
+	},
+	{
+		icon: 'filter_list',
+		title: 'Filtros de organización',
+		description: 'Encuentra rápidamente la información que necesitas.',
+	},
+];
+
+const useCases = [
+	{ icon: 'person', label: 'Tu rutina personal' },
+	{ icon: 'family_restroom', label: 'Medicamentos de familiares' },
+	{ icon: 'medication', label: 'Suplementos diarios' },
+	{ icon: 'pets', label: 'Rutinas de mascotas' },
+];
+
+const freePlan = [
+	'Hasta 3 tomas',
+	'Recordatorios',
+	'Registro básico',
+	'Perfil principal',
+];
+
+const premiumPlan = [
+	'Más tomas',
+	'Perfiles adicionales',
+	'Seguimiento de stock',
+	'Filtros y organización',
+	'Pago único',
+	'Sin suscripción',
+];
+
+const faqs = [
+	{
+		q: '¿NutriPill proporciona recomendaciones médicas?',
+		a: 'No. NutriPill es una herramienta de organización y recordatorios. No diagnostica ni recomienda medicamentos, dosis o tratamientos.',
+	},
+	{
+		q: '¿NutriPill reemplaza la orientación de un médico o veterinario?',
+		a: 'No. Para cualquier duda sobre un tratamiento, consulta a un profesional de la salud o veterinario.',
+	},
+	{
+		q: '¿La aplicación detecta automáticamente cuándo tomo un medicamento?',
+		a: 'No. Debes marcar manualmente cada toma como realizada.',
+	},
+	{
+		q: '¿Puedo crear perfiles para familiares o mascotas?',
+		a: 'Sí, con NutriPill Premium puedes crear perfiles adicionales y mantener cada rutina separada desde un mismo dispositivo.',
+	},
+	{
+		q: '¿Qué ocurre cuando termina la prueba de 15 días?',
+		a: 'Puedes continuar con el plan gratuito o desbloquear Premium con un pago único.',
+	},
+	{
+		q: '¿Premium es una suscripción?',
+		a: 'No. NutriPill Premium se adquiere con un pago único, sin suscripción.',
+	},
+];
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet"
+	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+		rel="stylesheet"
+	/>
+
+	<div class="nutripill font-jakarta bg-np-bg text-np-text antialiased selection:bg-np-primary-soft selection:text-np-primary">
+		<!-- 1. Header -->
+		<header
+			id="np-header"
+			class="sticky top-0 z-50 w-full border-b border-np-border/60 bg-np-bg/85 backdrop-blur-md"
+		>
+			<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20">
+				<a href="/nutripill" class="text-xl font-bold tracking-tight text-np-primary md:text-2xl">
+					NutriPill
+				</a>
+				<nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
+					<a href="#inicio" class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary transition-colors hover:text-np-primary">Inicio</a>
+					<a href="#funciones" class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary transition-colors hover:text-np-primary">Funciones</a>
+					<a href="#premium" class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary transition-colors hover:text-np-primary">Premium</a>
+					<a href="#faq" class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary transition-colors hover:text-np-primary">FAQ</a>
+				</nav>
+				<a
+					href="#descargar"
+					class="rounded-2xl bg-np-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-np-primary-hover"
+				>
+					Descargar app
+				</a>
+			</div>
+		</header>
+
+		<main>
+			<!-- 2. Hero -->
+			<section id="inicio" class="relative overflow-hidden bg-np-primary-bg">
+				<div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-np-primary/10 blur-3xl" aria-hidden="true"></div>
+				<div class="pointer-events-none absolute -bottom-16 left-10 h-56 w-56 rounded-full bg-np-blue/10 blur-3xl" aria-hidden="true"></div>
+
+				<div class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:gap-12 md:py-20 lg:py-24">
+					<div class="np-fade-up space-y-5">
+						<span class="inline-block rounded-full bg-np-primary-soft px-4 py-1.5 font-inter text-[11px] font-semibold uppercase tracking-[0.12em] text-np-primary">
+							Tu rutina, más organizada
+						</span>
+						<h1 class="max-w-lg text-3xl font-bold leading-tight tracking-tight text-np-text md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+							Organiza medicamentos y suplementos de forma sencilla
+						</h1>
+						<p class="max-w-md text-lg leading-relaxed text-np-text-secondary">
+							Programa recordatorios y lleva el control de tus tomas, las de tu familia o tus mascotas.
+						</p>
+						<div class="flex flex-wrap gap-3 pt-1">
+							<a
+								href="#descargar"
+								class="inline-flex items-center gap-2 rounded-2xl bg-np-primary px-7 py-3.5 text-base font-semibold text-white transition hover:bg-np-primary-hover hover:shadow-lg"
+							>
+								Descargar app
+								<span class="material-symbols-outlined text-xl" aria-hidden="true">download</span>
+							</a>
+							<a
+								href="#funciones"
+								class="inline-flex items-center rounded-2xl bg-np-bg-alt px-7 py-3.5 text-base font-semibold text-np-text-secondary transition hover:bg-np-border"
+							>
+								Conocer funciones
+							</a>
+						</div>
+						<p class="pt-1 text-sm text-np-text-secondary">
+							15 días de Premium incluidos · Después puedes continuar gratis · Pago único, sin suscripción
+						</p>
+					</div>
+
+					<div class="np-fade-up np-fade-up-delay relative mx-auto flex h-[440px] w-full max-w-md items-center justify-center sm:h-[500px] md:h-[540px]">
+						<div class="absolute inset-8 rounded-[3rem] bg-np-primary/10 blur-2xl" aria-hidden="true"></div>
+						<!-- Pantalla trasera -->
+						<img
+							src="/assets/nutripill/device-hero-form.png"
+							alt="NutriPill mostrando creación de una nueva toma con perfiles"
+							class="absolute left-1 top-10 w-[10.5rem] -rotate-6 drop-shadow-xl sm:left-3 sm:w-48 md:w-52"
+							width="395"
+							height="837"
+							loading="eager"
+						/>
+						<!-- Pantalla delantera -->
+						<img
+							src="/assets/nutripill/device-hero-home.png"
+							alt="NutriPill mostrando tomas programadas por perfil"
+							class="absolute right-1 top-0 z-10 w-[11.5rem] rotate-3 drop-shadow-2xl sm:right-3 sm:w-52 md:w-56"
+							width="395"
+							height="837"
+							loading="eager"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- 3. Problema -->
+			<section class="bg-np-bg-alt py-16 md:py-20">
+				<div class="mx-auto max-w-7xl px-5">
+					<div class="mx-auto mb-10 max-w-2xl text-center md:mb-12">
+						<h2 class="mb-3 text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+							¿Te cuesta mantener organizada tu rutina?
+						</h2>
+						<p class="text-np-text-secondary">
+							NutriPill reúne tus horarios, recordatorios y registros en un solo lugar.
+						</p>
+					</div>
+					<div class="grid gap-5 md:grid-cols-3">
+						{
+							problems.map((item) => (
+								<article class="rounded-2xl border border-np-border/70 bg-white p-7 transition hover:shadow-lg">
+									<div
+										class:list={[
+											'mb-5 flex h-12 w-12 items-center justify-center rounded-xl',
+											item.tone === 'danger' && 'bg-np-danger-soft text-np-danger',
+											item.tone === 'blue' && 'bg-np-blue-soft text-np-blue',
+											item.tone === 'primary' && 'bg-np-primary-soft text-np-primary',
+										]}
+									>
+										<span class="material-symbols-outlined text-2xl" aria-hidden="true">
+											{item.icon}
+										</span>
+									</div>
+									<h3 class="mb-2 text-lg font-semibold text-np-text">{item.title}</h3>
+									<p class="leading-relaxed text-np-text-secondary">{item.description}</p>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- 4. Funciones principales -->
+			<section id="funciones" class="py-16 md:py-20">
+				<div class="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-14">
+					<div>
+						<h2 class="mb-8 text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+							Todo lo importante, en una sola app
+						</h2>
+						<div class="space-y-7">
+							{
+								features.map((item) => (
+									<div class="flex gap-4">
+										<div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-np-primary-soft text-np-primary">
+											<span class="material-symbols-outlined text-2xl" aria-hidden="true">
+												{item.icon}
+											</span>
+										</div>
+										<div>
+											<h3 class="mb-1 text-lg font-semibold text-np-text">{item.title}</h3>
+											<p class="text-np-text-secondary">{item.description}</p>
+										</div>
+									</div>
+								))
+							}
+						</div>
+					</div>
+					<div class="relative">
+						<div class="absolute inset-0 -rotate-2 scale-105 rounded-3xl bg-np-primary-soft" aria-hidden="true"></div>
+						<img
+							src="/assets/nutripill/lifestyle-features.png"
+							alt="Persona usando NutriPill en casa para organizar su rutina diaria"
+							class="relative h-[380px] w-full rounded-3xl object-cover shadow-xl md:h-[440px]"
+							width="1448"
+							height="1086"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- 5. Cómo funciona -->
+			<section id="como-funciona" class="bg-np-bg-alt py-14 md:py-16">
+				<div class="mx-auto grid max-w-7xl items-center gap-10 px-5 md:grid-cols-2 md:gap-14">
+					<div class="relative order-2 md:order-1">
+						<img
+							src="/assets/nutripill/lifestyle-active.png"
+							alt="Persona organizando su rutina de suplementos con NutriPill"
+							class="h-[340px] w-full rounded-3xl object-cover shadow-xl md:h-[400px]"
+							width="1448"
+							height="1086"
+							loading="lazy"
+						/>
+					</div>
+					<div class="order-1 md:order-2">
+						<h2 class="mb-8 text-3xl font-bold tracking-tight text-np-text md:mb-10 md:text-4xl">
+							Empieza en segundos
+						</h2>
+						<div class="relative space-y-6 md:space-y-8">
+							{
+								steps.map((step) => (
+									<div class="relative z-10 flex gap-4">
+										<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-np-primary text-lg font-bold text-white shadow-md">
+											{step.number}
+										</div>
+										<div>
+											<h3 class="mb-1 text-lg font-semibold text-np-text">{step.title}</h3>
+											<p class="text-sm text-np-text-secondary">{step.description}</p>
+										</div>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 6. Premium -->
+			<section id="premium" class="py-16 md:py-20">
+				<div class="mx-auto max-w-7xl px-5">
+					<div class="mb-10 max-w-2xl md:mb-12">
+						<span class="mb-3 inline-block rounded-full bg-np-primary-soft px-4 py-1.5 font-inter text-[11px] font-semibold uppercase tracking-[0.12em] text-np-primary">
+							NutriPill Premium
+						</span>
+						<h2 class="mb-3 text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+							Organiza todas las rutinas que dependen de ti
+						</h2>
+						<p class="text-lg text-np-text-secondary">
+							Crea perfiles para ti, familiares o mascotas y mantén cada rutina claramente separada.
+						</p>
+					</div>
+
+					<div class="mb-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+						{
+							premiumBenefits.map((item) => (
+								<article class="rounded-2xl border border-np-border/70 bg-white p-6">
+									<span class="material-symbols-outlined mb-3 block text-3xl text-np-primary" aria-hidden="true">
+										{item.icon}
+									</span>
+									<h3 class="mb-1.5 text-base font-semibold text-np-text">{item.title}</h3>
+									<p class="text-sm leading-relaxed text-np-text-secondary">{item.description}</p>
+								</article>
+							))
+						}
+					</div>
+
+					<div class="mb-8 grid gap-5 md:grid-cols-2">
+						<figure class="overflow-hidden rounded-[1.75rem] bg-np-primary-soft">
+							<img
+								src="/assets/nutripill/lifestyle-routines.png"
+								alt="NutriPill Premium: perfiles personal, familiar y mascota"
+								class="h-80 w-full object-cover object-top md:h-[28rem]"
+								width="1448"
+								height="1086"
+								loading="lazy"
+							/>
+							<figcaption class="px-6 py-4 text-center text-sm text-np-text-secondary md:px-8">
+								Selector de perfiles: personal, familiar y mascota
+							</figcaption>
+						</figure>
+
+						<figure class="overflow-hidden rounded-[1.75rem] bg-np-blue-soft">
+							<img
+								src="/assets/nutripill/lifestyle-stock.png"
+								alt="NutriPill Premium: seguimiento de stock de medicamentos"
+								class="h-80 w-full object-cover object-top md:h-[28rem]"
+								width="1448"
+								height="1086"
+								loading="lazy"
+							/>
+							<figcaption class="px-6 py-4 text-center text-sm text-np-text-secondary md:px-8">
+								Medicamento, unidades disponibles e interfaz sencilla
+							</figcaption>
+						</figure>
+					</div>
+
+					<div class="flex justify-center">
+						<a
+							href="#planes"
+							class="inline-flex rounded-2xl bg-np-primary px-8 py-3.5 text-base font-semibold text-white transition hover:bg-np-primary-hover"
+						>
+							Descubrir Premium
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- 7. Casos de uso -->
+			<section class="bg-np-primary-bg py-14 md:py-16">
+				<div class="mx-auto max-w-7xl px-5">
+					<div class="overflow-hidden rounded-[2rem] bg-white shadow-lg md:flex">
+						<div class="min-h-[260px] md:w-[45%]">
+							<img
+								src="/assets/nutripill/lifestyle-family.png"
+								alt="Persona compartiendo NutriPill en casa con un familiar y su mascota"
+								class="h-full w-full object-cover"
+								width="1448"
+								height="1086"
+								loading="lazy"
+							/>
+						</div>
+						<div class="flex flex-col justify-center p-8 md:w-[55%] md:p-12">
+							<h2 class="mb-3 text-2xl font-bold tracking-tight text-np-text md:text-3xl">
+								Una app para cada tipo de rutina
+							</h2>
+							<p class="mb-6 text-np-text-secondary">
+								Mantén horarios, tomas y existencias organizados desde un mismo dispositivo.
+							</p>
+							<ul class="flex flex-wrap gap-2">
+								{
+									useCases.map((item) => (
+										<li class="inline-flex items-center gap-2 rounded-xl bg-np-primary-soft px-3.5 py-2 text-sm font-medium text-np-primary">
+											<span class="material-symbols-outlined text-lg" aria-hidden="true">
+												{item.icon}
+											</span>
+											{item.label}
+										</li>
+									))
+								}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 8. Comparación de planes -->
+			<section id="planes" class="py-16 md:py-20">
+				<div class="mx-auto max-w-7xl px-5">
+					<div class="mb-10 text-center md:mb-12">
+						<h2 class="mb-3 text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+							Empieza gratis y amplía cuando lo necesites
+						</h2>
+						<p class="mx-auto max-w-xl text-np-text-secondary">
+							Usa las funciones esenciales sin costo o desbloquea todas las herramientas con un pago único.
+						</p>
+					</div>
+					<div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+						<article class="flex h-full flex-col rounded-[2rem] border border-np-border bg-white p-8 md:p-10">
+							<div class="mb-6">
+								<span class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary">
+									Plan Gratis
+								</span>
+								<div class="mt-2 text-3xl font-bold text-np-text">Gratis</div>
+							</div>
+							<ul class="mb-8 flex-grow space-y-3">
+								{
+									freePlan.map((item) => (
+										<li class="flex items-center gap-3 text-np-text-secondary">
+											<span class="material-symbols-outlined text-sm text-np-primary" aria-hidden="true">
+												done
+											</span>
+											{item}
+										</li>
+									))
+								}
+							</ul>
+							<a
+								href="#descargar"
+								class="block w-full rounded-2xl border border-np-primary py-3.5 text-center font-semibold text-np-primary transition hover:bg-np-primary-soft"
+							>
+								Empezar gratis
+							</a>
+						</article>
+
+						<article class="relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-np-primary p-8 text-white shadow-xl md:scale-[1.02] md:p-10">
+							<div class="mb-6">
+								<span class="font-inter text-xs font-semibold uppercase tracking-wider text-white/80">
+									NutriPill Premium
+								</span>
+								<div class="mt-2 text-3xl font-bold">Pago único</div>
+								<p class="mt-1 text-sm text-white/70">Precio disponible en tu tienda.</p>
+							</div>
+							<ul class="mb-8 flex-grow space-y-3">
+								{
+									premiumPlan.map((item) => (
+										<li class="flex items-center gap-3">
+											<span class="material-symbols-outlined text-white" aria-hidden="true">
+												verified
+											</span>
+											{item}
+										</li>
+									))
+								}
+							</ul>
+							<a
+								href="#descargar"
+								class="block w-full rounded-2xl bg-white py-3.5 text-center font-semibold text-np-primary transition hover:bg-np-primary-soft"
+							>
+								Obtener Premium
+							</a>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- 9. FAQ -->
+			<section id="faq" class="bg-np-bg-alt py-16 md:py-20">
+				<div class="mx-auto max-w-3xl px-5">
+					<h2 class="mb-10 text-center text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+						Preguntas frecuentes
+					</h2>
+					<div class="space-y-3">
+						{
+							faqs.map((faq) => (
+								<details class="group rounded-2xl border border-np-border/70 bg-white open:shadow-md">
+									<summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-np-text md:p-6">
+										{faq.q}
+										<span
+											class="material-symbols-outlined flex-shrink-0 transition-transform group-open:rotate-180"
+											aria-hidden="true"
+										>
+											expand_more
+										</span>
+									</summary>
+									<div class="px-5 pb-5 leading-relaxed text-np-text-secondary md:px-6 md:pb-6">{faq.a}</div>
+								</details>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- 10. CTA final -->
+			<section id="descargar" class="py-16 md:py-20">
+				<div class="mx-auto flex max-w-4xl flex-col items-center gap-8 px-5 text-center md:flex-row md:text-left">
+					<div class="flex-1">
+						<h2 class="mb-3 text-3xl font-bold tracking-tight text-np-text md:text-4xl">
+							Empieza a organizar tu rutina
+						</h2>
+						<p class="mb-8 text-np-text-secondary">
+							Descarga NutriPill y lleva tus recordatorios y tomas en un solo lugar.
+						</p>
+						<div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+							<a
+								href="https://apps.apple.com/mx/app/nutripill/id6760617485"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center transition hover:opacity-80"
+								aria-label="Descargar NutriPill en App Store"
+							>
+								<img
+									src="/assets/store/ios.svg"
+									alt="Download on the App Store"
+									class="h-12 w-auto object-contain"
+									width="120"
+									height="40"
+								/>
+							</a>
+							<div class="relative group cursor-not-allowed opacity-50">
+								<img
+									src="/assets/store/md.png"
+									alt="Get it on Google Play"
+									class="h-12 w-auto object-contain"
+									width="120"
+									height="40"
+								/>
+								<div class="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-np-text px-3 py-1 text-sm text-white opacity-0 transition-opacity group-hover:opacity-100">
+									Próximamente
+									<div class="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-transparent border-t-np-text"></div>
+								</div>
+							</div>
+						</div>
+						<p class="mt-4 text-sm text-np-text-secondary">Disponible en App Store. Google Play próximamente.</p>
+					</div>
+					<div class="relative h-[300px] w-[220px] flex-shrink-0 sm:h-[340px] sm:w-[240px]">
+						<img
+							src="/assets/nutripill/device-cta-form.png"
+							alt="NutriPill mostrando el formulario de nueva toma"
+							class="absolute left-0 top-8 w-28 -rotate-6 drop-shadow-xl sm:w-32"
+							width="395"
+							height="837"
+							loading="lazy"
+						/>
+						<img
+							src="/assets/nutripill/device-cta-home.png"
+							alt="NutriPill mostrando las tomas del día"
+							class="absolute right-0 top-0 z-10 w-32 rotate-3 drop-shadow-2xl sm:w-36"
+							width="395"
+							height="837"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- 11. Footer -->
+		<footer class="border-t border-np-border bg-np-bg-alt">
+			<div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 md:flex-row md:items-start md:justify-between">
+				<div class="max-w-sm space-y-3">
+					<span class="text-xl font-bold text-np-primary">NutriPill</span>
+					<p class="text-xs leading-relaxed text-np-text-secondary">
+						NutriPill es una herramienta de organización y recordatorios. No proporciona diagnósticos,
+						recomendaciones médicas o veterinarias ni indicaciones sobre tratamientos.
+					</p>
+				</div>
+				<nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Pie de página">
+					<a href={privacyUrl} class="text-sm text-np-text-secondary transition hover:text-np-primary">Privacidad</a>
+					<a href={termsUrl} class="text-sm text-np-text-secondary transition hover:text-np-primary">Términos</a>
+					<a href={supportUrl} class="text-sm text-np-text-secondary transition hover:text-np-primary">Soporte</a>
+					<a href={contactUrl} class="text-sm text-np-text-secondary transition hover:text-np-primary">Contacto</a>
+					<a href="#descargar" class="text-sm text-np-text-secondary transition hover:text-np-primary">Descargar</a>
+				</nav>
+			</div>
+			<div class="border-t border-np-border/50 py-5 text-center">
+				<p class="font-inter text-xs font-semibold uppercase tracking-wider text-np-text-secondary">
+					© {new Date().getFullYear()} NutriPill · Un producto de Nítida Digital
+				</p>
+			</div>
+		</footer>
+	</div>
+</Layout>
+
+<style is:global>
+	.nutripill .material-symbols-outlined {
+		font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+		user-select: none;
+	}
+
+	.nutripill details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	@keyframes np-fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(18px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.np-fade-up {
+		animation: np-fade-up 0.7s ease-out both;
+	}
+
+	.np-fade-up-delay {
+		animation-delay: 0.15s;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.np-fade-up,
+		.np-fade-up-delay {
+			animation: none;
+		}
+	}
+</style>
+
