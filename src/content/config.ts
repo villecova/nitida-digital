@@ -8,9 +8,12 @@ const workCollection = defineCollection({
     client: z.string(),
     scope: z.string(),
     image: z.string(),
-    gallery: z.array(z.string()).optional(), 
+    logoBg: z.string().optional(),
+    gallery: z.array(z.string()).optional(),
+    url: z.string().url().optional(),
   }),
 });
+
 
 export const collections = {
   work: workCollection,

@@ -20,25 +20,44 @@ const project = await getCollection('work').then((entries) =>
 );
 if (!project) throw new Error(`Project not found: ${slug}`);
 
-const { title, description, year, client, scope, image, gallery = [] } = project.data;
+const { title, description, year, client, scope, image, logoBg, gallery = [], url } = project.data;
+
+const scopeLower = scope?.toLowerCase() || '';
+const isWebProject =
+  scopeLower.includes('página web') ||
+  scopeLower.includes('web') ||
+  scopeLower.includes('sitio');
+const colorScheme = isWebProject ? 'blue' : 'purple';
+const backHref = isWebProject ? '/web-design#portafolio' : '/branding#portafolio';
+const backLabel = isWebProject ? '← Volver a Web Design' : '← Volver a Branding';
 
 ---
 
 <Layout>
 	<Navbar  />
 
-  <section class=" mx-auto px-4 bg-white pt-24 md:pt-32 pb-4">
+  <section class="mx-auto px-4 bg-white pt-24 md:pt-32 pb-16 md:pb-24">
  
     <div class="max-w-screen-lg m-auto">
           <!-- Back link -->
-          <a href="/works" class="inline-block text-sm text-primary border border-secondary rounded-xl px-4 mb-8">← All projects</a>
+          <a href={backHref} class="inline-block text-sm text-primary border border-secondary rounded-xl px-4 mb-8">{backLabel}</a>
         
           <!-- Header info -->
-          <div class="flex flex-col md:flex-row md:items-center">
-            <img src={image} alt="Detalle del proyecto" class="w-4/5 m-auto md:w-1/5 p-8" />
-            <div>
+          <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 mb-8">
+            <img src={image} alt="Detalle del proyecto" class={`w-4/5 m-auto md:w-1/5 md:m-0 p-8 rounded-xl shrink-0 ${logoBg ?? ''}`} />
+            <div class="min-w-0">
               <h1 class="text-4xl font-main text-main">{title}</h1>
               <p class="text-accent mt-2 mb-4">{description}</p>
+              {url && (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-sm text-primary border border-secondary rounded-xl px-4 py-1.5"
+                >
+                  Visitar sitio →
+                </a>
+              )}
             </div>
           </div>
         
@@ -49,7 +68,7 @@ const { title, description, year, client, scope, image, gallery = [] } = project
             <div class="py-2 sm:px-4"><strong>Alcance</strong><br />{scope}</div>
           </div>
       
-          <DynamicGallery images={gallery} client:load />
+          <DynamicGallery images={gallery} />
         
           <!-- Contenido Markdown -->
           {project.body && (
@@ -59,7 +78,7 @@ const { title, description, year, client, scope, image, gallery = [] } = project
 
   </section>
   
-  <Contact />
+  <Contact colorScheme={colorScheme} />
 	<Footer  />
 </Layout>
 

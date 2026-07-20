@@ -25,11 +25,14 @@ const webProjects = allEntries.filter(entry =>
   entry.data.scope?.toLowerCase().includes('sitio')
 );
 
-const projects = webProjects.map((entry) => ({
-  slug: entry.slug,
-  title: entry.data.title,
-  gallery: entry.data.gallery || []
-}));
+const projects = webProjects
+  .map((entry) => ({
+    slug: entry.slug,
+    title: entry.data.title,
+    gallery: entry.data.gallery || [],
+    year: entry.data.year,
+  }))
+  .sort((a, b) => b.year - a.year);
 
 const t = es.webDesign;
 ---
