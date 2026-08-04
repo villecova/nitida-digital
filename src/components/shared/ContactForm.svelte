@@ -55,15 +55,7 @@
       return;
     }
 
-    if (!formspreeEndpoint) {
-      status = 'error';
-      errorMessage =
-        'El formulario no está disponible por el momento. Puedes escribir a ' +
-        emailFallback +
-        ' o utilizar el enlace de correo de esta página.';
-      track('form_submit_error', { reason: 'missing_endpoint' });
-      return;
-    }
+    if (!formspreeEndpoint) return;
 
     status = 'loading';
 
