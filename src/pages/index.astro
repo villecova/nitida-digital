@@ -6,6 +6,7 @@ import FeaturedProjects from '../components/home/FeaturedProjects.astro';
 import Process from '../components/home/Process.astro';
 import Contact from '../components/Contact.astro';
 import Welcome from '../components/Welcome.astro';
+import AnimatedCounter from '../components/shared/AnimatedCounter.svelte';
 import { site } from '../data/site';
 import { es } from '../i18n/es';
 import { sortProjects } from '../lib/projects';
@@ -106,8 +107,49 @@ const featured = allEntries
     </div>
   </section>
 
+  <!-- Experiencia / micro-prueba social -->
+  <section class="py-16 md:py-24 bg-slate-50" id="experiencia">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">Experiencia que respalda cada proyecto</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div
+          class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+            <AnimatedCounter client:only="svelte" target={10} suffix="+" duration={2000} delay={200} />
+          </div>
+          <p class="text-gray-600 font-medium">años de experiencia</p>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+            <AnimatedCounter client:only="svelte" target={50} suffix="+" duration={2000} delay={400} />
+          </div>
+          <p class="text-gray-600 font-medium">proyectos desarrollados</p>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+          data-aos="fade-up"
+          data-aos-delay="250"
+        >
+          <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-3 h-16 flex items-center justify-center">
+            <AnimatedCounter client:only="svelte" target={100} suffix="%" duration={2000} delay={600} />
+          </div>
+          <p class="text-gray-600 font-medium">enfoque personalizado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Beneficios -->
-  <section class="py-16 md:py-24 bg-slate-50" id="beneficios">
+  <section class="py-16 md:py-24 bg-white" id="beneficios">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
         <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{t.benefits.title}</h2>
