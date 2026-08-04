@@ -2,9 +2,9 @@ export const es = {
   // Home
   home: {
     hero: {
-      title: "Diseño y desarrollo web para negocios que necesitan verse claros, profesionales y listos para crecer.",
-      subtitle: "Creo sitios web e identidades visuales que ayudan a marcas y profesionales a presentar mejor lo que hacen y convertir visitas en conversaciones reales.",
-      cta: "Cuéntame sobre tu proyecto",
+      title: "Soluciones Digitales",
+      subtitle: "Web, branding y productos diseñados para resolver necesidades reales.",
+      cta: "Solicitar información",
       ctaSecondary: "Ver proyectos"
     },
     services: {
@@ -29,13 +29,9 @@ export const es = {
         }
       ]
     },
-    digitalProducts: {
-      title: "Productos propios",
-      subtitle: "También desarrollo productos digitales propios. Eso me permite integrar diseño, experiencia de uso y desarrollo cuando un proyecto lo requiere."
-    },
     cta: {
       title: "¿Listo para dar el siguiente paso?",
-      description: "Cuéntame sobre tu proyecto. Te respondo en menos de 24 horas hábiles con una orientación clara.",
+      description: "Comparte los detalles de tu proyecto. Recibirás una respuesta en un máximo de 24 horas hábiles.",
       button: "Ir a contacto"
     }
   },
@@ -44,7 +40,7 @@ export const es = {
   webDesign: {
     hero: {
       title: "Web Design & Development",
-      subtitle: "Sitios web profesionales que convierten visitantes en clientes y generan resultados medibles.",
+      subtitle: "Sitios web rápidos, claros y pensados para convertir.",
       primaryButton: "Cotizar proyecto web",
       secondaryButton: "Ver proyectos web"
     },
@@ -138,11 +134,11 @@ export const es = {
         "Actualizaciones de contenido",
         "Soporte técnico continuo",
         "Mejoras y ajustes periódicos",
-        "Planes mensuales disponibles"
+        "Acompañamiento continuo disponible"
       ],
       benefit: "Un sitio web bien cuidado genera confianza, profesionalismo y mejores resultados a largo plazo. Nosotros gestionamos los detalles técnicos para que tú te enfoques en tu negocio.",
-      context: "Planes flexibles · Soporte continuo",
-      cta: "Conocer planes de mantenimiento",
+      context: "Soporte continuo · Sin contratos largos",
+      cta: "Consultar mantenimiento",
       trust: "Servicio continuo · Sin contratos largos"
     },
     cta: {
@@ -157,7 +153,7 @@ export const es = {
   branding: {
     hero: {
       title: "Branding & Graphic Design",
-      subtitle: "Identidades visuales coherentes que generan confianza y diferencian tu marca en el mercado.",
+      subtitle: "Identidades visuales claras, memorables y consistentes.",
       primaryButton: "Solicitar propuesta de branding",
       secondaryButton: "Ver proyectos de branding"
     },

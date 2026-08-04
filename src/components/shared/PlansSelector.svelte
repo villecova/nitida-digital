@@ -228,8 +228,8 @@
       </div>
     {/if}
 
-    <!-- Sección de Mantenimiento (solo para Web Design) -->
-    {#if currentService === 'web'}
+    <!-- Sección de Mantenimiento (solo para Web Design) — oculta temporalmente -->
+    {#if false && currentService === 'web'}
       <div class="mt-24 pt-16 border-t border-gray-200">
         <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
           <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">

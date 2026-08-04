@@ -38,19 +38,18 @@ const t = es.branding;
 	<Welcome 
 		type="color"
 		color="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-700"
-		title="Identidad visual clara y coherente"
+		title={t.hero.title}
 		subtitle={t.hero.subtitle}
 		primaryButton={t.hero.primaryButton}
 		primaryLink="/contact#formulario"
 		secondaryButton={t.hero.secondaryButton}
 		secondaryLink="#portafolio"
-		mediaVariant="logo"
+		mediaVariant="none"
 		colorScheme="purple"
 	/>
 
 	<IdealPara 
 		title={t.idealFor.title}
-		plansLink="/planes?service=branding"
 		items={t.idealFor.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -58,7 +57,6 @@ const t = es.branding;
 	<QueObtienes 
 		title={t.whatYouGet.title}
 		intro={t.whatYouGet.intro}
-		plansLink="/planes?service=branding"
 		items={t.whatYouGet.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -73,7 +71,6 @@ const t = es.branding;
 		title={t.portfolio.title}
 		subtitle={t.portfolio.subtitle}
 		emptyMessage={t.portfolio.empty}
-		plansLink="/planes?service=branding"
 		{projects}
 		colorScheme="purple"
 	/>
@@ -83,8 +80,8 @@ const t = es.branding;
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
 		primaryButtonHref="/contact#formulario"
-		secondaryButtonLabel={t.cta.secondaryButton}
-		secondaryButtonHref="/planes?service=branding"
+		secondaryButtonLabel="Ver proyectos de branding"
+		secondaryButtonHref="#portafolio"
 		colorScheme="purple"
 	/>
 

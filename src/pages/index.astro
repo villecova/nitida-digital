@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import AboutBrief from '../components/home/AboutBrief.astro';
 import FeaturedProjects from '../components/home/FeaturedProjects.astro';
 import Process from '../components/home/Process.astro';
 import Contact from '../components/Contact.astro';
@@ -106,8 +105,6 @@ const featured = allEntries
     </div>
   </section>
 
-  <FeaturedProjects projects={featured} />
-
   <!-- Beneficios -->
   <section class="py-16 md:py-24 bg-slate-50" id="beneficios">
     <div class="max-w-6xl mx-auto px-4">
@@ -132,21 +129,7 @@ const featured = allEntries
 
   <Process />
 
-  <!-- Productos propios (secundario) -->
-  <section class="py-16 md:pb-24 bg-slate-50" id="productos">
-    <div class="max-w-3xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="text-3xl md:text-4xl font-main text-gray-900 my-2 mb-4">{t.digitalProducts.title}</h2>
-      <p class="text-base text-accent leading-relaxed mb-8">{t.digitalProducts.subtitle}</p>
-      <a
-        href="/digital-products"
-        class="inline-flex items-center text-sm font-semibold text-gray-900 hover:opacity-70"
-      >
-        Ver productos propios →
-      </a>
-    </div>
-  </section>
-
-  <AboutBrief />
+  <FeaturedProjects projects={featured} />
 
   <Contact />
 

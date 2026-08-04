@@ -21,21 +21,21 @@
   const projectTypes = [
     { value: 'web', label: 'Sitio web' },
     { value: 'branding', label: 'Identidad visual' },
-    { value: 'web-branding', label: 'Web e identidad' },
-    { value: 'other', label: 'Otro / no estoy seguro' },
+    { value: 'web-branding', label: 'Sitio web e identidad visual' },
+    { value: 'other', label: 'Otro / por definir' },
   ];
 
   function validate(): boolean {
     fieldErrors = {};
-    if (!name.trim()) fieldErrors.name = 'Escribe tu nombre.';
+    if (!name.trim()) fieldErrors.name = 'Indica tu nombre.';
     if (!email.trim()) {
-      fieldErrors.email = 'Escribe tu correo.';
+      fieldErrors.email = 'Indica tu correo electrónico.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      fieldErrors.email = 'Correo no válido.';
+      fieldErrors.email = 'El correo electrónico no es válido.';
     }
-    if (!projectType) fieldErrors.projectType = 'Selecciona un tipo de proyecto.';
+    if (!projectType) fieldErrors.projectType = 'Selecciona el tipo de proyecto.';
     if (!description.trim() || description.trim().length < 10) {
-      fieldErrors.description = 'Cuéntame un poco más (mínimo 10 caracteres).';
+      fieldErrors.description = 'Describe el proyecto con un poco más de detalle (mínimo 10 caracteres).';
     }
     return Object.keys(fieldErrors).length === 0;
   }
@@ -58,9 +58,9 @@
     if (!formspreeEndpoint) {
       status = 'error';
       errorMessage =
-        'El formulario aún no está conectado. Mientras tanto, escríbeme a ' +
+        'El formulario no está disponible por el momento. Puedes escribir a ' +
         emailFallback +
-        ' o usa el enlace de correo en esta página.';
+        ' o utilizar el enlace de correo de esta página.';
       track('form_submit_error', { reason: 'missing_endpoint' });
       return;
     }
@@ -99,13 +99,13 @@
         status = 'error';
         errorMessage =
           data?.errors?.[0]?.message ||
-          'No se pudo enviar. Intenta de nuevo o usa el correo.';
+          'No fue posible enviar el mensaje. Inténtalo de nuevo o utiliza el correo electrónico.';
         track('form_submit_error', { reason: 'api' });
       }
     } catch {
       status = 'error';
       errorMessage =
-        'Error de conexión. Revisa tu red o escríbeme por correo.';
+        'Error de conexión. Verifica tu red o envía tu consulta por correo electrónico.';
       track('form_submit_error', { reason: 'network' });
     }
   }
@@ -123,14 +123,14 @@
   >
     <h3 class="text-xl font-bold text-gray-900 mb-2">Mensaje enviado</h3>
     <p class="text-gray-600 text-sm mb-6">
-      Gracias. Revisaré tu mensaje y te responderé en menos de 24 horas hábiles.
+      Gracias por tu mensaje. Lo revisaré y te responderé en un máximo de 24 horas hábiles.
     </p>
     <button
       type="button"
       class="text-sm font-semibold text-gray-900 underline"
       on:click={() => (status = 'idle')}
     >
-      Enviar otro mensaje
+      Enviar otra consulta
     </button>
   </div>
 {:else}
@@ -228,7 +228,7 @@
         rows="4"
         required
         bind:value={description}
-        placeholder="Qué necesitas, para qué negocio y qué resultado buscas."
+        placeholder="Describe el proyecto, el tipo de negocio y el resultado que buscas."
         class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 outline-none resize-y"
         aria-invalid={fieldErrors.description ? 'true' : undefined}
       ></textarea>
@@ -260,7 +260,7 @@
           name="timeline"
           type="text"
           bind:value={timeline}
-          placeholder="Ej. en 4 semanas / sin prisa"
+          placeholder="Ej. en 4 semanas / sin fecha definida"
           class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 outline-none"
         />
       </div>
@@ -293,7 +293,7 @@
     </button>
 
     <p class="text-xs text-gray-500">
-      Respuesta habitual en menos de 24 horas hábiles. Tus datos solo se usan para responder esta consulta.
+      Respuesta en un máximo de 24 horas hábiles. Los datos se utilizan únicamente para atender esta consulta.
     </p>
   </form>
 {/if}

@@ -56,14 +56,6 @@ const { onlySpecialist = false } = Astro.props;
 
     <div class="flex flex-col md:flex-row justify-center gap-4">
       <Button href={site.mailtoWithSubject('Solicitud de cotización', 'Hola, me gustaría recibir más información. Quedo atento(a). Gracias.')} label="COTIZAR PROYECTO" variant="primary" fullWidth={false} />
-
-      {onlySpecialist && (
-        <Button
-          href="/#planes"
-          label="Ver más planes"
-          variant="secondary"
-        />
-      )}
     </div>
 
 

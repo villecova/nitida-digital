@@ -7,7 +7,7 @@ import IdealPara from '../components/shared/IdealPara.astro';
 import QueObtienes from '../components/shared/QueObtienes.astro';
 import ServiceCTA from '../components/shared/ServiceCTA.astro';
 import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
-import WebsiteMaintenance from '../components/shared/WebsiteMaintenance.astro';
+// import WebsiteMaintenance from '../components/shared/WebsiteMaintenance.astro';
 import Welcome from '../components/Welcome.astro';
 import { site } from '../data/site';
 import { es } from '../i18n/es';
@@ -40,19 +40,18 @@ const t = es.webDesign;
 	<Welcome 
 		type="color"
 		color="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700"
-		title="Sitios web claros y profesionales"
+		title={t.hero.title}
 		subtitle={t.hero.subtitle}
 		primaryButton={t.hero.primaryButton}
 		primaryLink="/contact#formulario"
 		secondaryButton={t.hero.secondaryButton}
 		secondaryLink="#portafolio"
-		mediaVariant="logo"
+		mediaVariant="none"
 		colorScheme="blue"
 	/>
 
 	<IdealPara 
 		title={t.idealFor.title}
-		plansLink="/planes?service=web"
 		items={t.idealFor.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="blue"
 	/>
@@ -61,7 +60,6 @@ const t = es.webDesign;
 		title={t.whatYouGet.title}
 		intro={t.whatYouGet.intro}
 		examples={t.whatYouGet.examples}
-		plansLink="/planes?service=web"
 		items={t.whatYouGet.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="blue"
 	/>
@@ -76,30 +74,19 @@ const t = es.webDesign;
 		title={t.portfolio.title}
 		subtitle={t.portfolio.subtitle}
 		emptyMessage={t.portfolio.empty}
-		plansLink="/planes?service=web"
 		{projects}
 		colorScheme="blue"
 	/>
 
-	<WebsiteMaintenance 
-		title={t.maintenance.title}
-		intro={t.maintenance.intro}
-		includesLabel={t.maintenance.includesLabel}
-		items={t.maintenance.items}
-		benefit={t.maintenance.benefit}
-		context={t.maintenance.context}
-		cta={t.maintenance.cta}
-		trust={t.maintenance.trust}
-		colorScheme="blue"
-	/>
+	{/* WebsiteMaintenance oculto temporalmente */}
 
 	<ServiceCTA 
 		title={t.cta.title}
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
 		primaryButtonHref="/contact#formulario"
-		secondaryButtonLabel={t.cta.secondaryButton}
-		secondaryButtonHref="/planes?service=web"
+		secondaryButtonLabel="Ver proyectos web"
+		secondaryButtonHref="#portafolio"
 		colorScheme="blue"
 	/>
 
