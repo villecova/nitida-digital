@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { site } from '../../data/site';
 
 const pageTitle = 'NutriPill — Organiza medicamentos y suplementos';
 const pageDescription =
@@ -10,7 +11,7 @@ const imageUrl = 'https://nitidadigital.com/assets/nutripill/og.png';
 const privacyUrl = '/digital-products/nutripill/privacy-policy';
 const termsUrl = '/digital-products/nutripill/term-nutripill';
 const supportUrl = '/digital-products/nutripill/support';
-const contactUrl = 'mailto:hola@nitidadigital.com';
+const contactUrl = site.mailto;
 
 const problems = [
 	{

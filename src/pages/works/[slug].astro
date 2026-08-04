@@ -5,81 +5,167 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import Contact from '../../components/Contact.astro';
 import DynamicGallery from '../../components/shared/DynamicGallery.svelte';
+import { site } from '../../data/site';
+import { hasCategory, isWebByScope, serviceLabel } from '../../lib/projects';
 
 export async function getStaticPaths() {
   const entries = await getCollection('work');
   return entries.map((entry) => ({
     params: { slug: entry.slug },
-    props: { project: entry }, // opcional, si quieres pasarlo como prop
+    props: { project: entry },
   }));
 }
 
-const { slug } = Astro.params;
-const project = await getCollection('work').then((entries) =>
-  entries.find((entry) => entry.slug === slug)
-);
-if (!project) throw new Error(`Project not found: ${slug}`);
+const { project } = Astro.props;
+const {
+  title,
+  description,
+  year,
+  client,
+  scope,
+  image,
+  logoBg,
+  gallery = [],
+  galleryMobile = [],
+  url,
+  serviceCategories = [],
+  problem,
+  solution,
+  deliverables,
+  outcome,
+  role,
+  technologies,
+  testimonial,
+} = project.data;
 
-const { title, description, year, client, scope, image, logoBg, gallery = [], url } = project.data;
+const isWeb = hasCategory(project, 'web') || isWebByScope(scope);
+const colorScheme = isWeb ? 'blue' : 'purple';
+const backHref = isWeb ? '/web-design#portafolio' : '/branding#portafolio';
+const backLabel = isWeb ? '← Volver a Sitios web' : '← Volver a Identidad visual';
 
-const scopeLower = scope?.toLowerCase() || '';
-const isWebProject =
-  scopeLower.includes('página web') ||
-  scopeLower.includes('web') ||
-  scopeLower.includes('sitio');
-const colorScheme = isWebProject ? 'blue' : 'purple';
-const backHref = isWebProject ? '/web-design#portafolio' : '/branding#portafolio';
-const backLabel = isWebProject ? '← Volver a Web Design' : '← Volver a Branding';
-
+const pageTitle = `${title} | Nítida Digital`;
+const pageDescription = description;
+const pageUrl = `${site.siteUrl}/works/${project.slug}`;
+const imageUrl = gallery[0]
+  ? `${site.siteUrl}${gallery[0]}`
+  : `${site.siteUrl}${image}`;
 ---
 
-<Layout>
-	<Navbar  />
+<Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
+  <Navbar />
 
   <section class="mx-auto px-4 bg-white pt-24 md:pt-32 pb-16 md:pb-24">
- 
     <div class="max-w-screen-lg m-auto">
-          <!-- Back link -->
-          <a href={backHref} class="inline-block text-sm text-primary border border-secondary rounded-xl px-4 mb-8">{backLabel}</a>
-        
-          <!-- Header info -->
-          <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 mb-8">
-            <img src={image} alt="Detalle del proyecto" class={`w-4/5 m-auto md:w-1/5 md:m-0 p-8 rounded-xl shrink-0 ${logoBg ?? ''}`} />
-            <div class="min-w-0">
-              <h1 class="text-4xl font-main text-main">{title}</h1>
-              <p class="text-accent mt-2 mb-4">{description}</p>
-              {url && (
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center text-sm text-primary border border-secondary rounded-xl px-4 py-1.5"
-                >
-                  Visitar sitio →
-                </a>
-              )}
-            </div>
-          </div>
-        
-          <!-- Metadata -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 text-sm text-gray-700 divide-y sm:divide-y-0 sm:divide-x border-t border-b py-4 mb-8">
-            <div class="py-2 sm:px-4"><strong>Año</strong><br />{year}</div>
-            <div class="py-2 sm:px-4"><strong>Cliente</strong><br />{client}</div>
-            <div class="py-2 sm:px-4"><strong>Alcance</strong><br />{scope}</div>
-          </div>
-      
-          <DynamicGallery images={gallery} />
-        
-          <!-- Contenido Markdown -->
-          {project.body && (
-            <div class="prose max-w-none mt-8" set:html={project.body} />
+      <a href={backHref} class="inline-block text-sm text-primary border border-secondary rounded-xl px-4 mb-8">
+        {backLabel}
+      </a>
+
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 mb-8 mt-6">
+        <img
+          src={image}
+          alt={`Logo o marca de ${title}`}
+          class={`w-4/5 m-auto md:w-1/5 md:m-0 p-8 rounded-xl shrink-0 ${logoBg ?? ''}`}
+        />
+        <div class="min-w-0">
+          <p class="text-xs font-semibold uppercase tracking-wide text-accent mb-2">
+            {serviceLabel(serviceCategories, scope)}
+          </p>
+          <h1 class="text-4xl font-main text-main">{title}</h1>
+          <p class="text-accent mt-2 mb-4">{description}</p>
+          {url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-sm text-primary border border-secondary rounded-xl px-4 py-1.5"
+            >
+              Visitar sitio →
+            </a>
           )}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 text-sm text-gray-700 divide-y sm:divide-y-0 sm:divide-x border-t border-b py-4 mb-8">
+        <div class="py-2 sm:px-4"><strong>Año</strong><br />{year}</div>
+        <div class="py-2 sm:px-4"><strong>Cliente</strong><br />{client}</div>
+        <div class="py-2 sm:px-4"><strong>Alcance</strong><br />{scope}</div>
+      </div>
+
+      {(problem || solution || role || (deliverables && deliverables.length) || outcome || (technologies && technologies.length)) && (
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          {problem && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Problema</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">{problem}</p>
+            </div>
+          )}
+          {solution && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Solución</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">{solution}</p>
+            </div>
+          )}
+          {role && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Rol</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">{role}</p>
+            </div>
+          )}
+          {outcome && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Resultado</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">{outcome}</p>
+            </div>
+          )}
+          {deliverables && deliverables.length > 0 && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Entregables</h2>
+              <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                {deliverables.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {technologies && technologies.length > 0 && (
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-2">Tecnologías</h2>
+              <p class="text-sm text-gray-600">{technologies.join(' · ')}</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {gallery.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Galería</h2>
+          <DynamicGallery client:load images={gallery} />
+        </div>
+      )}
+
+      {galleryMobile && galleryMobile.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Vistas móviles</h2>
+          <DynamicGallery client:load images={galleryMobile} />
+        </div>
+      )}
+
+      {testimonial && (
+        <blockquote class="border-l-4 border-secondary pl-6 py-2 mb-12">
+          <p class="text-lg text-gray-800 italic mb-3">“{testimonial.quote}”</p>
+          <footer class="text-sm text-gray-600">
+            — {testimonial.author}
+            {testimonial.role ? `, ${testimonial.role}` : ''}
+          </footer>
+        </blockquote>
+      )}
+
+      {project.body && (
+        <div class="prose max-w-none mt-8" set:html={project.body} />
+      )}
     </div>
-
   </section>
-  
+
   <Contact colorScheme={colorScheme} />
-	<Footer  />
+  <Footer />
 </Layout>
-
-

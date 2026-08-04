@@ -4,9 +4,13 @@ description: "Identidad visual para tienda de reciclaje con enfoque sostenible. 
 year: 2015
 client: "Paguro"
 scope: "Diseño de logotipo | Identidad visual"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/paguro_logo.png"
 gallery:
   - "/assets/images/work/paguro2.webp"
   - "/assets/images/work/paguro1.webp"
   - "/assets/images/work/paguro3.webp"
+featured: false
+visible: false
+order: 91
 ---

@@ -4,9 +4,14 @@ description: "Diseño de marca para una miel orgánica con esencia natural. Crea
 year: 2025
 client: "The Bold Bee"
 scope: "Diseño de logotipo"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/bold_logo.png"
 gallery:
   - "/assets/images/work/bold1.webp"
   - "/assets/images/work/bold2.webp"
   - "/assets/images/work/bold3.webp"
+featured: true
+visible: true
+order: 5
+role: "Diseño de identidad visual"
 ---

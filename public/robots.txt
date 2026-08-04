@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /specialist
+
+Sitemap: https://nitidadigital.com/sitemap-index.xml

@@ -1,4 +1,5 @@
 ---
+import { site } from '../../../data/site';
 import Footer from '../../../components/Footer.astro';
 import Navbar from '../../../components/Navbar.astro';
 import Layout from '../../../layouts/Layout.astro';
@@ -135,7 +136,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
             <span class="text-2xl mr-4">📧</span>
             <div>
               <p class="font-semibold text-gray-900 mb-0">Correo:</p>
-              <p class="text-gray-600 m-0">Puedes <a href="mailto:nitidacrea@gmail.com" class="no-underline text-blue-600 hover:text-blue-800">escribir aquí</a> para contactarnos</p>
+              <p class="text-gray-600 m-0">Puedes <a href={site.mailto} class="no-underline text-blue-600 hover:text-blue-800">escribir aquí</a> para contactarnos</p>
             </div>
           </div>
           <div class="flex items-center">

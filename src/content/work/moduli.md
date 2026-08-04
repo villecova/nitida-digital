@@ -4,6 +4,7 @@ description: "Landing page para Moduli, plataforma de captura y seguimiento de l
 year: 2026
 client: "Moduli"
 scope: "Diseño de página web | Landing page"
+serviceCategories: ["web"]
 image: "/assets/images/logos/moduli.png"
 gallery:
   - "/assets/images/work/web-moduli-1.webp"
@@ -11,4 +12,8 @@ gallery:
   - "/assets/images/work/web-moduli-3.webp"
   - "/assets/images/work/web-moduli-4.webp"
 url: "https://modulistudio.com/landing"
+featured: true
+visible: true
+order: 2
+role: "Diseño web"
 ---

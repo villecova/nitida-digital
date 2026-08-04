@@ -4,7 +4,12 @@ description: "Rediseño de marca para una tienda de plantas con enfoque natural 
 year: 2025
 client: "Cálida Studio"
 scope: "Rediseño | Diseño de página web"
+serviceCategories: ["web", "branding"]
 image: "/assets/images/logos/logo_calidastd.svg"
 gallery:
   - "/assets/images/work/web-calida.webp"
+featured: false
+visible: true
+order: 6
+role: "Identidad visual y diseño web"
 ---

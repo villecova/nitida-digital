@@ -4,6 +4,7 @@ description: "Tienda online de decoración y mobiliario para Casa Marée en Puer
 year: 2026
 client: "Casa Marée"
 scope: "Diseño de página web | E-commerce"
+serviceCategories: ["web"]
 image: "/assets/images/logos/casa-maree.jpg"
 gallery:
   - "/assets/images/work/web-casa-maree-1.webp"
@@ -11,4 +12,8 @@ gallery:
   - "/assets/images/work/web-casa-maree-3.webp"
   - "/assets/images/work/web-casa-maree-4.webp"
 url: "https://casamaree.com.mx/"
+featured: true
+visible: true
+order: 1
+role: "Diseño y desarrollo web"
 ---

@@ -2,24 +2,41 @@ export const es = {
   // Home
   home: {
     hero: {
-      title: "Diseñamos experiencias digitales",
-      subtitle: "Web, branding y herramientas digitales claras, rápidas y con sentido.",
-      cta: "Ver servicios",
-      ctaSecondary: "Explorar apps"
+      title: "Diseño y desarrollo web para negocios que necesitan verse claros, profesionales y listos para crecer.",
+      subtitle: "Creo sitios web e identidades visuales que ayudan a marcas y profesionales a presentar mejor lo que hacen y convertir visitas en conversaciones reales.",
+      cta: "Cuéntame sobre tu proyecto",
+      ctaSecondary: "Ver proyectos"
     },
     services: {
-      title: "Nuestros servicios",
-      subtitle: "Creamos experiencias digitales que impulsan tu negocio."
+      title: "Servicios principales",
+      subtitle: "Dos caminos claros según lo que tu negocio necesita hoy."
     },
-    results: {
-      title: "Resultados que hablan por sí solos",
-      years: "años de experiencia",
-      projects: "proyectos entregados",
-      response: "respuesta garantizada"
+    benefits: {
+      title: "Cómo te ayudo",
+      subtitle: "Claridad, atención directa y entregables listos para usar.",
+      items: [
+        {
+          title: "Enfoque en tu negocio",
+          description: "Priorizo que tu sitio o marca comunique bien y facilite el contacto."
+        },
+        {
+          title: "Diseño e implementación",
+          description: "Puedo acompañarte desde la identidad visual hasta el sitio publicado."
+        },
+        {
+          title: "Atención directa",
+          description: "Hablas con quien diseña e implementa, sin capas innecesarias."
+        }
+      ]
     },
     digitalProducts: {
-      title: "Productos digitales",
-      subtitle: "Apps simples y rápidas, diseñadas para usarse todos los días."
+      title: "Productos propios",
+      subtitle: "También desarrollo productos digitales propios. Eso me permite integrar diseño, experiencia de uso y desarrollo cuando un proyecto lo requiere."
+    },
+    cta: {
+      title: "¿Listo para dar el siguiente paso?",
+      description: "Cuéntame sobre tu proyecto. Te respondo en menos de 24 horas hábiles con una orientación clara.",
+      button: "Ir a contacto"
     }
   },
   

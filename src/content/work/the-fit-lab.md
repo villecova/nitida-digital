@@ -4,6 +4,7 @@ description: "Landing page para The Fit Lab, software para entrenadores personal
 year: 2026
 client: "The Fit Lab"
 scope: "Diseño de página web | Landing page"
+serviceCategories: ["web"]
 image: "/assets/images/logos/the-fit-lab.png"
 logoBg: "bg-black"
 gallery:
@@ -12,4 +13,8 @@ gallery:
   - "/assets/images/work/web-the-fit-lab-3.webp"
   - "/assets/images/work/web-the-fit-lab-4.webp"
 url: "https://thefitlabapp.com/info"
+featured: true
+visible: true
+order: 4
+role: "Diseño web"
 ---

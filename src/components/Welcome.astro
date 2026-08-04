@@ -30,14 +30,14 @@ const {
 
   {type === 'image' && (
     <div class="relative z-10">
-      <img src={mediaSrc} alt="Hero Image" class="w-1/2 mx-auto mb-4" />
+      <img src={mediaSrc} alt="" class="w-1/2 mx-auto mb-4" />
     </div>
   )}
 
 
   <div class='relative mx-auto max-w-screen-lg text-center h-full flex flex-col justify-center p-4'>
     {mediaVariant === 'logo' && (
-      <img src={type === 'color' ? '/assets/images/hero_logo-w.svg' : mediaSrc} alt="Hero Image" class="w-3/4 md:w-1/3 mx-auto mb-4" data-aos="fade-up" data-aos-delay="50" />
+      <img src={type === 'color' ? '/assets/images/hero_logo-w.svg' : mediaSrc} alt="Nítida Digital" class="w-3/4 md:w-1/3 mx-auto mb-4" data-aos="fade-up" data-aos-delay="50" />
     )}
 
     {mediaVariant === 'icons' && (

@@ -8,25 +8,25 @@ import QueObtienes from '../components/shared/QueObtienes.astro';
 import ServiceCTA from '../components/shared/ServiceCTA.astro';
 import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
 import Welcome from '../components/Welcome.astro';
+import { site } from '../data/site';
 import { es } from '../i18n/es';
+import { hasCategory, sortProjects } from '../lib/projects';
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Branding & Graphic Design - Identidad Visual Profesional | Nítida Digital";
-const pageDescription = "Creamos identidades visuales que ayudan a las marcas a verse consistentes, profesionales y reconocibles. Branding estratégico y diseño gráfico.";
-const pageUrl = "https://nitidadigital.com/branding";
-const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+const pageTitle = "Identidad visual — Marca y comunicación | Nítida Digital";
+const pageDescription = "Identidades visuales coherentes para marcas y profesionales: logotipo, sistema gráfico y materiales digitales.";
+const pageUrl = `${site.siteUrl}/branding`;
+const imageUrl = `${site.siteUrl}/assets/images/og_image.png`;
 
-// Filtrar proyectos de branding (todo lo que NO es web)
 const allEntries = await getCollection('work');
-const brandingProjects = allEntries.filter(entry => {
-  const scope = entry.data.scope?.toLowerCase() || '';
-  return !scope.includes('página web') && !scope.includes('web') && !scope.includes('sitio');
-});
+const brandingProjects = allEntries
+  .filter((entry) => entry.data.visible && hasCategory(entry, 'branding'))
+  .sort(sortProjects);
 
 const projects = brandingProjects.map((entry) => ({
   slug: entry.slug,
   title: entry.data.title,
-  gallery: entry.data.gallery || []
+  gallery: entry.data.gallery || [],
 }));
 
 const t = es.branding;
@@ -38,10 +38,10 @@ const t = es.branding;
 	<Welcome 
 		type="color"
 		color="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-700"
-		title={t.hero.title}
+		title="Identidad visual clara y coherente"
 		subtitle={t.hero.subtitle}
 		primaryButton={t.hero.primaryButton}
-		primaryLink="/contact"
+		primaryLink="/contact#formulario"
 		secondaryButton={t.hero.secondaryButton}
 		secondaryLink="#portafolio"
 		mediaVariant="logo"
@@ -82,7 +82,7 @@ const t = es.branding;
 		title={t.cta.title}
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
-		primaryButtonHref="/contact"
+		primaryButtonHref="/contact#formulario"
 		secondaryButtonLabel={t.cta.secondaryButton}
 		secondaryButtonHref="/planes?service=branding"
 		colorScheme="purple"
