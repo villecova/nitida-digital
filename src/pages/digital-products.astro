@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import DeviceFrame from '../components/shared/DeviceFrame.astro';
 import Welcome from '../components/Welcome.astro';
 import { site } from '../data/site';
 import Layout from '../layouts/Layout.astro';
@@ -22,11 +23,30 @@ const apps = [
       'Personas con <strong>tratamientos o suplementos</strong>',
       'Quienes buscan <strong>constancia diaria</strong>',
     ],
-    image: '/assets/store/pill.png',
+    image: '/assets/images/apps/nutripill.jpg',
+    statusBar: 'light' as const,
     appleStore: 'https://apps.apple.com/mx/app/nutripill/id6760617485',
+    playStore: null as string | null,
     available: true,
     landingLink: '/nutripill',
     termsLink: '/digital-products/nutripill/term-nutripill',
+  },
+  {
+    id: 2,
+    title: 'The Fit',
+    subtitle: 'Controla tu entrenamiento, mejora cada semana',
+    description:
+      '<strong>Registra</strong> tus pesos, <strong>sigue tu progreso</strong> y respeta tus descansos en cada entrenamiento.',
+    idealFor: [
+      'Personas que entrenan con <strong>rutina fija</strong>',
+      'Quienes quieren <strong>progresar semana a semana</strong>',
+    ],
+    image: '/assets/images/apps/thefit.png',
+    statusBar: 'dark' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
+    available: false,
+    termsLink: '/digital-products/gym-partner/term-gym-partner',
   },
   {
     id: 1,
@@ -38,25 +58,12 @@ const apps = [
       'Personas con <strong>plantas en casa</strong>',
       'Quienes quieren <strong>crear el hábito</strong> de cuidado',
     ],
-    image: '/assets/store/water.png',
-    appleStore: null,
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
     available: false,
     termsLink: '/digital-products/cosmos/term-cosmos',
-  },
-  {
-    id: 2,
-    title: 'Gym Partner',
-    subtitle: 'Controla tu entrenamiento, mejora cada semana',
-    description:
-      '<strong>Registra</strong> tus pesos, <strong>sigue tu progreso</strong> y respeta tus descansos en cada entrenamiento.',
-    idealFor: [
-      'Personas que entrenan con <strong>rutina fija</strong>',
-      'Quienes quieren <strong>progresar semana a semana</strong>',
-    ],
-    image: '/assets/store/gym.png',
-    appleStore: null,
-    available: false,
-    termsLink: '/digital-products/gym-partner/term-gym-partner',
   },
   {
     id: 4,
@@ -68,8 +75,10 @@ const apps = [
       'Personas que quieren <strong>ahorrar</strong> al comprar',
       'Quienes <strong>comparan productos</strong> constantemente',
     ],
-    image: '/assets/store/bilanz.png',
-    appleStore: null,
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
     available: false,
     termsLink: '/digital-products/bilanz/term-bilanz',
   },
@@ -83,8 +92,10 @@ const apps = [
       'Personas que <strong>organizan tareas o compras</strong>',
       'Quienes necesitan <strong>compartir listas rápidamente</strong>',
     ],
-    image: '/assets/store/list.png',
-    appleStore: null,
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
     available: false,
     termsLink: '/digital-products/share-list/term-share-list',
   },
@@ -141,13 +152,12 @@ const apps = [
               data-aos="fade-up"
               data-aos-delay={100 + index * 60}
             >
-              {/* Imagen a altura completa de la card */}
-              <div class="relative w-full md:w-[38%] min-h-[220px] md:min-h-[280px] bg-gray-100 flex-shrink-0 self-stretch">
-                <img
+              {/* Device mockup */}
+              <div class="relative w-full md:w-[38%] min-h-[280px] md:min-h-[360px] bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0 self-stretch flex items-center justify-center py-10 px-6">
+                <DeviceFrame
                   src={app.image}
-                  alt={`Vista de ${app.title}`}
-                  class="absolute inset-0 w-full h-full object-contain object-center p-8 md:p-10"
-                  loading="lazy"
+                  alt={app.image ? `Vista de ${app.title}` : undefined}
+                  statusBar={app.statusBar}
                 />
               </div>
 
@@ -160,7 +170,7 @@ const apps = [
                     </span>
                   ) : (
                     <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
-                      En desarrollo
+                      Próximamente
                     </span>
                   )}
                   <h3 class="text-2xl md:text-3xl font-bold text-gray-900 font-main leading-tight">
@@ -190,27 +200,57 @@ const apps = [
                 </div>
 
                 <div class="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center gap-4 justify-between">
-                  {app.available && app.appleStore ? (
-                    <a
-                      href={app.appleStore}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-block transition hover:opacity-80"
-                      aria-label={`Descargar ${app.title} en App Store`}
-                    >
-                      <img
-                        src="/assets/store/ios.svg"
-                        alt="Download on the App Store"
-                        class="h-10 w-auto"
-                      />
-                    </a>
+                  {app.available ? (
+                    <div class="flex flex-wrap items-center gap-3">
+                      {app.appleStore && (
+                        <a
+                          href={app.appleStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-block transition hover:opacity-80"
+                          aria-label={`Descargar ${app.title} en App Store`}
+                        >
+                          <img
+                            src="/assets/store/ios.svg"
+                            alt="Download on the App Store"
+                            class="h-10 w-auto"
+                          />
+                        </a>
+                      )}
+                      {app.playStore ? (
+                        <a
+                          href={app.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-block transition hover:opacity-80"
+                          aria-label={`Descargar ${app.title} en Google Play`}
+                        >
+                          <img
+                            src="/assets/store/md.png"
+                            alt="Get it on Google Play"
+                            class="h-10 w-auto"
+                          />
+                        </a>
+                      ) : (
+                        <div class="relative group cursor-not-allowed opacity-50" title="Próximamente">
+                          <img
+                            src="/assets/store/md.png"
+                            alt="Get it on Google Play — próximamente"
+                            class="h-10 w-auto"
+                          />
+                          <div class="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            Próximamente
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <p class="text-xs text-gray-500">Aún no disponible en tiendas.</p>
                   )}
                   {app.termsLink && (
                     <a
                       href={app.termsLink}
-                      class="text-blue-600 hover:text-blue-800 text-xs font-medium"
+                      class="text-[11px] font-normal text-gray-400 hover:text-gray-600 underline-offset-2 hover:underline"
                     >
                       Términos y condiciones
                     </a>

@@ -9,6 +9,6 @@ image: "/assets/images/logos/nota_logo.png"
 gallery:
   - "/assets/images/work/nota.webp"
 featured: false
-visible: false
+visible: true
 order: 93
 ---

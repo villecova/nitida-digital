@@ -10,6 +10,6 @@ gallery:
   - "/assets/images/work/pedal1.webp"
   - "/assets/images/work/pedal2.webp"
 featured: false
-visible: false
+visible: true
 order: 94
 ---

@@ -11,6 +11,6 @@ gallery:
   - "/assets/images/work/xpe2.webp"
   - "/assets/images/work/xpe3.png"
 featured: false
-visible: false
+visible: true
 order: 90
 ---

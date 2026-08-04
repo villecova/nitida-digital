@@ -10,6 +10,6 @@ gallery:
   - "/assets/images/work/maja1.webp"
   - "/assets/images/work/maja2.webp"
 featured: false
-visible: false
+visible: true
 order: 97
 ---

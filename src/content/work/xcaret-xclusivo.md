@@ -11,6 +11,6 @@ gallery:
   - "/assets/images/work/xca3.webp"
   - "/assets/images/work/xca1.webp"
 featured: false
-visible: false
+visible: true
 order: 92
 ---

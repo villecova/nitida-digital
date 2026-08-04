@@ -10,6 +10,6 @@ gallery:
   - "/assets/images/work/fliss1.webp"
   - "/assets/images/work/fliss2.webp"
 featured: false
-visible: false
+visible: true
 order: 96
 ---

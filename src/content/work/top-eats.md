@@ -9,6 +9,6 @@ image: "/assets/images/logos/top_logo.png"
 gallery:
   - "/assets/images/work/top.webp"
 featured: false
-visible: false
+visible: true
 order: 95
 ---

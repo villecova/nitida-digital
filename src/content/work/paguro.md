@@ -11,6 +11,6 @@ gallery:
   - "/assets/images/work/paguro1.webp"
   - "/assets/images/work/paguro3.webp"
 featured: false
-visible: false
+visible: true
 order: 91
 ---
