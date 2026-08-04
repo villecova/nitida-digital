@@ -3,41 +3,103 @@ import Button from "./shared/Button.astro";
 import IconsGroup from "./shared/IconsGroup.astro";
 
 const {
-  type = 'image', // para el fondo: 'image', 'video', 'color'
+  type = 'image', // 'image', 'video', 'color'
   overlayColor = 'bg-black/50',
   title = "We invest in the world's potential",
   subtitle = 'Here at Flowbite we focus on markets where tecnología, innovación, and capital can unlock long-term value.',
-  primaryButton = 'Agendar una llamada',
+  primaryButton = 'Solicitar información',
   secondaryButton = 'Explorar proyectos',
   primaryLink = '#',
   secondaryLink = '#',
   color = 'bg-primary',
-  mediaVariant = 'icons', // 'logo' o 'icon'
-  mediaSrc = '/assets/images/nitida_crea.svg', // para logos
-  colorScheme = null, // 'blue', 'purple', 'yellow' o null para default
+  mediaVariant = 'icons', // 'logo', 'icons' o 'none'
+  mediaSrc = '/assets/images/nitida_crea.svg',
+  colorScheme = null as 'blue' | 'purple' | 'yellow' | null, // null = home (oscuro)
+  /** Fondo fotográfico full-bleed; el color de marca se aplica como overlay */
+  backgroundImage = null as string | null,
+  /** Alineación del contenido del hero */
+  align = 'center' as 'center' | 'left',
 } = Astro.props;
+
+const hasPhoto = Boolean(backgroundImage) || type === 'video';
+const useLightText = type === 'color' || hasPhoto;
+const isLeft = align === 'left';
+
+/** Overlay: sólido en mobile, degradado en desktop */
+const photoOverlayFlat: Record<string, string> = {
+  home: 'rgba(3,7,18,0.85)',
+  blue: 'rgba(23,37,84,0.85)',
+  purple: 'rgba(59,7,100,0.85)',
+  yellow: 'rgba(202,138,4,0.82)',
+};
+
+const photoOverlayGradient: Record<string, string> = {
+  home: 'linear-gradient(to right, rgba(3,7,18,0.92) 0%, rgba(0,0,0,0.82) 45%, rgba(17,24,39,0.68) 100%)',
+  blue: 'linear-gradient(to right, rgba(23,37,84,0.92) 0%, rgba(30,58,138,0.82) 45%, rgba(30,64,175,0.68) 100%)',
+  purple: 'linear-gradient(to right, rgba(59,7,100,0.92) 0%, rgba(88,28,135,0.82) 45%, rgba(107,33,168,0.68) 100%)',
+  yellow: 'linear-gradient(to right, rgba(202,138,4,0.88) 0%, rgba(234,179,8,0.78) 45%, rgba(250,204,21,0.62) 100%)',
+};
+
+const schemeKey = colorScheme && colorScheme in photoOverlayFlat ? colorScheme : 'home';
+const photoOverlayFlatStyle = photoOverlayFlat[schemeKey];
+const photoOverlayGradientStyle = photoOverlayGradient[schemeKey];
 ---
 
-<section class={`relative ${type === 'color' ? color : 'bg-[--background] dark:bg-gray-900'} h-dvh pt-16`}>
+<section class={`relative overflow-hidden ${!hasPhoto && type === 'color' ? color : 'bg-gray-950'} h-dvh pt-16`}>
   {type === 'video' && (
     <div class="absolute inset-0 z-0">
-      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover object-center">
         <source src={mediaSrc} type="video/mp4" />
       </video>
       <div class={`absolute inset-0 ${overlayColor}`}></div>
     </div>
   )}
 
-  {type === 'image' && (
-    <div class="relative z-10">
-      <img src={mediaSrc} alt="Hero Image" class="w-1/2 mx-auto mb-4" />
+  {backgroundImage && (
+    <div class="absolute inset-0 z-0">
+      <img
+        src={backgroundImage}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover object-right md:object-center"
+        loading="eager"
+        decoding="async"
+      />
+      <!-- Overlay parejo en mobile -->
+      <div
+        class="absolute inset-0 z-[1] md:hidden"
+        style={`background-color: ${photoOverlayFlatStyle};`}
+        aria-hidden="true"
+      ></div>
+      <!-- Degradado solo en desktop -->
+      <div
+        class="absolute inset-0 z-[1] hidden md:block"
+        style={`background-image: ${photoOverlayGradientStyle};`}
+        aria-hidden="true"
+      ></div>
+      <!-- Viñeta inferior (solo desktop) -->
+      <div
+        class="absolute inset-0 z-[2] pointer-events-none hidden md:block"
+        style="background-image: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 45%, rgba(0,0,0,0.22) 100%);"
+        aria-hidden="true"
+      ></div>
     </div>
   )}
 
+  {type === 'image' && !backgroundImage && (
+    <div class="relative z-10">
+      <img src={mediaSrc} alt="" class="w-1/2 mx-auto mb-4" />
+    </div>
+  )}
 
-  <div class='relative mx-auto max-w-screen-lg text-center h-full flex flex-col justify-center p-4'>
+  <div class={`relative z-10 mx-auto h-full flex flex-col justify-center px-6 md:px-10 lg:px-16 ${isLeft ? 'max-w-7xl text-center items-center md:text-left md:items-start' : 'max-w-screen-lg text-center items-center p-4'}`}>
     {mediaVariant === 'logo' && (
-      <img src={type === 'color' ? '/assets/images/hero_logo-w.svg' : mediaSrc} alt="Hero Image" class="w-3/4 md:w-1/3 mx-auto mb-4" data-aos="fade-up" data-aos-delay="50" />
+      <img
+        src={useLightText ? '/assets/images/hero_logo-w.svg' : mediaSrc}
+        alt="Nítida Digital"
+        class={`mb-4 ${isLeft ? 'w-48 md:w-56' : 'w-3/4 md:w-1/3 mx-auto'}`}
+        data-aos="fade-up"
+        data-aos-delay="50"
+      />
     )}
 
     {mediaVariant === 'icons' && (
@@ -46,9 +108,21 @@ const {
       </div>
     )}
 
-    <h1 class={`mb-6 font-main mx-auto text-4xl md:text-5xl lg:text-6xl max-w-5xl ${type === 'color' ? 'text-white' : 'text-gray-900 dark:text-white'}`} data-aos="fade-up" data-aos-delay="100">{title}</h1>
-    <p class={`mb-8 text-xl md:text-2xl font-normal max-w-3xl mx-auto ${type === 'color' ? 'text-purple-100' : 'text-accent dark:text-gray-400'}`} data-aos="fade-up" data-aos-delay="150">{subtitle}</p>
-    <div class="flex flex-col gap-4 sm:flex-row sm:justify-center sm:space-y-0" data-aos="fade-up" data-aos-delay="200">
+    <h1
+      class={`mb-6 font-main text-4xl md:text-5xl lg:text-6xl ${isLeft ? 'max-w-xl lg:max-w-2xl' : 'max-w-5xl mx-auto'} ${useLightText ? 'text-white' : 'text-gray-900 dark:text-white'}`}
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >{title}</h1>
+    <p
+      class={`mb-8 text-xl md:text-2xl font-normal ${isLeft ? 'max-w-md lg:max-w-lg' : 'max-w-3xl mx-auto'} ${useLightText ? 'text-white/80' : 'text-accent dark:text-gray-400'}`}
+      data-aos="fade-up"
+      data-aos-delay="150"
+    >{subtitle}</p>
+    <div
+      class={`mx-auto flex w-fit flex-col items-stretch gap-4 sm:flex-row sm:items-center ${isLeft ? 'md:mx-0' : ''}`}
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
       {colorScheme ? (
         <>
           <Button href={primaryLink} label={primaryButton} variant="secondary" colorScheme={colorScheme} />
@@ -58,9 +132,9 @@ const {
         </>
       ) : (
         <>
-          <Button href={primaryLink} label={primaryButton} variant={type === 'color' ? 'secondary' : 'primary'} />
+          <Button href={primaryLink} label={primaryButton} variant={useLightText ? 'secondary' : 'primary'} />
           {secondaryButton && (
-      <Button href={secondaryLink} label={secondaryButton} variant={type === 'color' ? 'secondary-hero' : 'secondary'} />
+            <Button href={secondaryLink} label={secondaryButton} variant={useLightText ? 'secondary-hero' : 'secondary'} />
           )}
         </>
       )}

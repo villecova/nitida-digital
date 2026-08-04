@@ -4,8 +4,12 @@ description: "Branding atrevido y desenfadado para un restaurante bar que celebr
 year: 2010
 client: "La majadera"
 scope: "Diseño de logotipo | Identidad visual"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/maja.webp"
 gallery:
   - "/assets/images/work/maja1.webp"
   - "/assets/images/work/maja2.webp"
+featured: false
+visible: true
+order: 97
 ---

@@ -6,37 +6,46 @@ import Gallery from '../components/Gallery.astro';
 import Princing from '../components/Princing.astro';
 import Footer from '../components/Footer.astro';
 import How from '../components/How.astro';
-import Contact from '../components/Contact.astro'
+import Contact from '../components/Contact.astro';
 import Benefits from '../components/Benefits.astro';
 import Individual from '../components/Individual.astro';
+import { site } from '../data/site';
 
 const currentPath = Astro.url.pathname;
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = 'Plan Especialista | Nítida Digital';
+const pageDescription =
+  'Identidad visual para especialistas: médicos, terapeutas y profesionistas independientes.';
+const pageUrl = `${site.siteUrl}/specialist`;
 ---
 
-
-
-<Layout>
-	<Navbar currentPath={currentPath} />
-	<Welcome 
-		type="color"
-		color="bg-primary"
-		title="Impulsa tu imagen profesional con diseño estratégico"
-		subtitle="Diseño y branding profesional para especialistas que buscan proyectar confianza, claridad y una identidad visual alineada a su profesión."
-		primaryLabel="Agendar una llamada"
-		primaryLink="mailto:nitidacrea@gmail.com?subject=Solicitud%20para%20agendar%20una%20llamada&body=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20llamada%20para%20conocer%20m%C3%A1s%20sobre%20sus%20servicios.%20%C2%BFCu%C3%A1ndo%20podr%C3%ADamos%20agendarla%3F%20Gracias."
-		secondaryLabel="Explorar proyectos"
-		secondaryLink="/works"
-		mediaVariant="icons"
-	/>
-	<Gallery  />
-	<How  />
-	<Benefits onlySpecialist={true} />
-	<Princing onlySpecialist={true}  />
-	<Individual onlySpecialist={true}  />
-	<Contact  />
-	<Footer  />
+<!--
+  Decisión Fase 1: /specialist se conserva como landing del Plan Especialista.
+  noindex para no competir con páginas principales. Enlazada desde Planes.
+  Ver INTEGRACIONES.md
+-->
+<Layout
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  pageUrl={pageUrl}
+  noindex={true}
+>
+  <Navbar currentPath={currentPath} />
+  <Welcome
+    type="color"
+    color="bg-primary"
+    title="Impulsa tu imagen profesional con diseño estratégico"
+    subtitle="Diseño e identidad visual para especialistas que buscan proyectar confianza y claridad."
+    primaryButton="Cuéntame sobre tu proyecto"
+    primaryLink="/contact#formulario"
+    secondaryButton=""
+    secondaryLink=""
+    mediaVariant="icons"
+  />
+  <Gallery />
+  <How />
+  <Benefits onlySpecialist={true} />
+  <Princing onlySpecialist={true} />
+  <Individual onlySpecialist={true} />
+  <Contact />
+  <Footer />
 </Layout>
-

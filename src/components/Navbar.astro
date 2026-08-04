@@ -2,40 +2,43 @@
 const { currentPath } = Astro.props;
 
 const navItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Web Design", href: "/web-design" },
-  { label: "Branding", href: "/branding" },
-  { label: "Productos Digitales", href: "/digital-products" },
-  { label: "Planes", href: "/planes" },
-  { label: "Contacto", href: "/contact" },
+  { label: 'Inicio', href: '/' },
+  { label: 'Sitios web', href: '/web-design' },
+  { label: 'Identidad visual', href: '/branding' },
+  // { label: 'Planes', href: '/planes' },
+  { label: 'Contacto', href: '/contact' },
 ];
-
-const filteredNavItems = navItems.filter(Boolean) as Array<{ label: string; href: string; active?: boolean }>;
 ---
 
 <nav class="z-50 bg-white border-gray-200 dark:bg-gray-900 fixed top-0 right-0 left-0">
   <div class="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/assets/images/hero_logo.svg" class="h-8" alt="Logo" />
+      <img src="/assets/images/hero_logo.svg" class="h-8" alt="Nítida Digital" />
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Abrir menú principal</span>
       <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
       </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col align-center  p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:items-center md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        {filteredNavItems.map(({ label, href }) => (
-          <li>
+      <ul class="font-medium flex flex-col items-center text-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:items-center md:text-left md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        {navItems.map(({ label, href }) => (
+          <li class="w-full md:w-auto">
             <a
               href={href}
               class={`block py-4 px-3 rounded-xl md:p-0
                 ${currentPath === href
-                  ? "text-black bg-gray-200 md:bg-transparent md:text-black dark:text-white md:dark:text-gray-200"
-                  : "text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black dark:text-white md:dark:hover:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  ? 'text-black bg-gray-200 md:bg-transparent md:text-black dark:text-white md:dark:text-gray-200'
+                  : 'text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black dark:text-white md:dark:hover:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
               }`}
-              aria-current={currentPath === href ? "page" : undefined}
+              aria-current={currentPath === href ? 'page' : undefined}
             >
               {label}
             </a>
@@ -48,13 +51,17 @@ const filteredNavItems = navItems.filter(Boolean) as Array<{ label: string; href
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]') as HTMLButtonElement | null;
-    const navLinks = document.querySelectorAll('#navbar-default a[href^="#"], #navbar-default a[href^="/"]');
+    const toggleButton = document.querySelector(
+      '[data-collapse-toggle="navbar-default"]'
+    ) as HTMLButtonElement | null;
+    const navLinks = document.querySelectorAll(
+      '#navbar-default a[href^="#"], #navbar-default a[href^="/"]'
+    );
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         if (window.innerWidth < 768 && toggleButton?.getAttribute('aria-expanded') === 'true') {
-          toggleButton.click(); // Simula el cierre
+          toggleButton.click();
         }
       });
     });

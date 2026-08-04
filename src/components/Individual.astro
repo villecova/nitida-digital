@@ -1,5 +1,6 @@
 ---
 import Button from './shared/Button.astro';
+import { site } from '../data/site';
 
 const services = [
   {
@@ -54,15 +55,7 @@ const { onlySpecialist = false } = Astro.props;
     </div>
 
     <div class="flex flex-col md:flex-row justify-center gap-4">
-      <Button href="mailto:nitidacrea@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&body=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.%20Quedo%20atento(a).%20Gracias." label="COTIZAR PROYECTO" variant="primary" fullWidth={false} />
-
-      {onlySpecialist && (
-        <Button
-          href="/#planes"
-          label="Ver más planes"
-          variant="secondary"
-        />
-      )}
+      <Button href={site.mailtoWithSubject('Solicitud de cotización', 'Hola, me gustaría recibir más información. Quedo atento(a). Gracias.')} label="COTIZAR PROYECTO" variant="primary" fullWidth={false} />
     </div>
 
 

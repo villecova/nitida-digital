@@ -4,6 +4,7 @@ description: "Sitio web para PolkaDots Cinema, estudio de video y fotografía de
 year: 2026
 client: "PolkaDots Cinema"
 scope: "Diseño de página web"
+serviceCategories: ["web"]
 image: "/assets/images/logos/polkadots.svg"
 gallery:
   - "/assets/images/work/web-polkadots-1.webp"
@@ -11,4 +12,8 @@ gallery:
   - "/assets/images/work/web-polkadots-3.webp"
   - "/assets/images/work/web-polkadots-4.webp"
 url: "https://polkadots-cinema.netlify.app/es/"
+featured: true
+visible: true
+order: 3
+role: "Diseño web"
 ---

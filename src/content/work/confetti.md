@@ -4,7 +4,12 @@ description: "Branding colorido y alegre para tienda de regalos y fiestas. Una i
 year: 2020
 client: "Confetti"
 scope: "Diseño de logotipo"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/confe_logo.png"
 gallery:
   - "/assets/images/work/confe.webp"
+featured: false
+visible: true
+order: 11
+role: "Diseño de logotipo"
 ---

@@ -1,10 +1,11 @@
 ---
+import { site } from '../../../data/site';
 import Footer from '../../../components/Footer.astro';
 import Navbar from '../../../components/Navbar.astro';
 import Layout from '../../../layouts/Layout.astro';
 
-const pageTitle = "Política de Privacidad - Share List | Nítida Digital";
-const pageDescription = "Política de privacidad de Share List. App colaborativa con sincronización y anuncios.";
+const pageTitle = "Política de Privacidad - Elist | Nítida Digital";
+const pageDescription = "Política de privacidad de Elist. App colaborativa con sincronización y anuncios.";
 const pageUrl = "https://nitidadigital.com/digital-products/share-list/privacy-policy";
 const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
 ---
@@ -15,14 +16,14 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
   <div class="max-w-3xl mx-auto px-4 pt-32 pb-12 leading-relaxed prose prose-slate">
 
     <div class="text-center mb-12">
-      <h1 class="text-3xl font-bold text-gray-900 mb-4">Política de Privacidad – Share List</h1>
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Política de Privacidad – Elist</h1>
       <p class="text-gray-600">
         <strong>Fecha de entrada en vigor:</strong> 2 de abril de 2026
       </p>
     </div>
 
     <p>
-      Tu privacidad es muy importante para nosotros. Esta política explica cómo recopilamos, usamos y protegemos tus datos cuando utilizas <strong>Share List</strong>, nuestra aplicación colaborativa para crear y compartir listas.
+      Tu privacidad es muy importante para nosotros. Esta política explica cómo recopilamos, usamos y protegemos tus datos cuando utilizas <strong>Elist</strong>, nuestra aplicación colaborativa para crear y compartir listas.
     </p>
 
     <h2>Datos que recopilamos</h2>
@@ -91,7 +92,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
     <h3>Almacenamiento local</h3>
 
     <p>
-      Si utilizas Share List sin cuentaregistrada, todos los datos se almacenan únicamente en tu dispositivo y no son accesibles por nosotros.
+      Si utilizas Elist sin cuentaregistrada, todos los datos se almacenan únicamente en tu dispositivo y no son accesibles por nosotros.
     </p>
 
     <h3>Almacenamiento en la nube</h3>
@@ -117,7 +118,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
     <h2>Publicidad</h2>
 
     <p>
-      Share List muestra anuncios mediante <strong>Google AdMob</strong> para mantener la aplicación gratuita.
+      Elist muestra anuncios mediante <strong>Google AdMob</strong> para mantener la aplicación gratuita.
     </p>
 
     <p>
@@ -145,7 +146,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
     </p>
 
     <p>
-      Sin embargo, ningún sistema es completamente seguro. Si descubres un problema de seguridad, por favor <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">contáctanos inmediatamente</a>.
+      Sin embargo, ningún sistema es completamente seguro. Si descubres un problema de seguridad, por favor <a class="no-underline text-blue-600 hover:text-blue-800" href={site.mailto}>contáctanos inmediatamente</a>.
     </p>
 
     <h2>Derechos del usuario</h2>
@@ -160,7 +161,7 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
     </ul>
 
     <p>
-      Para ejercer estos derechos, <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">contáctanos</a>.
+      Para ejercer estos derechos, <a class="no-underline text-blue-600 hover:text-blue-800" href={site.mailto}>contáctanos</a>.
     </p>
 
     <h2>Eliminación de datos</h2>
@@ -184,13 +185,13 @@ const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
     <h2>Contacto</h2>
 
     <p>
-      Si tienes preguntas sobre esta Política de Privacidad, puedes <a class="no-underline text-blue-600 hover:text-blue-800" href="mailto:nitidacrea@gmail.com">escribir aquí</a>.
+      Si tienes preguntas sobre esta Política de Privacidad, puedes <a class="no-underline text-blue-600 hover:text-blue-800" href={site.mailto}>escribir aquí</a>.
     </p>
 
     <hr />
 
     <p>
-      Al utilizar <strong>Share List</strong>, aceptas esta Política de Privacidad. Si necesitas ayuda, puedes <a href="/digital-products/share-list/support" class="no-underline text-blue-600 hover:text-blue-800">visitar nuestro centro de soporte</a>.
+      Al utilizar <strong>Elist</strong>, aceptas esta Política de Privacidad. Si necesitas ayuda, puedes <a href="/digital-products/share-list/support" class="no-underline text-blue-600 hover:text-blue-800">visitar nuestro centro de soporte</a>.
     </p>
 
   </div>

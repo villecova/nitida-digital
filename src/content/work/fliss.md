@@ -4,9 +4,12 @@ description: "Diseño de identidad para una marca de agua que proyecta confianza
 year: 2011
 client: "Fliss"
 scope: "Diseño de identidad | Diseño de etiqueta"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/fliss_logo.png"
 gallery:
   - "/assets/images/work/fliss1.webp"
   - "/assets/images/work/fliss2.webp"
-
+featured: false
+visible: true
+order: 96
 ---

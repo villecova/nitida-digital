@@ -1,7 +1,7 @@
 ---
 import PricingCard from './shared/PricingCard.astro';
+import { site } from '../data/site';
 
-// Recibe una prop para decidir si mostrar solo el plan de especialistas
 const { onlySpecialist = false, colorScheme = null, backLink = null, backLabel = null } = Astro.props;
 
 const colorClasses = {
@@ -27,11 +27,14 @@ const plans = [
       'Optimización de perfil de Instagram.',
     ],
     buttonText: 'COTIZAR PLAN',
-    link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Emprendedor&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Emprendedor.%20Gracias.',
+    link: site.mailtoWithSubject(
+      'Información sobre el Plan Emprendedor',
+      'Hola, me interesa más información sobre el Plan Emprendedor. Gracias.'
+    ),
   },
   {
     title: 'Plan Especialista',
-    subtitle: 'Diseño enfocado en profesionistas independeintes',
+    subtitle: 'Diseño enfocado en profesionistas independientes',
     description:
       'Pensado para médicos, terapeutas, psicólogos, nutriólogos y especialistas que necesitan una identidad visual confiable, clara y alineada a su profesión.',
     features: [
@@ -46,7 +49,10 @@ const plans = [
       'Firma de correo profesional'
     ],
     buttonText: 'COTIZAR PLAN',
-    link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Especialista&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Especialista.%20Gracias.',
+    link: site.mailtoWithSubject(
+      'Información sobre el Plan Especialista',
+      'Hola, me interesa más información sobre el Plan Especialista. Gracias.'
+    ),
   },
   {
     title: 'Plan Avanzado',
@@ -59,7 +65,10 @@ const plans = [
       'Sitio web de hasta 5 secciones (Inicio, Nosotros, Servicios, etc.).'
     ],
     buttonText: 'COTIZAR PLAN',
-    link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Avanzado&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Avanzado.%20Gracias.',
+    link: site.mailtoWithSubject(
+      'Información sobre el Plan Avanzado',
+      'Hola, me interesa más información sobre el Plan Avanzado. Gracias.'
+    ),
   },
 ];
 

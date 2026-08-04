@@ -1,11 +1,14 @@
 <script>
   import { onMount } from 'svelte';
+  import { site } from '../../data/site';
+  import { track } from '../../lib/analytics';
   import PricingCard from './PricingCard.svelte';
 
   export let selectedService = 'web';
 
   let currentService = selectedService;
   const showPrices = false;
+  const mail = (subject, body) => site.mailtoWithSubject(subject, body);
 
   const normalizeService = (value) => {
     const service = (value || '').toLowerCase();
@@ -39,7 +42,7 @@
             'Hosting y dominio (primer año)'
           ],
           buttonText: 'SOLICITAR COTIZACIÓN',
-          link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20Landing%20Esencial&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20Landing%20Esencial.%20Gracias.',
+          link: mail('Información sobre Landing Esencial', 'Hola, me interesa más información sobre el plan Landing Esencial. Gracias.'),
           isRecommended: false
         },
         {
@@ -56,7 +59,7 @@
             'Confianza y profundidad: un sitio pensado para el largo plazo'
           ],
           buttonText: 'SOLICITAR COTIZACIÓN',
-          link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20Web%20Profesional&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20Web%20Profesional.%20Gracias.',
+          link: mail('Información sobre Web Profesional', 'Hola, me interesa más información sobre el plan Web Profesional. Gracias.'),
           isRecommended: true
         }
       ]
@@ -78,7 +81,7 @@
             'Optimización de perfil de Instagram'
           ],
           buttonText: 'COTIZAR PLAN',
-          link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Emprendedor&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Emprendedor.%20Gracias.'
+          link: mail('Información sobre el Plan Emprendedor', 'Hola, me interesa más información sobre el Plan Emprendedor. Gracias.')
         },
         {
           title: 'Plan Especialista',
@@ -96,7 +99,9 @@
             'Firma de correo profesional'
           ],
           buttonText: 'COTIZAR PLAN',
-          link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Especialista&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Especialista.%20Gracias.'
+          link: mail('Información sobre el Plan Especialista', 'Hola, me interesa más información sobre el Plan Especialista. Gracias.'),
+          detailLink: '/specialist',
+          detailLabel: 'Ver detalle del plan'
         },
         {
           title: 'Plan Avanzado',
@@ -108,7 +113,7 @@
             'Sitio web de hasta 5 secciones (Inicio, Nosotros, Servicios, etc.)'
           ],
           buttonText: 'COTIZAR PLAN',
-          link: 'mailto:nitidacrea@gmail.com?subject=Informaci%C3%B3n%20sobre%20el%20Plan%20Avanzado&body=Hola%2C%20me%20interesa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Avanzado.%20Gracias.'
+          link: mail('Información sobre el Plan Avanzado', 'Hola, me interesa más información sobre el Plan Avanzado. Gracias.')
         }
       ]
     }
@@ -123,7 +128,7 @@
   };
 
   onMount(() => {
-    // Leer el parámetro de la URL si existe (solo en el cliente)
+    track('plans_view', { service: currentService });
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const serviceFromUrl = urlParams.get('service');
@@ -191,6 +196,8 @@
             colorScheme={currentServiceData.colorScheme}
             isRecommended={plan.isRecommended || false}
             price={showPrices ? (plan.price || null) : null}
+            detailLink={plan.detailLink || null}
+            detailLabel={plan.detailLabel || null}
           />
         </div>
       {/each}
@@ -213,7 +220,7 @@
                 href="/contact"
                 class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-base transition-colors"
               >
-                Agendar una llamada para conversar sobre tu proyecto →
+                Solicitar información sobre tu proyecto →
               </a>
             </div>
           </div>
@@ -221,8 +228,8 @@
       </div>
     {/if}
 
-    <!-- Sección de Mantenimiento (solo para Web Design) -->
-    {#if currentService === 'web'}
+    <!-- Sección de Mantenimiento (solo para Web Design) — oculta temporalmente -->
+    {#if false && currentService === 'web'}
       <div class="mt-24 pt-16 border-t border-gray-200">
         <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
           <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">
@@ -280,7 +287,7 @@
                   </div>
                 {/if}
                 <a
-                  href="mailto:nitidacrea@gmail.com?subject=Contratar%20Plan%20Mensual%20de%20Mantenimiento&body=Hola%2C%20me%20interesa%20contratar%20el%20Plan%20Mensual%20de%20Mantenimiento.%20Gracias."
+                  href={mail('Contratar Plan Mensual de Mantenimiento', 'Hola, me interesa contratar el Plan Mensual de Mantenimiento. Gracias.')}
                   class="cursor-pointer uppercase inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 focus:ring-4 bg-blue-600 hover:bg-black text-white focus:ring-blue-500/50"
                   role="button"
                 >
@@ -332,7 +339,7 @@
                   </div>
                 {/if}
                 <a
-                  href="mailto:nitidacrea@gmail.com?subject=Contratar%20Plan%20Anual%20de%20Mantenimiento&body=Hola%2C%20me%20interesa%20contratar%20el%20Plan%20Anual%20de%20Mantenimiento.%20Gracias."
+                  href={mail('Contratar Plan Anual de Mantenimiento', 'Hola, me interesa contratar el Plan Anual de Mantenimiento. Gracias.')}
                   class="cursor-pointer uppercase inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 focus:ring-4 bg-blue-600 hover:bg-black text-white focus:ring-blue-500/50"
                   role="button"
                 >
@@ -369,7 +376,7 @@
               </div>
             </div>
             <a
-              href="mailto:nitidacrea@gmail.com?subject=Solicitar%20Cambio%20Puntual&body=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20un%20cambio%20puntual%20en%20mi%20sitio%20web.%20Gracias."
+              href={mail('Solicitar Cambio Puntual', 'Hola, me gustaría solicitar un cambio puntual en mi sitio web. Gracias.')}
               class="text-blue-600 hover:text-blue-700 text-sm font-medium inline-flex items-center"
             >
               Solicitar cambio puntual →

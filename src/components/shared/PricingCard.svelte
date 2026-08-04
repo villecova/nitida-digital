@@ -8,6 +8,8 @@
   export let colorScheme = null;
   export let isRecommended = false;
   export let price = null;
+  export let detailLink = null;
+  export let detailLabel = null;
 
   const colorPalettes = {
     blue: {
@@ -73,7 +75,7 @@
     </ul>
   </div>
   
-  <div class="flex-none pt-6 border-t border-gray-200">
+  <div class="flex-none pt-6 border-t border-gray-200 space-y-3">
     <a
       href={link}
       class={`cursor-pointer uppercase inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium rounded-lg focus:outline-none transition-all duration-200 focus:ring-4 ${buttonClass} ${
@@ -86,5 +88,13 @@
     >
       {buttonText}
     </a>
+    {#if detailLink && detailLabel}
+      <a
+        href={detailLink}
+        class="block text-center text-sm font-medium text-gray-600 hover:text-gray-900"
+      >
+        {detailLabel} →
+      </a>
+    {/if}
   </div>
 </div>

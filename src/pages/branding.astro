@@ -8,25 +8,25 @@ import QueObtienes from '../components/shared/QueObtienes.astro';
 import ServiceCTA from '../components/shared/ServiceCTA.astro';
 import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
 import Welcome from '../components/Welcome.astro';
+import { site } from '../data/site';
 import { es } from '../i18n/es';
 import Layout from '../layouts/Layout.astro';
+import { hasCategory, sortProjects } from '../lib/projects';
 
-const pageTitle = "Branding & Graphic Design - Identidad Visual Profesional | Nítida Digital";
-const pageDescription = "Creamos identidades visuales que ayudan a las marcas a verse consistentes, profesionales y reconocibles. Branding estratégico y diseño gráfico.";
-const pageUrl = "https://nitidadigital.com/branding";
-const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+const pageTitle = "Identidad visual — Marca y comunicación | Nítida Digital";
+const pageDescription = "Identidades visuales coherentes para marcas y profesionales: logotipo, sistema gráfico y materiales digitales.";
+const pageUrl = `${site.siteUrl}/branding`;
+const imageUrl = `${site.siteUrl}/assets/images/og_image.png`;
 
-// Filtrar proyectos de branding (todo lo que NO es web)
 const allEntries = await getCollection('work');
-const brandingProjects = allEntries.filter(entry => {
-  const scope = entry.data.scope?.toLowerCase() || '';
-  return !scope.includes('página web') && !scope.includes('web') && !scope.includes('sitio');
-});
+const brandingProjects = allEntries
+  .filter((entry) => entry.data.visible && hasCategory(entry, 'branding'))
+  .sort(sortProjects);
 
 const projects = brandingProjects.map((entry) => ({
   slug: entry.slug,
   title: entry.data.title,
-  gallery: entry.data.gallery || []
+  gallery: entry.data.gallery || [],
 }));
 
 const t = es.branding;
@@ -37,20 +37,20 @@ const t = es.branding;
 	
 	<Welcome 
 		type="color"
-		color="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-700"
+		backgroundImage="/assets/images/heroes/branding.jpg"
 		title={t.hero.title}
 		subtitle={t.hero.subtitle}
 		primaryButton={t.hero.primaryButton}
-		primaryLink="/contact"
+		primaryLink="/contact#formulario"
 		secondaryButton={t.hero.secondaryButton}
 		secondaryLink="#portafolio"
-		mediaVariant="logo"
+		mediaVariant="none"
 		colorScheme="purple"
+		align="left"
 	/>
 
 	<IdealPara 
 		title={t.idealFor.title}
-		plansLink="/planes?service=branding"
 		items={t.idealFor.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -58,7 +58,6 @@ const t = es.branding;
 	<QueObtienes 
 		title={t.whatYouGet.title}
 		intro={t.whatYouGet.intro}
-		plansLink="/planes?service=branding"
 		items={t.whatYouGet.items.map(item => ({ iconPath: item.icon, title: item.title, description: item.description }))}
 		colorScheme="purple"
 	/>
@@ -73,7 +72,6 @@ const t = es.branding;
 		title={t.portfolio.title}
 		subtitle={t.portfolio.subtitle}
 		emptyMessage={t.portfolio.empty}
-		plansLink="/planes?service=branding"
 		{projects}
 		colorScheme="purple"
 	/>
@@ -82,9 +80,9 @@ const t = es.branding;
 		title={t.cta.title}
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
-		primaryButtonHref="/contact"
-		secondaryButtonLabel={t.cta.secondaryButton}
-		secondaryButtonHref="/planes?service=branding"
+		primaryButtonHref="/contact#formulario"
+		secondaryButtonLabel="Ver proyectos"
+		secondaryButtonHref="#portafolio"
 		colorScheme="purple"
 	/>
 

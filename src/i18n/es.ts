@@ -2,24 +2,37 @@ export const es = {
   // Home
   home: {
     hero: {
-      title: "Diseñamos experiencias digitales",
-      subtitle: "Web, branding y herramientas digitales claras, rápidas y con sentido.",
-      cta: "Ver servicios",
-      ctaSecondary: "Explorar apps"
+      title: "Soluciones Digitales",
+      subtitle: "Web, branding y productos diseñados para resolver necesidades reales.",
+      cta: "Solicitar información",
+      ctaSecondary: "Ver proyectos"
     },
     services: {
-      title: "Nuestros servicios",
-      subtitle: "Creamos experiencias digitales que impulsan tu negocio."
+      title: "Servicios principales",
+      subtitle: "Dos caminos claros según lo que tu negocio necesita hoy."
     },
-    results: {
-      title: "Resultados que hablan por sí solos",
-      years: "años de experiencia",
-      projects: "proyectos entregados",
-      response: "respuesta garantizada"
+    benefits: {
+      title: "Cómo te ayudo",
+      subtitle: "Claridad, atención directa y entregables listos para usar.",
+      items: [
+        {
+          title: "Enfoque en tu negocio",
+          description: "Priorizo que tu sitio o marca comunique bien y facilite el contacto."
+        },
+        {
+          title: "Diseño e implementación",
+          description: "Puedo acompañarte desde la identidad visual hasta el sitio publicado."
+        },
+        {
+          title: "Atención directa",
+          description: "Hablas con quien diseña e implementa, sin capas innecesarias."
+        }
+      ]
     },
-    digitalProducts: {
-      title: "Productos digitales",
-      subtitle: "Apps simples y rápidas, diseñadas para usarse todos los días."
+    cta: {
+      title: "¿Listo para dar el siguiente paso?",
+      description: "Comparte los detalles de tu proyecto y te oriento sobre el siguiente paso.",
+      button: "Ir a contacto"
     }
   },
   
@@ -27,9 +40,9 @@ export const es = {
   webDesign: {
     hero: {
       title: "Web Design & Development",
-      subtitle: "Sitios web profesionales que convierten visitantes en clientes y generan resultados medibles.",
-      primaryButton: "Cotizar proyecto web",
-      secondaryButton: "Ver proyectos web"
+      subtitle: "Sitios web rápidos, claros y pensados para convertir.",
+      primaryButton: "Cotizar proyecto",
+      secondaryButton: "Ver proyectos"
     },
     idealFor: {
       title: "Ideal para negocios que buscan:",
@@ -121,17 +134,17 @@ export const es = {
         "Actualizaciones de contenido",
         "Soporte técnico continuo",
         "Mejoras y ajustes periódicos",
-        "Planes mensuales disponibles"
+        "Acompañamiento continuo disponible"
       ],
       benefit: "Un sitio web bien cuidado genera confianza, profesionalismo y mejores resultados a largo plazo. Nosotros gestionamos los detalles técnicos para que tú te enfoques en tu negocio.",
-      context: "Planes flexibles · Soporte continuo",
-      cta: "Conocer planes de mantenimiento",
+      context: "Soporte continuo · Sin contratos largos",
+      cta: "Consultar mantenimiento",
       trust: "Servicio continuo · Sin contratos largos"
     },
     cta: {
       title: "Un sitio web pensado para convertir",
       description: "Te ayudamos a definir la mejor solución según los objetivos de tu sitio web.",
-      primaryButton: "Agendar una llamada",
+      primaryButton: "Solicitar información",
       secondaryButton: "Ver planes de servicios"
     }
   },
@@ -140,9 +153,9 @@ export const es = {
   branding: {
     hero: {
       title: "Branding & Graphic Design",
-      subtitle: "Identidades visuales coherentes que generan confianza y diferencian tu marca en el mercado.",
-      primaryButton: "Solicitar propuesta de branding",
-      secondaryButton: "Ver proyectos de branding"
+      subtitle: "Identidades visuales claras, memorables y consistentes.",
+      primaryButton: "Solicitar información",
+      secondaryButton: "Ver proyectos"
     },
     idealFor: {
       title: "Ideal para marcas que buscan:",
@@ -233,7 +246,7 @@ export const es = {
     cta: {
       title: "Una identidad visual clara y coherente",
       description: "Definimos el enfoque visual que mejor se adapta a las necesidades de tu marca.",
-      primaryButton: "Agendar una llamada",
+      primaryButton: "Solicitar información",
       secondaryButton: "Ver planes de servicios"
     }
   }

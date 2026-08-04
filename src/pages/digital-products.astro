@@ -1,256 +1,257 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import DeviceFrame from '../components/shared/DeviceFrame.astro';
 import Welcome from '../components/Welcome.astro';
+import { site } from '../data/site';
 import Layout from '../layouts/Layout.astro';
 
-const pageTitle = "Apps Móviles y Productos Digitales | Nítida Digital";
-const pageDescription = "Descubre nuestras aplicaciones móviles: NutriPill, Cosmos Plant Care, Gym Partner y más. Apps simples disponibles en App Store y próximamente en Google Play.";
-const pageUrl = "https://nitidadigital.com/digital-products";
-const imageUrl = "https://nitidadigital.com/assets/images/og_image.png";
+const pageTitle = 'Productos propios | Nítida Digital';
+const pageDescription =
+  'Productos digitales propios desarrollados por Nítida: evidencia de diseño y desarrollo de producto. No es el catálogo de un servicio de apps empresariales.';
+const pageUrl = `${site.siteUrl}/digital-products`;
+const imageUrl = `${site.siteUrl}/assets/images/og_image.png`;
 
-// Datos de las apps
 const apps = [
-	{
-		id: 3,
-		title: "Nutripill",
-		subtitle: "No olvides tus pastillas",
-		description: "<strong>Recordatorios claros</strong> para tomar medicamentos o suplementos y <strong>crear el hábito</strong>.",
-		idealFor: [
-			"Personas con <strong>tratamientos o suplementos</strong>",
-			"Quienes buscan <strong>constancia diaria</strong>"
-		],
-		image: "/assets/store/pill.png",
-		placeholderIcon: "💊",
-		appleStore: "https://apps.apple.com/mx/app/nutripill/id6760617485",
-		googlePlay: null,
-		available: true,
-		price: "Gratis",
-		landingLink: "/nutripill",
-		termsLink: "/digital-products/nutripill/term-nutripill",
-		privacyLink: "/digital-products/nutripill/privacy-policy",
-		supportLink: "/digital-products/nutripill/support"
-	},
-	{
-		id: 1,
-		title: "Cosmos Plant Care",
-		subtitle: "Nunca olvides regar tus plantas",
-		description: "<strong>Recordatorios</strong> simples de riego y fertilización para mantener el <strong>cuidado constante</strong>.",
-		idealFor: [
-			"Personas con <strong>plantas en casa</strong>",
-			"Quienes quieren <strong>crear el hábito</strong> de cuidado"
-		],
-		image: "/assets/store/water.png",
-		placeholderIcon: "🌿",
-		appleStore: "https://apps.apple.com",
-		googlePlay: "https://play.google.com",
-		available: false,
-		price: "Gratis",
-		termsLink: "/digital-products/cosmos/term-cosmos",
-		privacyLink: "/digital-products/cosmos/privacy-policy",
-		supportLink: "/digital-products/cosmos/support"
-	},
-	{
-		id: 2,
-		title: "Gym Partner", 
-		subtitle: "Controla tu entrenamiento, mejora cada semana",
-		description: "<strong>Registra</strong> tus pesos, <strong>sigue tu progreso</strong> y respeta tus descansos en cada entrenamiento.",
-		idealFor: [
-			"Personas que entrenan con <strong>rutina fija</strong>",
-			"Quienes quieren <strong>progresar semana a semana</strong>"
-		],
-		image: "/assets/store/gym.png",
-		placeholderIcon: "💪",
-		appleStore: "https://apps.apple.com",
-		googlePlay: "https://play.google.com",
-		available: false,
-		price: "Gratis",
-		termsLink: "/digital-products/gym-partner/term-gym-partner",
-		privacyLink: "/digital-products/gym-partner/privacy-policy",
-		supportLink: "/digital-products/gym-partner/support"
-	},
-	{
-		id: 4,
-		title: "Bilanz",
-		subtitle: "Compara y elige mejor en el súper",
-		description: "<strong>Calcula</strong> qué producto te conviene más por <strong>precio, peso o cantidad</strong> en segundos.",
-		idealFor: [
-			"Personas que quieren <strong>ahorrar</strong> al comprar",
-			"Quienes <strong>comparan productos</strong> constantemente"
-		],
-		image: "/assets/store/bilanz.png",
-		placeholderIcon: "📊",
-		appleStore: "https://apps.apple.com",
-		googlePlay: "https://play.google.com",
-		available: false,
-		price: "Gratis",
-		termsLink: "/digital-products/bilanz/term-bilanz",
-		privacyLink: "/digital-products/bilanz/privacy-policy",
-		supportLink: "/digital-products/bilanz/support"
-	},
-	{
-		id: 5,
-		title: "Share List",
-		subtitle: "Listas simples que puedes compartir",
-		description: "<strong>Crea listas</strong> de tareas o compras y <strong>compártelas fácilmente</strong> entre dispositivos.",
-		idealFor: [
-			"Personas que <strong>organizan tareas o compras</strong>",
-			"Quienes necesitan <strong>compartir listas rápidamente</strong>"
-		],
-		image: "/assets/store/list.png",
-		placeholderIcon: "📝",
-		appleStore: "https://apps.apple.com",
-		googlePlay: "https://play.google.com",
-		available: false,
-		price: "Gratis",
-		termsLink: "/digital-products/share-list/term-share-list",
-		privacyLink: "/digital-products/share-list/privacy-policy",
-		supportLink: "/digital-products/share-list/support"
-	}
+  {
+    id: 3,
+    title: 'NutriPill',
+    subtitle: 'No olvides tus pastillas',
+    description:
+      '<strong>Recordatorios claros</strong> para tomar medicamentos o suplementos y <strong>crear el hábito</strong>.',
+    idealFor: [
+      'Personas con <strong>tratamientos o suplementos</strong>',
+      'Quienes buscan <strong>constancia diaria</strong>',
+    ],
+    image: '/assets/images/apps/nutripill.jpg',
+    statusBar: 'light' as const,
+    appleStore: 'https://apps.apple.com/mx/app/nutripill/id6760617485',
+    playStore: 'https://play.google.com/store/apps/details?id=com.nutripill.app',
+    available: true,
+    landingLink: '/nutripill',
+    termsLink: '/digital-products/nutripill/term-nutripill',
+  },
+  {
+    id: 2,
+    title: 'The Fit',
+    subtitle: 'Controla tu entrenamiento, mejora cada semana',
+    description:
+      '<strong>Registra</strong> tus pesos, <strong>sigue tu progreso</strong> y respeta tus descansos en cada entrenamiento.',
+    idealFor: [
+      'Personas que entrenan con <strong>rutina fija</strong>',
+      'Quienes quieren <strong>progresar semana a semana</strong>',
+    ],
+    image: '/assets/images/apps/thefit.png',
+    statusBar: 'dark' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
+    available: false,
+    termsLink: '/digital-products/gym-partner/term-gym-partner',
+  },
+  {
+    id: 1,
+    title: 'Cosmos Plant Care',
+    subtitle: 'Nunca olvides regar tus plantas',
+    description:
+      '<strong>Recordatorios</strong> simples de riego y fertilización para mantener el <strong>cuidado constante</strong>.',
+    idealFor: [
+      'Personas con <strong>plantas en casa</strong>',
+      'Quienes quieren <strong>crear el hábito</strong> de cuidado',
+    ],
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
+    available: false,
+    termsLink: '/digital-products/cosmos/term-cosmos',
+  },
+  {
+    id: 4,
+    title: 'Bilanz',
+    subtitle: 'Compara y elige mejor en el súper',
+    description:
+      '<strong>Calcula</strong> qué producto te conviene más por <strong>precio, peso o cantidad</strong> en segundos.',
+    idealFor: [
+      'Personas que quieren <strong>ahorrar</strong> al comprar',
+      'Quienes <strong>comparan productos</strong> constantemente',
+    ],
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
+    available: false,
+    termsLink: '/digital-products/bilanz/term-bilanz',
+  },
+  {
+    id: 5,
+    title: 'Elist',
+    subtitle: 'Listas simples que puedes compartir',
+    description:
+      '<strong>Crea listas</strong> de tareas o compras y <strong>compártelas fácilmente</strong> entre dispositivos.',
+    idealFor: [
+      'Personas que <strong>organizan tareas o compras</strong>',
+      'Quienes necesitan <strong>compartir listas rápidamente</strong>',
+    ],
+    image: null,
+    statusBar: 'light' as const,
+    appleStore: null as string | null,
+    playStore: null as string | null,
+    available: false,
+    termsLink: '/digital-products/share-list/term-share-list',
+  },
 ];
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={pageDescription} pageUrl={pageUrl} imageUrl={imageUrl}>
-	<Navbar currentPath="/digital-products" />
-	
-	<Welcome 
-		type="color"
-		color="bg-gradient-to-br from-yellow-600 via-yellow-500 to-yellow-400"
-		title="Apps diseñadas para la vida real"
-		subtitle="Simples, rápidas. Sin funciones innecesarias — solo lo que necesitas."
-		primaryButton="Explorar Apps"
-		primaryLink="#apps"
-		secondaryButton=""
-		secondaryLink=""
-		mediaVariant="logo"
-		colorScheme="yellow"
-	/>
+  <Navbar currentPath="/digital-products" />
 
-		<!-- Apps Section -->
-		<section id="apps" class="py-32 bg-gray-50">
-			<div class="max-w-6xl mx-auto px-4">
-				<!-- Section Header -->
-				<div class=" mb-20" data-aos="fade-up" data-aos-delay="50">
-					<h2 class="text-4xl font-bold text-gray-900 mb-4 font-main">Herramientas digitales para tu día a día</h2>
-					<p class="text-xl text-gray-600 font-primary pb-4">
-						Hoy existen miles de apps que hacen de todo… pero pocas que realmente se usan.
-					</p>
-					<p class="text-xl text-gray-600 font-primary pb-4">
-						En Nítida creamos herramientas simples, rápidas y con sentido, diseñadas para ayudarte en tu día a día sin complicarlo.	
-					</p>
-					<p class="text-xl text-gray-600 font-primary">
-						Eliminamos lo innecesario para que puedas enfocarte en lo que realmente importa.
-					</p>
-				</div>
-				
-				<!-- Apps Grid -->
-				<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-				{apps.map((app, index) => (
-					<div class="h-full bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-aos="fade-up" data-aos-delay={100 + (index * 100)}>
-						<!-- App Header -->
-						<div class="flex items-start gap-4 mb-6">
-							<div class="w-20 flex-shrink-0">
-								{app.image ? (
-									<img src={app.image} alt={app.title} class="w-full h-auto" />
-								) : (
-									<div class="w-full aspect-[425/856] rounded-xl bg-gray-200 flex items-center justify-center" aria-hidden="true">
-										<span class="text-gray-400 text-2xl">{app.placeholderIcon}</span>
-									</div>
-								)}
-							</div>
-							<div class="flex-1 min-w-0">
-								<h3 class="text-2xl font-bold text-gray-900 mb-1 font-main leading-tight">
-									{app.landingLink ? (
-										<a href={app.landingLink} class="hover:text-blue-primary transition-colors">{app.title}</a>
-									) : (
-										app.title
-									)}
-								</h3>
-								<p class="text-sm text-gray-500 mb-3">{app.subtitle}</p>
-								{app.available ? (
-									<span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">
-										Disponible
-									</span>
-								) : (
-									<span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
-										Próximamente
-									</span>
-								)}
-							</div>
-						</div>
-						
-						<!-- App Description -->
-						<div class="text-left mb-6 flex-1">
-							<p class="text-gray-600 text-sm" set:html={app.description}></p>
-							<div class="mt-5">
-								<p class="text-sm font-semibold text-gray-900 mb-2">Ideal para:</p>
-								<ul class="space-y-1">
-									{app.idealFor.map((item) => (
-										<li class="text-sm text-gray-600">• <span set:html={item}></span></li>
-									))}
-								</ul>
-							</div>
-						</div>
-						
-						<!-- Download Buttons -->
-						<div class="flex gap-2 items-start mt-auto pt-4">
-							{app.appleStore && app.appleStore !== "https://apps.apple.com" ? (
-								<a
-									href={app.appleStore}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="flex-1 transition hover:opacity-80"
-									aria-label={`Descargar ${app.title} en App Store`}
-								>
-									<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
-								</a>
-							) : (
-								<div class="flex-1 relative group opacity-50 cursor-not-allowed">
-									<img src="/assets/store/ios.svg" alt="Download on the App Store" class="w-full h-8 object-contain" />
-									<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-										Próximamente
-										<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
-									</div>
-								</div>
-							)}
-							{app.googlePlay && app.googlePlay !== "https://play.google.com" ? (
-								<a
-									href={app.googlePlay}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="flex-1 transition hover:opacity-80"
-									aria-label={`Descargar ${app.title} en Google Play`}
-								>
-									<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
-								</a>
-							) : (
-								<div class="flex-1 relative group opacity-50 cursor-not-allowed">
-									<img src="/assets/store/md.png" alt="Get it on Google Play" class="w-full h-8 object-contain" />
-									<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-										Próximamente
-										<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
-									</div>
-								</div>
-							)}
-						</div>
-						
-						<!-- Terms Link -->
-						<div class="mt-8 text-center">
-							{app.termsLink ? (
-								<a href={app.termsLink} class="text-blue-600 hover:text-blue-800 text-[10px] font-medium">
-									Términos y Condiciones
-								</a>
-							) : (
-								<span class="text-gray-300 cursor-not-allowed text-[10px]">
-									Términos y Condiciones
-								</span>
-							)}
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
+  <Welcome
+    type="color"
+    backgroundImage="/assets/images/heroes/digital-products.jpg"
+    title="Digital Products"
+    subtitle="Apps simples para resolver las pequeñas tareas del día a día."
+    primaryButton="Ver productos"
+    primaryLink="#apps"
+    secondaryButton=""
+    mediaVariant="none"
+    colorScheme="yellow"
+    align="left"
+  />
 
-	<Footer hideTerms={true} hideSocial={true} />
+  <section id="apps" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-16" data-aos="fade-up" data-aos-delay="50">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-main">
+          Herramientas para el día a día
+        </h2>
+        <p class="text-lg text-gray-600 font-primary max-w-2xl">
+          Productos propios: experimentación y soluciones lanzadas. No representan desarrollo de
+          software empresarial complejo ni un catálogo de apps a la carta.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-8 max-w-5xl mx-auto">
+        {apps.map((app, index) => {
+          const imageFirst = index % 2 === 0;
+          return (
+            <article
+              class={`bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col ${
+                imageFirst ? 'md:flex-row' : 'md:flex-row-reverse'
+              }`}
+              data-aos="fade-up"
+              data-aos-delay={100 + index * 60}
+            >
+              {/* Device mockup */}
+              <div class="relative w-full md:w-[38%] min-h-[280px] md:min-h-[360px] bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0 self-stretch flex items-center justify-center py-10 px-6">
+                <DeviceFrame
+                  src={app.image}
+                  alt={app.image ? `Vista de ${app.title}` : undefined}
+                  statusBar={app.statusBar}
+                />
+              </div>
+
+              {/* Contenido */}
+              <div class="flex flex-col flex-1 p-8 md:p-10">
+                <div class="mb-4">
+                  {app.available ? (
+                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                      Disponible
+                    </span>
+                  ) : (
+                    <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                      Próximamente
+                    </span>
+                  )}
+                  <h3 class="text-2xl md:text-3xl font-bold text-gray-900 font-main leading-tight">
+                    {app.landingLink ? (
+                      <a href={app.landingLink} class="hover:text-blue-primary transition-colors">
+                        {app.title}
+                      </a>
+                    ) : (
+                      app.title
+                    )}
+                  </h3>
+                  <p class="text-base text-gray-500 mt-2">{app.subtitle}</p>
+                </div>
+
+                <div class="flex-1">
+                  <p class="text-gray-600 text-base leading-relaxed" set:html={app.description} />
+                  <div class="mt-6">
+                    <p class="text-sm font-semibold text-gray-900 mb-2">Ideal para:</p>
+                    <ul class="space-y-1.5">
+                      {app.idealFor.map((item) => (
+                        <li class="text-sm text-gray-600">
+                          • <span set:html={item} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center gap-4 justify-between">
+                  {app.available ? (
+                    <div class="flex flex-wrap items-center gap-3">
+                      {app.appleStore && (
+                        <a
+                          href={app.appleStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-block transition hover:opacity-80"
+                          aria-label={`Descargar ${app.title} en App Store`}
+                        >
+                          <img
+                            src="/assets/store/ios.svg"
+                            alt="Download on the App Store"
+                            class="h-10 w-auto"
+                          />
+                        </a>
+                      )}
+                      {app.playStore ? (
+                        <a
+                          href={app.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-block transition hover:opacity-80"
+                          aria-label={`Descargar ${app.title} en Google Play`}
+                        >
+                          <img
+                            src="/assets/store/md.png"
+                            alt="Get it on Google Play"
+                            class="h-10 w-auto"
+                          />
+                        </a>
+                      ) : (
+                        <div class="relative group cursor-not-allowed opacity-50" title="Próximamente">
+                          <img
+                            src="/assets/store/md.png"
+                            alt="Get it on Google Play — próximamente"
+                            class="h-10 w-auto"
+                          />
+                          <div class="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            Próximamente
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <p class="text-xs text-gray-500">Aún no disponible en tiendas.</p>
+                  )}
+                  {app.termsLink && (
+                    <a
+                      href={app.termsLink}
+                      class="text-[11px] font-normal text-gray-400 hover:text-gray-600 underline-offset-2 hover:underline"
+                    >
+                      Términos y condiciones
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer hideTerms={true} />
 </Layout>

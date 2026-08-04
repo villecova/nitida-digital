@@ -4,8 +4,12 @@ description: "Identidad visual para cafetería urbana y casual. Una marca con ca
 year: 2013
 client: "Pedal bean"
 scope: "Diseño de logotipo"
+serviceCategories: ["branding"]
 image: "/assets/images/logos/pedal_logo.png"
 gallery:
   - "/assets/images/work/pedal1.webp"
   - "/assets/images/work/pedal2.webp"
+featured: false
+visible: true
+order: 94
 ---

@@ -1,72 +1,97 @@
 ---
 import AOSInit from '../components/shared/AOSInit.svelte';
+import { site } from '../data/site';
 import '../styles/global.css';
 
 const {
-	pageTitle = "Diseño Web y Branding Profesional | Nítida Creatividad Digital",
-	pageDescription = "Especialistas en diseño web, branding y desarrollo visual. Creamos marcas memorables y sitios funcionales para negocios que quieren destacar.",
-	pageUrl = "https://nitidadigital.com",
-	imageUrl = "https://nitidadigital.com/assets/images/og_image.png"
+  pageTitle = 'Diseño web e identidad visual | Nítida Digital',
+  pageDescription = 'Sitios web e identidades visuales para negocios y profesionales. Atención directa desde México.',
+  pageUrl = site.siteUrl,
+  imageUrl = `${site.siteUrl}/assets/images/og_image.png`,
+  noindex = false,
 } = Astro.props;
+
+const gaId = site.gaMeasurementId;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={pageDescription} />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="robots" content="index, follow" />
-		<meta name="author" content="Nítida Creatividad Digital" />
-		<meta name="keywords" content="diseño web, branding, desarrollo web, identidad visual, diseño gráfico, sitios web, marca, logotipo, identidad de marca, diseño UX UI" />
-		
-		<!-- Open Graph -->
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={pageDescription} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={pageUrl} />
-		<meta property="og:image" content={imageUrl} />
-		
-		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={pageTitle} />
-		<meta name="twitter:description" content={pageDescription} />
-		<meta name="twitter:image" content={imageUrl} />
-		
-		<link rel="canonical" href={pageUrl} />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta name="author" content={site.personName} />
+    <meta
+      name="keywords"
+      content="diseño web, identidad visual, sitios web, branding, México, freelance, landing page"
+    />
 
-		<!-- Favicon básico -->
-		<link rel="icon" href="../favicon/favicon.ico" type="image/x-icon">
-		<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" sizes="any">
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content={site.name} />
 
-		<!-- Apple Touch Icon -->
-		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
 
-		<!-- Iconos PNG recomendados -->
-		<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="192x192" href="../favicon/web-app-manifest-192x192.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="../favicon/web-app-manifest-512x512.png">
+    <link rel="canonical" href={pageUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
 
-		<!-- Web Manifest -->
-		<link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/web-app-manifest-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon/web-app-manifest-512x512.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
 
-		<!-- Theme color para navegadores móviles -->
-		<meta name="theme-color" content="#ffffff">
-	</head>
-	<body>
-		<slot />
-		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-		<AOSInit client:only="svelte" />
-	</body>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: site.name,
+      url: site.siteUrl,
+      email: site.email,
+      description: pageDescription,
+      founder: {
+        '@type': 'Person',
+        name: site.personName,
+      },
+      areaServed: ['MX', 'Latam'],
+      sameAs: [site.instagram],
+    })} />
+
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <AOSInit client:only="svelte" />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

@@ -1,0 +1,74 @@
+---
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  steps?: Step[];
+}
+
+const {
+  title = 'Cómo trabajamos',
+  subtitle = 'Un proceso claro, sin tecnicismos innecesarios. Los tiempos se definen según el alcance de cada proyecto.',
+  steps = [
+    {
+      number: 1,
+      title: 'Conversación inicial',
+      description: 'Entiendo tu negocio, objetivos y lo que necesitas comunicar.',
+    },
+    {
+      number: 2,
+      title: 'Definición del alcance',
+      description: 'Acordamos entregables, presupuesto y tiempos realistas.',
+    },
+    {
+      number: 3,
+      title: 'Diseño',
+      description: 'Propuestas visuales alineadas a tu marca y a tus usuarios.',
+    },
+    {
+      number: 4,
+      title: 'Desarrollo o producción',
+      description: 'Implemento el sitio o preparo los archivos de identidad.',
+    },
+    {
+      number: 5,
+      title: 'Revisión',
+      description: 'Ajustamos juntos hasta que el resultado quede listo.',
+    },
+    {
+      number: 6,
+      title: 'Entrega y publicación',
+      description: 'Recibes todo organizado; publicamos cuando corresponda.',
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-white" id="proceso">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl md:text-5xl font-main text-gray-900 my-2">{title}</h2>
+      <p class="text-lg text-accent max-w-2xl mx-auto">{subtitle}</p>
+    </div>
+    <ol class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {steps.map((step, index) => (
+        <li
+          class="bg-slate-50 rounded-2xl p-6 border border-gray-200"
+          data-aos="fade-up"
+          data-aos-delay={150 + index * 40}
+        >
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-900 text-white text-sm font-bold mb-4">
+            {step.number}
+          </span>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
