@@ -115,7 +115,7 @@
   >
     <h3 class="text-xl font-bold text-gray-900 mb-2">Mensaje enviado</h3>
     <p class="text-gray-600 text-sm mb-6">
-      Gracias por tu mensaje. Lo revisaré y te responderé en un máximo de 24 horas hábiles.
+      Gracias por tu mensaje. Lo revisaré y te responderé pronto.
     </p>
     <button
       type="button"
@@ -279,13 +279,13 @@
     <button
       type="submit"
       disabled={status === 'loading'}
-      class="w-full md:w-auto uppercase inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg bg-gray-900 text-white hover:bg-black focus:outline-none focus:ring-4 focus:ring-gray-900/30 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+      class="mx-auto md:mx-0 flex w-fit uppercase items-center justify-center px-8 py-3 text-base font-medium rounded-lg bg-gray-900 text-white hover:bg-black focus:outline-none focus:ring-4 focus:ring-gray-900/30 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
     >
       {status === 'loading' ? 'Enviando…' : 'Enviar consulta'}
     </button>
 
     <p class="text-xs text-gray-500">
-      Respuesta en un máximo de 24 horas hábiles. Los datos se utilizan únicamente para atender esta consulta.
+      Los datos se utilizan únicamente para atender esta consulta.
     </p>
   </form>
 {/if}

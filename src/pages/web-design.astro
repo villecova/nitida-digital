@@ -11,8 +11,8 @@ import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
 import Welcome from '../components/Welcome.astro';
 import { site } from '../data/site';
 import { es } from '../i18n/es';
-import { hasCategory, sortProjects } from '../lib/projects';
 import Layout from '../layouts/Layout.astro';
+import { hasCategory, sortProjects } from '../lib/projects';
 
 const pageTitle = "Sitios web — Diseño y desarrollo | Nítida Digital";
 const pageDescription = "Sitios web claros, responsivos y pensados para convertir visitas en contactos. Diseño y desarrollo para negocios y profesionales.";
@@ -86,7 +86,7 @@ const t = es.webDesign;
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
 		primaryButtonHref="/contact#formulario"
-		secondaryButtonLabel="Ver proyectos web"
+		secondaryButtonLabel="Ver proyectos"
 		secondaryButtonHref="#portafolio"
 		colorScheme="blue"
 	/>

@@ -14,7 +14,7 @@ interface Props {
 const { 
   title, 
   description,
-  primaryButtonLabel = "Agendar una llamada",
+  primaryButtonLabel = "Solicitar información",
   primaryButtonHref = "/contact",
   secondaryButtonLabel = "Ver proyectos",
   secondaryButtonHref = "/works",
@@ -62,7 +62,7 @@ const backgroundImage = backgrounds[colorScheme];
         {description}
       </p>
     )}
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <div class="mx-auto flex w-fit flex-col items-stretch gap-4 sm:flex-row sm:items-center">
       <Button href={primaryButtonHref} label={primaryButtonLabel} variant="secondary" {colorScheme} />
       <Button href={secondaryButtonHref} label={secondaryButtonLabel} variant="tertiary" {colorScheme} />
     </div>

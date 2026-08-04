@@ -10,8 +10,8 @@ import ServicePortfolio from '../components/shared/ServicePortfolio.astro';
 import Welcome from '../components/Welcome.astro';
 import { site } from '../data/site';
 import { es } from '../i18n/es';
-import { hasCategory, sortProjects } from '../lib/projects';
 import Layout from '../layouts/Layout.astro';
+import { hasCategory, sortProjects } from '../lib/projects';
 
 const pageTitle = "Identidad visual — Marca y comunicación | Nítida Digital";
 const pageDescription = "Identidades visuales coherentes para marcas y profesionales: logotipo, sistema gráfico y materiales digitales.";
@@ -81,7 +81,7 @@ const t = es.branding;
 		description={t.cta.description}
 		primaryButtonLabel={t.cta.primaryButton}
 		primaryButtonHref="/contact#formulario"
-		secondaryButtonLabel="Ver proyectos de branding"
+		secondaryButtonLabel="Ver proyectos"
 		secondaryButtonHref="#portafolio"
 		colorScheme="purple"
 	/>

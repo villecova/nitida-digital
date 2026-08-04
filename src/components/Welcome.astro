@@ -7,7 +7,7 @@ const {
   overlayColor = 'bg-black/50',
   title = "We invest in the world's potential",
   subtitle = 'Here at Flowbite we focus on markets where tecnología, innovación, and capital can unlock long-term value.',
-  primaryButton = 'Agendar una llamada',
+  primaryButton = 'Solicitar información',
   secondaryButton = 'Explorar proyectos',
   primaryLink = '#',
   secondaryLink = '#',
@@ -54,7 +54,7 @@ const photoOverlayStyle =
       <img
         src={backgroundImage}
         alt=""
-        class="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center"
+        class="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
         decoding="async"
       />
@@ -79,7 +79,7 @@ const photoOverlayStyle =
     </div>
   )}
 
-  <div class={`relative z-10 mx-auto h-full flex flex-col justify-center px-6 md:px-10 lg:px-16 ${isLeft ? 'max-w-7xl text-left items-start' : 'max-w-screen-lg text-center items-center p-4'}`}>
+  <div class={`relative z-10 mx-auto h-full flex flex-col justify-center px-6 md:px-10 lg:px-16 ${isLeft ? 'max-w-7xl text-center items-center md:text-left md:items-start' : 'max-w-screen-lg text-center items-center p-4'}`}>
     {mediaVariant === 'logo' && (
       <img
         src={useLightText ? '/assets/images/hero_logo-w.svg' : mediaSrc}
@@ -107,7 +107,7 @@ const photoOverlayStyle =
       data-aos-delay="150"
     >{subtitle}</p>
     <div
-      class={`flex flex-col gap-4 sm:flex-row sm:space-y-0 ${isLeft ? 'sm:justify-start' : 'sm:justify-center'}`}
+      class={`mx-auto flex w-fit flex-col items-stretch gap-4 sm:flex-row sm:items-center ${isLeft ? 'md:mx-0' : ''}`}
       data-aos="fade-up"
       data-aos-delay="200"
     >

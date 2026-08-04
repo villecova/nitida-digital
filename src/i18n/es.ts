@@ -31,7 +31,7 @@ export const es = {
     },
     cta: {
       title: "¿Listo para dar el siguiente paso?",
-      description: "Comparte los detalles de tu proyecto. Recibirás una respuesta en un máximo de 24 horas hábiles.",
+      description: "Comparte los detalles de tu proyecto y te oriento sobre el siguiente paso.",
       button: "Ir a contacto"
     }
   },
@@ -41,8 +41,8 @@ export const es = {
     hero: {
       title: "Web Design & Development",
       subtitle: "Sitios web rápidos, claros y pensados para convertir.",
-      primaryButton: "Cotizar proyecto web",
-      secondaryButton: "Ver proyectos web"
+      primaryButton: "Cotizar proyecto",
+      secondaryButton: "Ver proyectos"
     },
     idealFor: {
       title: "Ideal para negocios que buscan:",
@@ -144,7 +144,7 @@ export const es = {
     cta: {
       title: "Un sitio web pensado para convertir",
       description: "Te ayudamos a definir la mejor solución según los objetivos de tu sitio web.",
-      primaryButton: "Agendar una llamada",
+      primaryButton: "Solicitar información",
       secondaryButton: "Ver planes de servicios"
     }
   },
@@ -154,8 +154,8 @@ export const es = {
     hero: {
       title: "Branding & Graphic Design",
       subtitle: "Identidades visuales claras, memorables y consistentes.",
-      primaryButton: "Solicitar propuesta de branding",
-      secondaryButton: "Ver proyectos de branding"
+      primaryButton: "Solicitar información",
+      secondaryButton: "Ver proyectos"
     },
     idealFor: {
       title: "Ideal para marcas que buscan:",
@@ -246,7 +246,7 @@ export const es = {
     cta: {
       title: "Una identidad visual clara y coherente",
       description: "Definimos el enfoque visual que mejor se adapta a las necesidades de tu marca.",
-      primaryButton: "Agendar una llamada",
+      primaryButton: "Solicitar información",
       secondaryButton: "Ver planes de servicios"
     }
   }
