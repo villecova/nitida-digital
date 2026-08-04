@@ -25,24 +25,30 @@ const hasPhoto = Boolean(backgroundImage) || type === 'video';
 const useLightText = type === 'color' || hasPhoto;
 const isLeft = align === 'left';
 
-/** Gradientes inline: siempre se aplican, sin depender del purge de Tailwind */
-const photoOverlayStyles: Record<string, string> = {
+/** Overlay: sólido en mobile, degradado en desktop */
+const photoOverlayFlat: Record<string, string> = {
+  home: 'rgba(3,7,18,0.85)',
+  blue: 'rgba(23,37,84,0.85)',
+  purple: 'rgba(59,7,100,0.85)',
+  yellow: 'rgba(202,138,4,0.82)',
+};
+
+const photoOverlayGradient: Record<string, string> = {
   home: 'linear-gradient(to right, rgba(3,7,18,0.92) 0%, rgba(0,0,0,0.82) 45%, rgba(17,24,39,0.68) 100%)',
   blue: 'linear-gradient(to right, rgba(23,37,84,0.92) 0%, rgba(30,58,138,0.82) 45%, rgba(30,64,175,0.68) 100%)',
   purple: 'linear-gradient(to right, rgba(59,7,100,0.92) 0%, rgba(88,28,135,0.82) 45%, rgba(107,33,168,0.68) 100%)',
   yellow: 'linear-gradient(to right, rgba(202,138,4,0.88) 0%, rgba(234,179,8,0.78) 45%, rgba(250,204,21,0.62) 100%)',
 };
 
-const photoOverlayStyle =
-  colorScheme && colorScheme in photoOverlayStyles
-    ? photoOverlayStyles[colorScheme]
-    : photoOverlayStyles.home;
+const schemeKey = colorScheme && colorScheme in photoOverlayFlat ? colorScheme : 'home';
+const photoOverlayFlatStyle = photoOverlayFlat[schemeKey];
+const photoOverlayGradientStyle = photoOverlayGradient[schemeKey];
 ---
 
 <section class={`relative overflow-hidden ${!hasPhoto && type === 'color' ? color : 'bg-gray-950'} h-dvh pt-16`}>
   {type === 'video' && (
     <div class="absolute inset-0 z-0">
-      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover object-center">
         <source src={mediaSrc} type="video/mp4" />
       </video>
       <div class={`absolute inset-0 ${overlayColor}`}></div>
@@ -54,19 +60,25 @@ const photoOverlayStyle =
       <img
         src={backgroundImage}
         alt=""
-        class="absolute inset-0 h-full w-full object-cover object-center"
+        class="absolute inset-0 h-full w-full object-cover object-right md:object-center"
         loading="eager"
         decoding="async"
       />
-      <!-- Overlay de marca (inline para garantizar el tinte) -->
+      <!-- Overlay parejo en mobile -->
       <div
-        class="absolute inset-0 z-[1]"
-        style={`background-image: ${photoOverlayStyle};`}
+        class="absolute inset-0 z-[1] md:hidden"
+        style={`background-color: ${photoOverlayFlatStyle};`}
         aria-hidden="true"
       ></div>
-      <!-- Viñeta inferior -->
+      <!-- Degradado solo en desktop -->
       <div
-        class="absolute inset-0 z-[2] pointer-events-none"
+        class="absolute inset-0 z-[1] hidden md:block"
+        style={`background-image: ${photoOverlayGradientStyle};`}
+        aria-hidden="true"
+      ></div>
+      <!-- Viñeta inferior (solo desktop) -->
+      <div
+        class="absolute inset-0 z-[2] pointer-events-none hidden md:block"
         style="background-image: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 45%, rgba(0,0,0,0.22) 100%);"
         aria-hidden="true"
       ></div>
